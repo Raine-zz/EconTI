@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&family=Outfit:wght@400;600;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Quicksand", sans-serif;
+  --font-sans: "Outfit", sans-serif;
+  
+  --color-brand-bg: #F0F4F8;
+  --color-brand-ink: #2D3748;
+  --color-brand-accent: #6C63FF;
+  --color-brand-muted: #718096;
+  --color-brand-card: #FFFFFF;
+  --color-brand-secondary: #E2E8F0;
+}
+
+body {
+  @apply bg-brand-bg text-brand-ink font-sans selection:bg-brand-accent selection:text-white antialiased transition-colors duration-500;
+}
+
+h1, .display-text {
+  @apply font-sans font-black tracking-[-0.02em] leading-[1.1] text-[clamp(2.5rem,7vw,5rem)];
+}
+
+.question-meta {
+  @apply font-sans font-semibold tracking-widest uppercase text-brand-accent text-xs;
+}
+
+.mbti-card {
+  @apply bg-white rounded-[2rem] shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] border border-white/20;
+}
+
+.progress-container {
+  @apply w-full h-3 bg-brand-secondary rounded-full overflow-hidden;
+}
+
+.progress-fill {
+  @apply h-full bg-brand-accent transition-all duration-700 ease-out rounded-full;
+}
