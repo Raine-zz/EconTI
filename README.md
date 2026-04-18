@@ -17,6 +17,7 @@ This project turns those different instincts into a playful matching experience.
 
 Please note that this project is made **just for fun**.  
 So enjoy the result, but do not take it too seriously :)
+And the production time was not very long, and the accuracy might be questionable.Possibly update in the future.
 
 If you have any thoughts, suggestions, or better ideas, feel free to reach out.
 Email: **Zhouxinyu_iesr23@outlook.com**
