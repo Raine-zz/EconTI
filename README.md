@@ -1,20 +1,22 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+#### TJDXT: Built with Google AI Studio
 
-# Run and deploy your AI Studio app
+### **EconTI** is a fun little quiz project that asks a simple question:
 
-This contains everything you need to run your app locally.
+**Which economist might think a little like you?**
 
-View your app in AI Studio: https://ai.studio/apps/668e2048-215f-48f9-8b5c-8a9f1f779480
+By answering a series of everyday and social questions, you will be matched with one of 12 influential economists.  
+The goal is not to be perfectly scientific, but to make economic ways of thinking feel more lively, personal, and fun to explore.
 
-## Run Locally
+Some people notice incentives first.  
+Some care most about fairness.  
+Some look for institutions, rules, behavior, or hidden information problems.  
+This project turns those different instincts into a playful matching experience.
 
-**Prerequisites:**  Node.js
+### Try it here:  
+### **https://raine-zz.github.io/EconTI/**
 
+Please note that this project is made **just for fun**.  
+So enjoy the result, but do not take it too seriously :)
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+If you have any thoughts, suggestions, or better ideas, feel free to reach out.
+Email: **Zhouxinyu_iesr23@outlook.com**
