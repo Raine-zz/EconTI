@@ -28,7 +28,7 @@ export default function App() {
       cta: { en: "Take the Test", zh: "开始测试" }
     },
     quiz: {
-      prev: { en: "Back", zh: "返回" },
+      prev: { en: "Back", zh: "上一页" },
       progress: { en: "Progress", zh: "进度" }
     },
     result: {
