@@ -2,502 +2,1129 @@ import { Question, Economist } from './types';
 
 export const QUESTIONS: Question[] = [
   {
-    id: 1,
-    title: {
-      en: "Your favorite local café just raised prices by 30%. Your response is:",
-      zh: "你最喜欢的本地咖啡馆涨价了30%。你的反应是："
+    "id": 1,
+    "title": {
+      "en": "Your favorite local café just raised prices by 30%. Your response is:",
+      "zh": "你最喜欢的本地咖啡馆涨价了30%。你的反应是："
     },
-    choices: [
+    "choices": [
       {
-        text: { en: "Just pay it; supply and demand is just how things work.", zh: "照付不误；供需关系就是这么运作的。" },
-        weights: { interventionism: -0.8, rationality: 0.8, vision: -0.4 }
+        "text": {
+          "en": "Just pay it; supply and demand is just how things work.",
+          "zh": "照付不误；供需关系就是这么运作的。"
+        },
+        "weights": {
+          "interventionism": -0.8,
+          "rationality": 0.8,
+          "vision": -0.175,
+          "scope": -0.05
+        }
       },
       {
-        text: { en: "Complain to the manager about price-gouging.", zh: "找经理抱怨他们是在敲竹杠。" },
-        weights: { interventionism: 0.8, rationality: -0.6 }
+        "text": {
+          "en": "Complain to the manager about price-gouging.",
+          "zh": "找经理抱怨他们是在敲竹杠。"
+        },
+        "weights": {
+          "interventionism": 0.8,
+          "rationality": -0.6,
+          "scope": -0.05,
+          "vision": 0.225
+        }
       },
       {
-        text: { en: "Stop going there as a personal protest.", zh: "作为个人抗议，不再去那儿买东西了。" },
-        weights: { rationality: -0.7, scope: -0.4, vision: -0.2 }
+        "text": {
+          "en": "Stop going there as a personal protest.",
+          "zh": "作为个人抗议，不再去那儿买东西了。"
+        },
+        "weights": {
+          "rationality": -0.7,
+          "scope": -0.45,
+          "vision": 0.025
+        }
       },
       {
-        text: { en: "Start checking if your grocery bills are also creeping up.", zh: "开始检查你的超市账单是否也在悄悄涨价。" },
-        weights: { scope: 0.6, rationality: 0.5, vision: -0.3 }
+        "text": {
+          "en": "Start checking if your grocery bills are also creeping up.",
+          "zh": "开始检查你的超市账单是否也在悄悄涨价。"
+        },
+        "weights": {
+          "scope": 0.55,
+          "rationality": 0.5,
+          "vision": -0.075
+        }
       }
     ]
   },
   {
-    id: 2,
-    title: {
-      en: "There's a massive housing shortage in your city. You think we should:",
-      zh: "你所在的城市正面临严重的住房短缺。你认为我们应该："
+    "id": 2,
+    "title": {
+      "en": "There's a massive housing shortage in your city. You think we should:",
+      "zh": "你所在的城市正面临严重的住房短缺。你认为我们应该："
     },
-    choices: [
+    "choices": [
       {
-        text: { en: "Clear all the red tape and let builders build fast.", zh: "扫除所有繁文缛节，让开发商快马加鞭地盖房。" },
-        weights: { interventionism: -0.8, scope: -0.2, vision: -0.5 }
+        "text": {
+          "en": "Clear all the red tape and let builders build fast.",
+          "zh": "扫除所有繁文缛节，让开发商快马加鞭地盖房。"
+        },
+        "weights": {
+          "interventionism": -1,
+          "scope": -0.225,
+          "vision": -0.6
+        }
       },
       {
-        text: { en: "Protest for lower rents and better public housing.", zh: "抗议要求降低租金并提供更好的公共住房。" },
-        weights: { interventionism: 0.9, vision: 0.4 }
+        "text": {
+          "en": "Protest for lower rents and better public housing.",
+          "zh": "抗议要求降低租金并提供更好的公共住房。"
+        },
+        "weights": {
+          "interventionism": 0.7,
+          "vision": 0.3,
+          "scope": -0.025
+        }
       },
       {
-        text: { en: "Give people moving out to the suburbs a tax break.", zh: "为搬到郊区的人提供税收优惠。" },
-        weights: { interventionism: 0.4, scope: 0.3 }
+        "text": {
+          "en": "Give people moving out to the suburbs a tax break.",
+          "zh": "为搬到郊区的人提供税收优惠。"
+        },
+        "weights": {
+          "interventionism": 0.2,
+          "scope": 0.275,
+          "vision": -0.1
+        }
       },
       {
-        text: { en: "Join a communal living project that shares space.", zh: "加入一个共享空间的社区共同生活项目。" },
-        weights: { vision: 0.5, interventionism: 0.3 }
+        "text": {
+          "en": "Join a communal living project that shares space.",
+          "zh": "加入一个共享空间的社区共同生活项目。"
+        },
+        "weights": {
+          "vision": 0.4,
+          "interventionism": 0.1,
+          "scope": -0.025
+        }
       }
     ]
   },
   {
-    id: 3,
-    title: {
-      en: "A new AI robot can do 90% of manual labor. Your first thought is:",
-      zh: "一台新型AI机器人可以完成90%的体力劳动。你的第一想法是："
+    "id": 3,
+    "title": {
+      "en": "A new AI robot can do 90% of manual labor. Your first thought is:",
+      "zh": "一台新型AI机器人可以完成90%的体力劳动。你的第一想法是："
     },
-    choices: [
+    "choices": [
       {
-        text: { en: "Sweet! We can finally spend all day at the beach.", zh: "太棒了！我们终于可以整天在海滩躺平了。" },
-        weights: { vision: 0.3, scope: -0.2 }
+        "text": {
+          "en": "Sweet! We can finally spend all day at the beach.",
+          "zh": "太棒了！我们终于可以整天在海滩躺平了。"
+        },
+        "weights": {
+          "vision": 0.4,
+          "scope": -0.15,
+          "interventionism": -0.075,
+          "rationality": 0.025
+        }
       },
       {
-        text: { en: "Terrifying! We should tax robots to pay for our lost jobs.", zh: "太吓人了！我们应该对机器人征税来支付我们失去的工作。" },
-        weights: { interventionism: 0.7, vision: 0.2 }
+        "text": {
+          "en": "Terrifying! We should tax robots to pay for our lost jobs.",
+          "zh": "太吓人了！我们应该对机器人征税来支付我们失去的工作。"
+        },
+        "weights": {
+          "interventionism": 0.625,
+          "vision": 0.3,
+          "rationality": 0.025,
+          "scope": 0.05
+        }
       },
       {
-        text: { en: "Time to sign up for a coding bootcamp, I guess.", zh: "我想，该报名参加一个编程训练营了。" },
-        weights: { rationality: 0.7, interventionism: -0.4, vision: -0.3 }
+        "text": {
+          "en": "Time to sign up for a coding bootcamp, I guess.",
+          "zh": "我想，该报名参加一个编程训练营了。"
+        },
+        "weights": {
+          "rationality": 0.725,
+          "interventionism": -0.475,
+          "vision": -0.2,
+          "scope": 0.05
+        }
       },
       {
-        text: { en: "Meh, people have been saying this for a hundred years.", zh: "额，人们一百年来一直这么说。" },
-        weights: { rationality: -0.8, vision: -0.6 }
+        "text": {
+          "en": "Meh, people have been saying this for a hundred years.",
+          "zh": "额，人们一百年来一直这么说。"
+        },
+        "weights": {
+          "rationality": -0.775,
+          "vision": -0.5,
+          "interventionism": -0.075,
+          "scope": 0.05
+        }
       }
     ]
   },
   {
-    id: 4,
-    title: {
-      en: "When you see a giant tech monopoly, you usually:",
-      zh: "当你看到一家巨型科技垄断企业时，你通常会："
+    "id": 4,
+    "title": {
+      "en": "When you see a giant tech monopoly, you usually:",
+      "zh": "当你看到一家巨型科技垄断企业时，你通常会："
     },
-    choices: [
+    "choices": [
       {
-        text: { en: "Use their app anyway because it's so convenient.", zh: "照样用他们的App，因为太方便了。" },
-        weights: { interventionism: -0.7, rationality: 0.9, vision: -0.4 }
+        "text": {
+          "en": "Use their app anyway because it's so convenient.",
+          "zh": "照样用他们的App，因为太方便了。"
+        },
+        "weights": {
+          "interventionism": -0.625,
+          "rationality": 0.55,
+          "vision": -0.35,
+          "scope": -0.1
+        }
       },
       {
-        text: { en: "Call for them to be broken up by the government.", zh: "呼吁政府将其拆分。" },
-        weights: { interventionism: 0.7, vision: 0.3 }
+        "text": {
+          "en": "Call for them to be broken up by the government.",
+          "zh": "呼吁政府将其拆分。"
+        },
+        "weights": {
+          "interventionism": 0.775,
+          "vision": 0.35,
+          "rationality": -0.35,
+          "scope": -0.1
+        }
       },
       {
-        text: { en: "Wonder how they actually manage such a huge workforce.", zh: "好奇他们到底是如何管理如此庞大的员工队伍的。" },
-        weights: { rationality: 0.5, scope: 0.4, vision: -0.3 }
+        "text": {
+          "en": "Wonder how they actually manage such a huge workforce.",
+          "zh": "好奇他们到底是如何管理如此庞大的员工队伍的。"
+        },
+        "weights": {
+          "rationality": 0.15,
+          "scope": 0.3,
+          "vision": -0.25,
+          "interventionism": 0.075
+        }
       },
       {
-        text: { en: "Expect a scrappy startup to take them down eventually.", zh: "期待最终会有一家斗志旺盛的初创公司打败他们。" },
-        weights: { vision: 0.2, interventionism: -0.3 }
+        "text": {
+          "en": "Expect a scrappy startup to take them down eventually.",
+          "zh": "期待最终会有一家斗志旺盛的初创公司打败他们。"
+        },
+        "weights": {
+          "vision": 0.25,
+          "interventionism": -0.225,
+          "rationality": -0.35,
+          "scope": -0.1
+        }
       }
     ]
   },
   {
-    id: 5,
-    title: {
-      en: "During a major financial crash, you think we should:",
-      zh: "在重大金融危机期间，你认为我们就应该："
+    "id": 5,
+    "title": {
+      "en": "During a major financial crash, you think we should:",
+      "zh": "在重大金融危机期间，你认为我们就应该："
     },
-    choices: [
+    "choices": [
       {
-        text: { en: "Have the government spend big to keep us afloat.", zh: "让政府大手笔支出以维持我们的生存。" },
-        weights: { interventionism: 0.8, scope: 0.7 }
+        "text": {
+          "en": "Have the government spend big to keep us afloat.",
+          "zh": "让政府大手笔支出以维持我们的生存。"
+        },
+        "weights": {
+          "interventionism": 0.725,
+          "scope": 0.425,
+          "rationality": -0.3,
+          "vision": -0.15
+        }
       },
       {
-        text: { en: "Let the failing banks collapse; that's just life.", zh: "让倒闭的银行破产吧；这就是现实。" },
-        weights: { interventionism: -0.9, rationality: 0.4 }
+        "text": {
+          "en": "Let the failing banks collapse; that's just life.",
+          "zh": "让倒闭的银行破产吧；这就是现实。"
+        },
+        "weights": {
+          "interventionism": -0.975,
+          "rationality": 0.1,
+          "scope": -0.275,
+          "vision": -0.15
+        }
       },
       {
-        text: { en: "Tighten our belts and make sure the currency stays strong.", zh: "勒紧裤腰带，确保货币维持强势。" },
-        weights: { scope: 0.4, rationality: 0.8 }
+        "text": {
+          "en": "Tighten our belts and make sure the currency stays strong.",
+          "zh": "勒紧裤腰带，确保货币维持强势。"
+        },
+        "weights": {
+          "scope": 0.125,
+          "rationality": 0.5,
+          "interventionism": -0.075,
+          "vision": -0.15
+        }
       },
       {
-        text: { en: "Use the crisis to build a whole new green economy.", zh: "利用危机建立一个全新的绿色经济体系。" },
-        weights: { vision: 0.6, interventionism: 0.4 }
+        "text": {
+          "en": "Use the crisis to build a whole new green economy.",
+          "zh": "利用危机建立一个全新的绿色经济体系。"
+        },
+        "weights": {
+          "vision": 0.45,
+          "interventionism": 0.325,
+          "rationality": -0.3,
+          "scope": -0.275
+        }
       }
     ]
   },
   {
-    id: 6,
-    title: {
-      en: "What's the main reason you do anything in life?",
-      zh: "你做任何事的主要动力是什么？"
+    "id": 6,
+    "title": {
+      "en": "What's the main reason you do anything in life?",
+      "zh": "你做任何事的主要动力是什么？"
     },
-    choices: [
+    "choices": [
       {
-        text: { en: "To get the best possible outcome for myself.", zh: "为自己争取最好的结果。" },
-        weights: { rationality: 1.0, scope: -0.4, vision: -0.6 }
+        "text": {
+          "en": "To get the best possible outcome for myself.",
+          "zh": "为自己争取最好的结果。"
+        },
+        "weights": {
+          "rationality": 1,
+          "scope": -0.375,
+          "vision": -0.55,
+          "interventionism": 0.025
+        }
       },
       {
-        text: { en: "Just because that's what everyone else is doing.", zh: "仅仅因为大家都在这么做。" },
-        weights: { rationality: -1.0, scope: -0.2, vision: -0.3 }
+        "text": {
+          "en": "Just because that's what everyone else is doing.",
+          "zh": "仅仅因为大家都在这么做。"
+        },
+        "weights": {
+          "rationality": -1,
+          "scope": -0.175,
+          "vision": -0.25,
+          "interventionism": 0.025
+        }
       },
       {
-        text: { en: "Because my background and status expect it of me.", zh: "因为我的背景和地位对我有这种期待。" },
-        weights: { vision: 0.4, scope: 0.5 }
+        "text": {
+          "en": "Because my background and status expect it of me.",
+          "zh": "因为我的背景和地位对我有这种期待。"
+        },
+        "weights": {
+          "vision": 0.45,
+          "scope": 0.525,
+          "interventionism": 0.025
+        }
       },
       {
-        text: { en: "To create something original that breaks the mold.", zh: "为了创造一些打破常规的原创东西。" },
-        weights: { vision: 0.3, interventionism: -0.1 }
+        "text": {
+          "en": "To create something original that breaks the mold.",
+          "zh": "为了创造一些打破常规的原创东西。"
+        },
+        "weights": {
+          "vision": 0.35,
+          "interventionism": -0.075,
+          "scope": 0.025
+        }
       }
     ]
   },
   {
-    id: 7,
-    title: {
-      en: "The massive gap between rich and poor makes you:",
-      zh: "巨大的贫富差距让你觉得："
+    "id": 7,
+    "title": {
+      "en": "The massive gap between rich and poor makes you:",
+      "zh": "巨大的贫富差距让你觉得："
     },
-    choices: [
+    "choices": [
       {
-        text: { en: "Want to work harder to join the top 1%.", zh: "想更努力地工作以挤进那1%的圈子。" },
-        weights: { interventionism: -0.7, vision: -0.8, rationality: 0.7 }
+        "text": {
+          "en": "Want to work harder to join the top 1%.",
+          "zh": "想更努力地工作以挤进那1%的圈子。"
+        },
+        "weights": {
+          "interventionism": -0.85,
+          "vision": -0.9,
+          "rationality": 0.375,
+          "scope": 0.075
+        }
       },
       {
-        text: { en: "Want to tax the rich until everyone has the same.", zh: "想对富人课重税，直到大家的生活水平都一样。" },
-        weights: { interventionism: 0.8, vision: 0.5 }
+        "text": {
+          "en": "Want to tax the rich until everyone has the same.",
+          "zh": "想对富人课重税，直到大家的生活水平都一样。"
+        },
+        "weights": {
+          "interventionism": 0.65,
+          "vision": 0.4,
+          "rationality": -0.325,
+          "scope": 0.075
+        }
       },
       {
-        text: { en: "Assume it's just because some people went to better schools.", zh: "认为这仅仅是因为有些人上了更好的学校。" },
-        weights: { rationality: 0.6, scope: -0.3 }
+        "text": {
+          "en": "Assume it's just because some people went to better schools.",
+          "zh": "认为这仅仅是因为有些人上了更好的学校。"
+        },
+        "weights": {
+          "rationality": 0.275,
+          "scope": -0.225,
+          "interventionism": -0.15,
+          "vision": -0.1
+        }
       },
       {
-        text: { en: "Feel that true freedom is impossible for the poor.", zh: "觉得由于贫困，真正的自由对穷人来说是不可能的。" },
-        weights: { vision: 0.7, interventionism: 0.5 }
+        "text": {
+          "en": "Feel that true freedom is impossible for the poor.",
+          "zh": "觉得由于贫困，真正的自由对穷人来说是不可能的。"
+        },
+        "weights": {
+          "vision": 0.6,
+          "interventionism": 0.35,
+          "rationality": -0.325,
+          "scope": 0.075
+        }
       }
     ]
   },
   {
-    id: 8,
-    title: {
-      en: "The best way to save the planet from pollution is:",
-      zh: "让地球免受污染的最佳方式是："
+    "id": 8,
+    "title": {
+      "en": "The best way to save the planet from pollution is:",
+      "zh": "让地球免受污染的最佳方式是："
     },
-    choices: [
+    "choices": [
       {
-        text: { en: "Make companies pay a fee for every ton of CO2.", zh: "让公司为每吨二氧化碳排放支付费用。" },
-        weights: { rationality: 0.8, interventionism: 0.3 }
+        "text": {
+          "en": "Make companies pay a fee for every ton of CO2.",
+          "zh": "让公司为每吨二氧化碳排放支付费用。"
+        },
+        "weights": {
+          "rationality": 0.75,
+          "interventionism": 0.175,
+          "scope": 0.125,
+          "vision": -0.2
+        }
       },
       {
-        text: { en: "Have the government ban gas cars and plan green cities.", zh: "让政府禁止燃油车并规划绿色城市。" },
-        weights: { interventionism: 0.8, vision: 0.5 }
+        "text": {
+          "en": "Have the government ban gas cars and plan green cities.",
+          "zh": "让政府禁止燃油车并规划绿色城市。"
+        },
+        "weights": {
+          "interventionism": 0.675,
+          "vision": 0.3,
+          "rationality": -0.05,
+          "scope": 0.125
+        }
       },
       {
-        text: { en: "Hope that new tech makes being 'green' more profitable.", zh: "希望新技术能让“环保”变得更有利可图。" },
-        weights: { interventionism: -0.6, scope: -0.2 }
+        "text": {
+          "en": "Hope that new tech makes being 'green' more profitable.",
+          "zh": "希望新技术能让“环保”变得更有利可图。"
+        },
+        "weights": {
+          "interventionism": -0.725,
+          "scope": -0.075,
+          "rationality": -0.05,
+          "vision": -0.2
+        }
       },
       {
-        text: { en: "Let local neighborhoods manage their own forests and parks.", zh: "让当地社区管理他们自己的森林和公园。" },
-        weights: { vision: 0.3, scope: -0.3, rationality: -0.6 }
+        "text": {
+          "en": "Let local neighborhoods manage their own forests and parks.",
+          "zh": "让当地社区管理他们自己的森林和公园。"
+        },
+        "weights": {
+          "vision": 0.1,
+          "scope": -0.175,
+          "rationality": -0.65,
+          "interventionism": -0.125
+        }
       }
     ]
   },
   {
-    id: 9,
-    title: {
-      en: "When you choose a career, what matters most?",
-      zh: "当你选择职业时，最重要的是什么？"
+    "id": 9,
+    "title": {
+      "en": "When you choose a career, what matters most?",
+      "zh": "当你选择职业时，最重要的是什么？"
     },
-    choices: [
+    "choices": [
       {
-        text: { en: "The salary and growth potential.", zh: "薪水和增长潜力。" },
-        weights: { rationality: 1.0, scope: -0.5, vision: -0.7 }
+        "text": {
+          "en": "The salary and growth potential.",
+          "zh": "薪水和增长潜力。"
+        },
+        "weights": {
+          "rationality": 0.75,
+          "scope": -0.475,
+          "vision": -0.75,
+          "interventionism": -0.025
+        }
       },
       {
-        text: { en: "Having a job that lets me help my local community.", zh: "拥有一份能让我帮助当地社区的工作。" },
-        weights: { vision: 0.3, scope: 0.4 }
+        "text": {
+          "en": "Having a job that lets me help my local community.",
+          "zh": "拥有一份能让我帮助当地社区的工作。"
+        },
+        "weights": {
+          "vision": 0.25,
+          "scope": 0.425,
+          "interventionism": -0.025,
+          "rationality": -0.25
+        }
       },
       {
-        text: { en: "Just finding something stable so I can pay the bills.", zh: "只求找份稳定的工作，好付账单。" },
-        weights: { vision: 0.4, interventionism: 0.3 }
+        "text": {
+          "en": "Just finding something stable so I can pay the bills.",
+          "zh": "只求找份稳定的工作，好付账单。"
+        },
+        "weights": {
+          "vision": 0.35,
+          "interventionism": 0.275,
+          "rationality": -0.25,
+          "scope": 0.025
+        }
       },
       {
-        text: { en: "Finding a place where I can invent new things.", zh: "找一个能让我发明新事物的地方。" },
-        weights: { vision: 0.2, interventionism: -0.2 }
+        "text": {
+          "en": "Finding a place where I can invent new things.",
+          "zh": "找一个能让我发明新事物的地方。"
+        },
+        "weights": {
+          "vision": 0.15,
+          "interventionism": -0.225,
+          "rationality": -0.25,
+          "scope": 0.025
+        }
       }
     ]
   },
   {
-    id: 10,
-    title: {
-      en: "Who should pay for college tuition?",
-      zh: "大学学费应该由谁承担？"
+    "id": 10,
+    "title": {
+      "en": "Who should pay for college tuition?",
+      "zh": "大学学费应该由谁承担？"
     },
-    choices: [
+    "choices": [
       {
-        text: { en: "The government, so everyone has a fair shot.", zh: "政府，这样每个人都有公平的机会。" },
-        weights: { interventionism: 0.7, scope: 0.3 }
+        "text": {
+          "en": "The government, so everyone has a fair shot.",
+          "zh": "政府，这样每个人都有公平的机会。"
+        },
+        "weights": {
+          "interventionism": 0.8,
+          "scope": 0.275,
+          "rationality": -0.325,
+          "vision": 0.025
+        }
       },
       {
-        text: { en: "The students, so they actually show up to class.", zh: "学生自己，这样他们才会真的去上课。" },
-        weights: { interventionism: -0.5, rationality: 0.8, vision: -0.4 }
+        "text": {
+          "en": "The students, so they actually show up to class.",
+          "zh": "学生自己，这样他们才会真的去上课。"
+        },
+        "weights": {
+          "interventionism": -0.4,
+          "rationality": 0.475,
+          "vision": -0.375,
+          "scope": -0.025
+        }
       },
       {
-        text: { en: "A mix of both, using income-based loans.", zh: "两者兼顾，使用基于收入的贷款方式。" },
-        weights: { rationality: 0.5, scope: -0.2 }
+        "text": {
+          "en": "A mix of both, using income-based loans.",
+          "zh": "两者兼顾，使用基于收入的贷款方式。"
+        },
+        "weights": {
+          "rationality": 0.175,
+          "scope": -0.225,
+          "interventionism": 0.1,
+          "vision": 0.025
+        }
       },
       {
-        text: { en: "Let's just learn from each other and skip the fancy degrees.", zh: "咱们互相学习得了，别去拿那些昂贵的学位。" },
-        weights: { vision: 0.3, interventionism: -0.6 }
+        "text": {
+          "en": "Let's just learn from each other and skip the fancy degrees.",
+          "zh": "咱们互相学习得了，别去拿那些昂贵的学位。"
+        },
+        "weights": {
+          "vision": 0.325,
+          "interventionism": -0.5,
+          "rationality": -0.325,
+          "scope": -0.025
+        }
       }
     ]
   },
   {
-    id: 11,
-    title: {
-      en: "Buying goods from abroad is usually:",
-      zh: "从国外购买商品通常是："
+    "id": 11,
+    "title": {
+      "en": "Buying goods from abroad is usually:",
+      "zh": "从国外购买商品通常是："
     },
-    choices: [
+    "choices": [
       {
-        text: { en: "Awesome; I can get cool stuff cheaper.", zh: "太棒了；我可以更便宜地买到酷炫的东西。" },
-        weights: { interventionism: -0.7, scope: 0.4, rationality: 0.7, vision: -0.3 }
+        "text": {
+          "en": "Awesome; I can get cool stuff cheaper.",
+          "zh": "太棒了；我可以更便宜地买到酷炫的东西。"
+        },
+        "weights": {
+          "interventionism": -0.8,
+          "scope": 0.1,
+          "rationality": 0.525,
+          "vision": -0.4
+        }
       },
       {
-        text: { en: "A bit guilty; I worry about the workers who made them.", zh: "有点愧疚；我担心生产这些东西的工人。" },
-        weights: { vision: 0.5, interventionism: 0.6 }
+        "text": {
+          "en": "A bit guilty; I worry about the workers who made them.",
+          "zh": "有点愧疚；我担心生产这些东西的工人。"
+        },
+        "weights": {
+          "vision": 0.4,
+          "interventionism": 0.5,
+          "rationality": -0.175,
+          "scope": -0.3
+        }
       },
       {
-        text: { en: "Bad for the shops in my own neighborhood.", zh: "对我们自己社区的商店不好。" },
-        weights: { interventionism: 0.5, scope: 0.3 }
+        "text": {
+          "en": "Bad for the shops in my own neighborhood.",
+          "zh": "对我们自己社区的商店不好。"
+        },
+        "weights": {
+          "interventionism": 0.4,
+          "rationality": -0.175,
+          "vision": -0.1
+        }
       },
       {
-        text: { en: "A cool way to feel connected to the whole world.", zh: "一种感觉与全世界相连的酷炫方式。" },
-        weights: { vision: 0.2, scope: 0.5 }
+        "text": {
+          "en": "A cool way to feel connected to the whole world.",
+          "zh": "一种感觉与全世界相连的酷炫方式。"
+        },
+        "weights": {
+          "vision": 0.1,
+          "scope": 0.2,
+          "interventionism": -0.1,
+          "rationality": -0.175
+        }
       }
     ]
   },
   {
-    id: 12,
-    title: {
-      en: "When the economy grows, you see it as:",
-      zh: "当经济增长时，你将其视为："
+    "id": 12,
+    "title": {
+      "en": "When the economy grows, you see it as:",
+      "zh": "当经济增长时，你将其视为："
     },
-    choices: [
+    "choices": [
       {
-        text: { en: "Life generally getting better for my family.", zh: "全家人的生活通常都在变好。" },
-        weights: { scope: 0.6, rationality: 0.6, vision: -0.2 }
+        "text": {
+          "en": "Life generally getting better for my family.",
+          "zh": "全家人的生活通常都在变好。"
+        },
+        "weights": {
+          "scope": 0.5,
+          "rationality": 0.65,
+          "vision": -0.375,
+          "interventionism": -0.025
+        }
       },
       {
-        text: { en: "An excuse to keep trashing the planet for objects.", zh: "为了物质而继续破坏地球的借口。" },
-        weights: { vision: 0.5, rationality: -0.8 }
+        "text": {
+          "en": "An excuse to keep trashing the planet for objects.",
+          "zh": "为了物质而继续破坏地球的借口。"
+        },
+        "weights": {
+          "vision": 0.325,
+          "rationality": -0.75,
+          "interventionism": -0.025,
+          "scope": -0.1
+        }
       },
       {
-        text: { en: "Pointless if the rich just get richer and I don't.", zh: "如果只是富人变得更富而我没有，那就毫无意义。" },
-        weights: { interventionism: 0.6, vision: 0.4 }
+        "text": {
+          "en": "Pointless if the rich just get richer and I don't.",
+          "zh": "如果只是富人变得更富而我没有，那就毫无意义。"
+        },
+        "weights": {
+          "interventionism": 0.575,
+          "vision": 0.225,
+          "rationality": 0.05,
+          "scope": -0.1
+        }
       },
       {
-        text: { en: "A side-effect of people inventing better ways to work.", zh: "人们发明了更好的工作方式所带来的副作用。" },
-        weights: { interventionism: -0.5, scope: -0.2 }
+        "text": {
+          "en": "A side-effect of people inventing better ways to work.",
+          "zh": "人们发明了更好的工作方式所带来的副作用。"
+        },
+        "weights": {
+          "interventionism": -0.525,
+          "scope": -0.3,
+          "rationality": 0.05,
+          "vision": -0.175
+        }
       }
     ]
   },
   {
-    id: 13,
-    title: {
-      en: "A billionaire gives away half their money. You think:",
-      zh: "一位亿万富翁捐出了他们一半的钱。你认为："
+    "id": 13,
+    "title": {
+      "en": "A billionaire gives away half their money. You think:",
+      "zh": "一位亿万富翁捐出了他们一半的钱。你认为："
     },
-    choices: [
+    "choices": [
       {
-        text: { en: "Wow, they are such a nice person.", zh: "哇，他们真是个好人。" },
-        weights: { interventionism: -0.5, vision: -0.6, rationality: -0.3 }
+        "text": {
+          "en": "Wow, they are such a nice person.",
+          "zh": "哇，他们真是个好人。"
+        },
+        "weights": {
+          "interventionism": -0.575,
+          "vision": -0.625,
+          "rationality": -0.225,
+          "scope": 0.1
+        }
       },
       {
-        text: { en: "They should have just paid more taxes in the first place.", zh: "他们当初就应该交更多的税。" },
-        weights: { interventionism: 0.8, vision: 0.3 }
+        "text": {
+          "en": "They should have just paid more taxes in the first place.",
+          "zh": "他们当初就应该交更多的税。"
+        },
+        "weights": {
+          "interventionism": 0.725,
+          "vision": 0.275,
+          "rationality": 0.075,
+          "scope": 0.1
+        }
       },
       {
-        text: { en: "It's probably just a PR move to look good.", zh: "这可能只是为了树立良好形象的公关手段。" },
-        weights: { rationality: 0.7, scope: -0.3 }
+        "text": {
+          "en": "It's probably just a PR move to look good.",
+          "zh": "这可能只是为了树立良好形象的公关手段。"
+        },
+        "weights": {
+          "rationality": 0.775,
+          "scope": -0.2,
+          "interventionism": -0.075,
+          "vision": -0.025
+        }
       },
       {
-        text: { en: "We should all be sharing more like that anyway.", zh: "反正我们大家都应该更多地进行那样的分享。" },
-        weights: { vision: 0.4, scope: -0.1, rationality: -0.7 }
+        "text": {
+          "en": "We should all be sharing more like that anyway.",
+          "zh": "反正我们大家都应该更多地进行那样的分享。"
+        },
+        "weights": {
+          "vision": 0.375,
+          "rationality": -0.625,
+          "interventionism": -0.075
+        }
       }
     ]
   },
   {
-    id: 14,
-    title: {
-      en: "When hotels double their prices during the holidays, you:",
-      zh: "当酒店在假期期间价格翻倍时，你会："
+    "id": 14,
+    "title": {
+      "en": "When hotels double their prices during the holidays, you:",
+      "zh": "当酒店在假期期间价格翻倍时，你会："
     },
-    choices: [
+    "choices": [
       {
-        text: { en: "Expect it; everyone wants to travel then.", zh: "预料之中；那时大家都想去旅游。" },
-        weights: { interventionism: -0.6, rationality: 1.0, vision: -0.3 }
+        "text": {
+          "en": "Expect it; everyone wants to travel then.",
+          "zh": "预料之中；那时大家都想去旅游。"
+        },
+        "weights": {
+          "interventionism": -0.625,
+          "rationality": 1.125,
+          "vision": -0.275,
+          "scope": -0.025
+        }
       },
       {
-        text: { en: "Get angry that they are taking advantage of us.", zh: "对他们利用我们而感到愤怒。" },
-        weights: { interventionism: 0.7, vision: 0.2 }
+        "text": {
+          "en": "Get angry that they are taking advantage of us.",
+          "zh": "对他们利用我们而感到愤怒。"
+        },
+        "weights": {
+          "interventionism": 0.675,
+          "vision": 0.225,
+          "rationality": 0.125,
+          "scope": -0.025
+        }
       },
       {
-        text: { en: "Just stay home or look for a cheaper Airbnb.", zh: "干脆待在家里或找一家更便宜的Airbnb。" },
-        weights: { rationality: -1.0, scope: -0.4 }
+        "text": {
+          "en": "Just stay home or look for a cheaper Airbnb.",
+          "zh": "干脆待在家里或找一家更便宜的Airbnb。"
+        },
+        "weights": {
+          "rationality": -0.875,
+          "scope": -0.425,
+          "interventionism": -0.025,
+          "vision": 0.025
+        }
       },
       {
-        text: { en: "Think about how it prices out regular families.", zh: "思考这如何让普通家庭望而却步。" },
-        weights: { scope: 0.5, rationality: -0.5 }
+        "text": {
+          "en": "Think about how it prices out regular families.",
+          "zh": "思考这如何让普通家庭望而却步。"
+        },
+        "weights": {
+          "scope": 0.475,
+          "rationality": -0.375,
+          "interventionism": -0.025,
+          "vision": 0.025
+        }
       }
     ]
   },
   {
-    id: 15,
-    title: {
-      en: "Farming should mostly focus on:",
-      zh: "农业应该主要关注："
+    "id": 15,
+    "title": {
+      "en": "Farming should mostly focus on:",
+      "zh": "农业应该主要关注："
     },
-    choices: [
+    "choices": [
       {
-        text: { en: "Using science to grow as much food as possible.", zh: "利用科学种植尽可能多的粮食。" },
-        weights: { rationality: 1.0, interventionism: -0.3, vision: -0.5 }
+        "text": {
+          "en": "Using science to grow as much food as possible.",
+          "zh": "利用科学种植尽可能多的粮食。"
+        },
+        "weights": {
+          "rationality": 0.95,
+          "interventionism": -0.55,
+          "vision": -0.625,
+          "scope": 0.025
+        }
       },
       {
-        text: { en: "Making sure the people working the land get a fair deal.", zh: "确保在土地上劳作的人获得公平待遇。" },
-        weights: { interventionism: 0.7, vision: 0.4, rationality: -0.8 }
+        "text": {
+          "en": "Making sure the people working the land get a fair deal.",
+          "zh": "确保在土地上劳作的人获得公平待遇。"
+        },
+        "weights": {
+          "interventionism": 0.45,
+          "vision": 0.275,
+          "rationality": -0.85,
+          "scope": 0.025
+        }
       },
       {
-        text: { en: "Strict rules to stop polluting the soil.", zh: "通过严格的规则防止土壤污染。" },
-        weights: { interventionism: 0.6, scope: 0.3 }
+        "text": {
+          "en": "Strict rules to stop polluting the soil.",
+          "zh": "通过严格的规则防止土壤污染。"
+        },
+        "weights": {
+          "interventionism": 0.35,
+          "scope": 0.325,
+          "rationality": -0.05,
+          "vision": -0.125
+        }
       },
       {
-        text: { en: "Going back to old-school, natural ways of growing.", zh: "回归老派、自然的种植方式。" },
-        weights: { vision: 0.6, scope: -0.4 }
+        "text": {
+          "en": "Going back to old-school, natural ways of growing.",
+          "zh": "回归老派、自然的种植方式。"
+        },
+        "weights": {
+          "vision": 0.475,
+          "scope": -0.375,
+          "interventionism": -0.25,
+          "rationality": -0.05
+        }
       }
     ]
   },
   {
-    id: 16,
-    title: {
-      en: "Social media apps are mostly there to:",
-      zh: "社交媒体App的存在主要是为了："
+    "id": 16,
+    "title": {
+      "en": "Social media apps are mostly there to:",
+      "zh": "社交媒体App的存在主要是为了："
     },
-    choices: [
+    "choices": [
       {
-        text: { en: "Keep us entertained and talking to friends.", zh: "让我们保持娱乐并与朋友交谈。" },
-        weights: { vision: -0.5, scope: -0.4, rationality: -0.3 }
+        "text": {
+          "en": "Keep us entertained and talking to friends.",
+          "zh": "让我们保持娱乐并与朋友交谈。"
+        },
+        "weights": {
+          "vision": -0.55,
+          "scope": -0.35,
+          "rationality": -0.3,
+          "interventionism": -0.175
+        }
       },
       {
-        text: { en: "Harvest our data to sell and make a profit.", zh: "收集我们的数据进行销售并获取利润。" },
-        weights: { rationality: 0.6, vision: 0.3 }
+        "text": {
+          "en": "Harvest our data to sell and make a profit.",
+          "zh": "收集我们的数据进行销售并获取利润。"
+        },
+        "weights": {
+          "rationality": 0.6,
+          "vision": 0.25,
+          "interventionism": -0.175,
+          "scope": 0.05
+        }
       },
       {
-        text: { en: "Manipulate our attention, so we should limit them.", zh: "操控我们的注意力，所以我们应该限制它们。" },
-        weights: { interventionism: 0.7, rationality: -0.3 }
+        "text": {
+          "en": "Manipulate our attention, so we should limit them.",
+          "zh": "操控我们的注意力，所以我们应该限制它们。"
+        },
+        "weights": {
+          "interventionism": 0.525,
+          "rationality": -0.3,
+          "scope": 0.05,
+          "vision": -0.05
+        }
       },
       {
-        text: { en: "Give us a place to build digital communities.", zh: "为我们提供建立数字社区的场所。" },
-        weights: { vision: 0.4, scope: 0.2 }
+        "text": {
+          "en": "Give us a place to build digital communities.",
+          "zh": "为我们提供建立数字社区的场所。"
+        },
+        "weights": {
+          "vision": 0.35,
+          "scope": 0.25,
+          "interventionism": -0.175
+        }
       }
     ]
   },
   {
-    id: 17,
-    title: {
-      en: "When parents leave money to their kids, it should be:",
-      zh: "当父母把钱留给孩子时，这应该是："
+    "id": 17,
+    "title": {
+      "en": "When parents leave money to their kids, it should be:",
+      "zh": "当父母把钱留给孩子时，这应该是："
     },
-    choices: [
+    "choices": [
       {
-        text: { en: "Their total right, and the government should stay out of it.", zh: "他们的绝对权利，政府不应插手。" },
-        weights: { interventionism: -0.9, rationality: 0.7, vision: -0.8 }
+        "text": {
+          "en": "Their total right, and the government should stay out of it.",
+          "zh": "他们的绝对权利，政府不应插手。"
+        },
+        "weights": {
+          "interventionism": -1,
+          "rationality": 0.425,
+          "vision": -0.875,
+          "scope": 0.025
+        }
       },
       {
-        text: { en: "Taxed heavily so every kid starts on a level playing field.", zh: "重税收，以便每个孩子都在平等的起跑线上开始。" },
-        weights: { interventionism: 0.9, vision: 0.6 }
+        "text": {
+          "en": "Taxed heavily so every kid starts on a level playing field.",
+          "zh": "重税收，以便每个孩子都在平等的起跑线上开始。"
+        },
+        "weights": {
+          "interventionism": 0.8,
+          "vision": 0.525,
+          "rationality": -0.275,
+          "scope": 0.025
+        }
       },
       {
-        text: { en: "Spent on the kids' studies anyway.", zh: "反正应该花在孩子的学业上。" },
-        weights: { rationality: 0.4, scope: -0.1 }
+        "text": {
+          "en": "Spent on the kids' studies anyway.",
+          "zh": "反正应该花在孩子的学业上。"
+        },
+        "weights": {
+          "rationality": 0.125,
+          "scope": -0.075,
+          "interventionism": -0.1,
+          "vision": -0.075
+        }
       },
       {
-        text: { en: "Mostly shared with the public to help everyone.", zh: "大部分与公众分享以帮助大家。" },
-        weights: { vision: 0.5, interventionism: 0.4 }
+        "text": {
+          "en": "Mostly shared with the public to help everyone.",
+          "zh": "大部分与公众分享以帮助大家。"
+        },
+        "weights": {
+          "vision": 0.425,
+          "interventionism": 0.3,
+          "rationality": -0.275,
+          "scope": 0.025
+        }
       }
     ]
   },
   {
-    id: 18,
-    title: {
-      en: "The best way to stop bad traffic jams is:",
-      zh: "解决严重交通拥堵的最佳方式是："
+    "id": 18,
+    "title": {
+      "en": "The best way to stop bad traffic jams is:",
+      "zh": "解决严重交通拥堵的最佳方式是："
     },
-    choices: [
+    "choices": [
       {
-        text: { en: "Charge a fee for driving into the center during rush hour.", zh: "在高峰时段进城收取费用。" },
-        weights: { rationality: 0.5, interventionism: 0.3 }
+        "text": {
+          "en": "Charge a fee for driving into the center during rush hour.",
+          "zh": "在高峰时段进城收取费用。"
+        },
+        "weights": {
+          "rationality": 0.175,
+          "interventionism": 0.2,
+          "scope": -0.075,
+          "vision": 0.025
+        }
       },
       {
-        text: { en: "Build way more public buses, subways, and bike lanes.", zh: "建设更多的公共汽车、地铁和自行车道。" },
-        weights: { interventionism: 0.7, scope: 0.4 }
+        "text": {
+          "en": "Build way more public buses, subways, and bike lanes.",
+          "zh": "建设更多的公共汽车、地铁和自行车道。"
+        },
+        "weights": {
+          "interventionism": 0.6,
+          "scope": 0.325,
+          "rationality": -0.325,
+          "vision": 0.025
+        }
       },
       {
-        text: { en: "Let private companies build better toll roads.", zh: "让私人公司建设更好的收费公路。" },
-        weights: { interventionism: -0.6, scope: -0.2, rationality: 0.8, vision: -0.4 }
+        "text": {
+          "en": "Let private companies build better toll roads.",
+          "zh": "让私人公司建设更好的收费公路。"
+        },
+        "weights": {
+          "interventionism": -0.7,
+          "scope": -0.275,
+          "rationality": 0.475,
+          "vision": -0.375
+        }
       },
       {
-        text: { en: "Just let more people work from their couches.", zh: "干脆让更多人坐在沙发上办公。" },
-        weights: { vision: 0.3, scope: 0.1 }
+        "text": {
+          "en": "Just let more people work from their couches.",
+          "zh": "干脆让更多人坐在沙发上办公。"
+        },
+        "weights": {
+          "vision": 0.325,
+          "scope": 0.025,
+          "interventionism": -0.1,
+          "rationality": -0.325
+        }
       }
     ]
   },
   {
-    id: 19,
-    title: {
-      en: "Why is putting money in a savings account important?",
-      zh: "为什么把钱存进储蓄账户很重要？"
+    "id": 19,
+    "title": {
+      "en": "Why is putting money in a savings account important?",
+      "zh": "为什么把钱存进储蓄账户很重要？"
     },
-    choices: [
+    "choices": [
       {
-        text: { en: "To make sure I'm safe if I lose my job.", zh: "为了确保如果我丢了工作也能有保障。" },
-        weights: { rationality: 0.9, scope: -0.5, vision: -0.4 }
+        "text": {
+          "en": "To make sure I'm safe if I lose my job.",
+          "zh": "为了确保如果我丢了工作也能有保障。"
+        },
+        "weights": {
+          "rationality": 0.525,
+          "scope": -0.55,
+          "vision": -0.4,
+          "interventionism": 0.05
+        }
       },
       {
-        text: { en: "So I can buy a house or a car down the road.", zh: "这样以后我可以买房或买车。" },
-        weights: { rationality: 0.6, interventionism: -0.2 }
+        "text": {
+          "en": "So I can buy a house or a car down the road.",
+          "zh": "这样以后我可以买房或买车。"
+        },
+        "weights": {
+          "rationality": 0.225,
+          "interventionism": -0.15,
+          "scope": -0.05
+        }
       },
       {
-        text: { en: "It gives banks money to lend out for new buildings.", zh: "它让银行有钱贷出去建造新楼。" },
-        weights: { scope: 0.7, rationality: 0.1 }
+        "text": {
+          "en": "It gives banks money to lend out for new buildings.",
+          "zh": "它让银行有钱贷出去建造新楼。"
+        },
+        "weights": {
+          "scope": 0.65,
+          "rationality": -0.275,
+          "interventionism": 0.05
+        }
       },
       {
-        text: { en: "To leave something behind for my family one day.", zh: "为了有一天能给家人留点遗产。" },
-        weights: { vision: 0.4, rationality: -0.1 }
+        "text": {
+          "en": "To leave something behind for my family one day.",
+          "zh": "为了有一天能给家人留点遗产。"
+        },
+        "weights": {
+          "vision": 0.4,
+          "rationality": -0.475,
+          "interventionism": 0.05,
+          "scope": -0.05
+        }
       }
     ]
   },
   {
-    id: 20,
-    title: {
-      en: "A truly happy country should focus on:",
-      zh: "一个真正幸福的国家应该关注："
+    "id": 20,
+    "title": {
+      "en": "A truly happy country should focus on:",
+      "zh": "一个真正幸福的国家应该关注："
     },
-    choices: [
+    "choices": [
       {
-        text: { en: "Making sure there are lots of jobs and things to buy.", zh: "确保有大量的工作和可购买的东西。" },
-        weights: { interventionism: -0.5, scope: -0.3, rationality: 0.5 }
+        "text": {
+          "en": "Making sure there are lots of jobs and things to buy.",
+          "zh": "确保有大量的工作和可购买的东西。"
+        },
+        "weights": {
+          "interventionism": -0.475,
+          "scope": -0.475,
+          "rationality": 0.425,
+          "vision": -0.35
+        }
       },
       {
-        text: { en: "Health, schools, and looking after each other.", zh: "健康、学校和互相照顾。" },
-        weights: { interventionism: 0.7, vision: 0.6, scope: 0.4, rationality: -0.7 }
+        "text": {
+          "en": "Health, schools, and looking after each other.",
+          "zh": "健康、学校和互相照顾。"
+        },
+        "weights": {
+          "interventionism": 0.725,
+          "vision": 0.25,
+          "scope": 0.225,
+          "rationality": -0.775
+        }
       },
       {
-        text: { en: "Keeping prices stable and our money valuable.", zh: "保持物价稳定并让我们的货币保值。" },
-        weights: { scope: 0.6, rationality: 0.5 }
+        "text": {
+          "en": "Keeping prices stable and our money valuable.",
+          "zh": "保持物价稳定并让我们的货币保值。"
+        },
+        "weights": {
+          "scope": 0.425,
+          "rationality": 0.425,
+          "interventionism": 0.025,
+          "vision": -0.35
+        }
       },
       {
-        text: { en: "Making sure everyone is free to live their own best life.", zh: "确保每个人都能自由地过上他们认为最好的生活。" },
-        weights: { vision: 0.8, interventionism: -0.3 }
+        "text": {
+          "en": "Making sure everyone is free to live their own best life.",
+          "zh": "确保每个人都能自由地过上他们认为最好的生活。"
+        },
+        "weights": {
+          "vision": 0.45,
+          "interventionism": -0.275,
+          "rationality": -0.075,
+          "scope": -0.175
+        }
       }
     ]
   }
