@@ -397,19 +397,7 @@ export default function App() {
           )}
         </AnimatePresence>
 
-        {/* Professor Badge Replacement */}
-        {step !== 'result' && (
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="hidden lg:flex absolute bottom-8 right-8 items-center gap-3 px-5 py-3 bg-white rounded-2xl shadow-sm border border-brand-secondary/50"
-          >
-            <div className="w-2 h-2 rounded-full bg-brand-accent animate-pulse" />
-            <span className="text-[10px] font-black uppercase tracking-widest text-brand-muted">
-              Economic Type Indicator.
-            </span>
-          </motion.div>
-        )}
+        {/* Removed Floating Badge */}
       </main>
 
       {/* Footer */}
@@ -422,10 +410,10 @@ export default function App() {
                 <Mail className="w-3.5 h-3.5" />
                 zhouxinyu_iesr23@outlook.com
               </a>
-              <a href="https://github.com/Raine-zz" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-[11px] font-bold text-brand-ink hover:text-brand-accent transition-colors">
-                <Github className="w-3.5 h-3.5" />
-                Raine-zz
-              </a>
+          <a href="https://github.com/Raine-zz/EconTI" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-[11px] font-bold text-brand-ink hover:text-brand-accent transition-colors">
+            <Github className="w-3.5 h-3.5" />
+            Raine-zz/EconTI
+          </a>
             </div>
           </div>
           <div className="text-[9px] font-black uppercase tracking-[0.3em] text-brand-muted bg-brand-bg px-4 py-2 rounded-lg">
