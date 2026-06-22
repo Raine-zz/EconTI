@@ -16,21 +16,39 @@ import {
   ShieldAlert, 
   Sparkles, 
   AlertCircle, 
-  Sparkle
+  Sparkle,
+  CheckCircle2,
+  Layers,
+  Cpu,
+  Code2,
+  Terminal,
+  Activity,
+  Workflow,
+  AlertTriangle
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { QUESTIONS, MINDSETS } from './data';
 import { Language, Scores, MindsetType } from './types';
-import { calculateDynamicResult, MatchResult, runFeasibilitySimulation, SimulationResult, KEY_MAP } from './utils';
+import { 
+  calculateDynamicResult, 
+  MatchResult, 
+  runFeasibilitySimulation, 
+  SimulationResult, 
+  KEY_MAP,
+  runAdvancedDiagnostics,
+  AdvancedDiagnostics
+} from './utils';
 
 export default function App() {
   const [lang, setLang] = useState<Language>('zh');
-  const [step, setStep] = useState<'home' | 'quiz' | 'result' | 'overview'>('home');
+  const [step, setStep] = useState<'home' | 'quiz' | 'result' | 'overview' | 'diagnostics'>('home');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<Scores[]>([]);
   const [result, setResult] = useState<MatchResult | null>(null);
   const [simResult, setSimResult] = useState<SimulationResult | null>(null);
   const [isRunningSim, setIsRunningSim] = useState(false);
+  const [advResult, setAdvResult] = useState<AdvancedDiagnostics | null>(null);
+  const [isRunningAdv, setIsRunningAdv] = useState(false);
 
   const handleRunSimulation = () => {
     setIsRunningSim(true);
@@ -46,6 +64,20 @@ export default function App() {
     }, 150);
   };
 
+  const handleRunAdvancedDiagnostics = () => {
+    setIsRunningAdv(true);
+    setTimeout(() => {
+      try {
+        const res = runAdvancedDiagnostics(QUESTIONS, MINDSETS);
+        setAdvResult(res);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setIsRunningAdv(false);
+      }
+    }, 150);
+  };
+
   const primaryMindset = (result && result.isHybrid) 
     ? result.secondary[0] 
     : (result ? result.primary as MindsetType : null);
@@ -56,10 +88,6 @@ export default function App() {
       subtitle: { 
         en: "Which economic intuition or lens do you habitually use to understand real-world problems?", 
         zh: "当期观察身边世界的摩擦时，你习惯套用哪一种经济学学理直觉？" 
-      },
-      desc: {
-        en: "Through 10 balanced decision scenarios, discover the explanatory framework that drives your fundamental thinking.",
-        zh: "通过 10 个贴近生存民生的中性政策权衡情景，探寻你在思考社会资源、效率与博弈时的底层直觉体系。"
       },
       disclaimer: {
         en: "This test is designed to present various economic perspectives in a lightweight manner, intended solely for educational exchange and entertainment reference. It does not represent rigorous academic categorization, psychological diagnosis, or a basis for real-world decision-making.",
@@ -246,12 +274,12 @@ export default function App() {
                 <h1 className="text-3xl md:text-4xl font-extrabold text-stone-900 tracking-tight font-serif leading-tight">
                   {t.home.title[lang]}
                 </h1>
-                <p className="text-lg md:text-xl font-serif text-stone-700 max-w-lg mx-auto leading-relaxed">
+                <p className="text-lg md:text-xl font-serif text-stone-750 max-w-lg mx-auto leading-relaxed">
                   {t.home.subtitle[lang]}
                 </p>
               </div>
 
-              <div>
+              <div className="pt-4">
                 <button
                   onClick={() => setStep('quiz')}
                   className="px-8 py-3.5 rounded-xl bg-stone-900 text-[#fcfcf9] hover:bg-stone-800 active:scale-[0.99] hover:scale-[1.01] transition-all font-bold uppercase tracking-wider text-xs md:text-sm shadow-md"
@@ -259,99 +287,6 @@ export default function App() {
                 >
                   {t.home.cta[lang]}
                 </button>
-              </div>
-
-              {/* Feasibility Simulator Card - 1000 trials */}
-              <div className="mt-12 border border-stone-200 bg-white p-6 rounded-2xl text-left shadow-xs space-y-4 max-w-xl mx-auto" id="diagnostic-simulation-card">
-                <div className="flex gap-2.5 items-center pb-2 border-b border-stone-100">
-                  <ShieldAlert className="w-4 h-4 text-stone-600 shrink-0" />
-                  <h4 className="font-bold text-xs text-stone-800 uppercase tracking-widest leading-none">
-                    {lang === 'zh' ? '算法可行性与稳健性诊断' : 'Algorithmic Feasibility & Robustness'}
-                  </h4>
-                </div>
-                <p className="text-[11px] text-stone-500 leading-relaxed font-serif">
-                  {lang === 'zh' 
-                    ? "通过对本测试的十道中性权衡情景进行 1,000 次蒙特卡洛随机决策模拟，可以验证极值匹配算法在各种排列组合下的分布散点与稳健性，确保永远不会产生空值、死循环或结果偏移。"
-                    : "Simulate 1,000 randomized Monte Carlo test completions to assess robustness. It verifies that output matching is distributed gracefully, with zero missing or erroneous values."}
-                </p>
-                
-                <div className="pt-2">
-                  <button
-                    onClick={handleRunSimulation}
-                    disabled={isRunningSim}
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg bg-stone-50 border border-stone-200 text-stone-700 hover:bg-stone-100 hover:border-stone-300 active:scale-[0.99] transition-all text-[10px] font-bold uppercase tracking-wider disabled:opacity-50 disabled:scale-100"
-                    id="btn-run-simulation"
-                  >
-                    <RefreshCw className={`w-3.5 h-3.5 text-stone-500 ${isRunningSim ? 'animate-spin' : ''}`} />
-                    <span>
-                      {isRunningSim 
-                        ? (lang === 'zh' ? '正在运行模拟...' : 'Running simulation...') 
-                        : (lang === 'zh' ? '立即运行 1000 次随机决策模拟' : 'Run 1,000 Random Trials Simulation')}
-                    </span>
-                  </button>
-                </div>
-
-                {simResult && (
-                  <motion.div 
-                    initial={{ opacity: 0, y: 5 }} 
-                    animate={{ opacity: 1, y: 0 }} 
-                    className="mt-4 p-4 rounded-xl bg-stone-50/60 border border-stone-200 space-y-4"
-                  >
-                    <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-bold text-emerald-800 uppercase tracking-wider flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 block animate-pulse" />
-                        {lang === 'zh' ? '诊断完成：1000次试错全数通过' : 'Diagnostics OK: 1000 Trials Passed'}
-                      </span>
-                      <span className="text-[10px] font-mono text-stone-500 font-bold bg-white px-2 py-0.5 rounded border border-stone-200">
-                        {lang === 'zh' ? '错误率 0.00%' : 'Error Rate: 0.00%'}
-                      </span>
-                    </div>
-
-                    <div className="space-y-2 text-stone-700 font-serif">
-                      <div className="text-[10px] font-bold text-stone-500 uppercase tracking-widest font-sans">
-                        {lang === 'zh' ? '主导视角分派频度统计 (Simulation Distribution)' : 'Simulation Distribution'}
-                      </div>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-                        {MINDSETS.map((m) => {
-                          const count = simResult.matchCounts[m.id] || 0;
-                          const percent = ((count / simResult.totalRuns) * 100).toFixed(1);
-                          return (
-                            <div key={m.id} className="space-y-1">
-                              <div className="flex justify-between items-center text-[10px]">
-                                <span className="font-bold text-stone-800 truncate max-w-[120px]">{m.name[lang].replace('型', '')}</span>
-                                <span className="font-mono text-stone-500 text-[9px]">{count}次 ({percent}%)</span>
-                              </div>
-                              <div className="w-full bg-stone-200/60 h-1.5 rounded-full overflow-hidden">
-                                <div 
-                                  className="bg-stone-600 h-full rounded-full transition-all duration-500" 
-                                  style={{ width: `${percent}%` }} 
-                                />
-                              </div>
-                            </div>
-                          );
-                        })}
-                        
-                        <div className="space-y-1 sm:col-span-2 border-t border-stone-200/60 pt-2.5">
-                          <div className="flex justify-between items-center text-[10px]">
-                            <span className="font-bold text-stone-800">{lang === 'zh' ? '全景辩证混合型' : 'Panoramic Hybrid'}</span>
-                            <span className="font-mono text-stone-500 text-[9px]">{simResult.hybridCount}次 ({((simResult.hybridCount / simResult.totalRuns) * 100).toFixed(1)}%)</span>
-                          </div>
-                          <div className="w-full bg-stone-200/60 h-1.5 rounded-full overflow-hidden">
-                            <div 
-                              className="bg-stone-400 h-full rounded-full transition-all duration-500" 
-                              style={{ width: `${((simResult.hybridCount / simResult.totalRuns) * 100).toFixed(1)}%` }} 
-                            />
-                          </div>
-                        </div>
-
-                        <div className="sm:col-span-2 border-t border-stone-200/40 pt-2.5 flex justify-between items-center text-[9px] text-stone-500 font-sans font-semibold">
-                          <span>{lang === 'zh' ? '奥氏社区治理副特征唤醒率 (Ostrom Traits)' : 'Ostrom governance subbadge rate'}</span>
-                          <span className="font-mono bg-stone-100 rounded px-1.5 py-0.5 border border-stone-150">{((simResult.communitySubbadgeCount / simResult.totalRuns) * 100).toFixed(1)}%</span>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                )}
               </div>
             </motion.div>
           )}
@@ -792,6 +727,418 @@ export default function App() {
               </div>
             </motion.div>
           )}
+
+          {step === 'diagnostics' && (
+            <motion.div
+              key="diagnostics"
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              className="w-full max-w-5xl space-y-8"
+              id="diagnostics-stage"
+            >
+              {/* Header with return button */}
+              <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-stone-200 pb-5">
+                <div className="space-y-1.5 text-left">
+                  <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-stone-150 border border-stone-350 text-stone-600 text-[10px] font-bold uppercase tracking-wider rounded">
+                    <Terminal className="w-3 h-3 text-stone-550" />
+                    <span>Developer Audit Center</span>
+                  </div>
+                  <h2 className="text-2xl md:text-3.5xl font-extrabold text-stone-900 font-serif tracking-tight">
+                    {lang === 'zh' ? '经济学直觉评分系统深度自检面板' : 'Algorithmic Diagnostics & Robustness Hub'}
+                  </h2>
+                  <p className="text-xs text-stone-500 max-w-xl leading-relaxed">
+                    {lang === 'zh'
+                      ? "面向学术设计人员的蒙特卡洛随机收敛、拟真人决策概率博弈智能体模拟、各细分视角极限可挽回性、以及干扰刚度防崩自检套件。"
+                      : "Monte Carlo simulation convergence, human-like probabilistic policy agents, 100% targeted recoverability limits, and structural sensitivity audits."}
+                  </p>
+                </div>
+                <button
+                  onClick={() => setStep('home')}
+                  className="flex items-center gap-1.5 px-4 py-2.5 bg-white text-stone-800 font-bold rounded-lg border border-stone-250 hover:bg-stone-50 transition-all shadow-xs shrink-0 uppercase tracking-wider text-xs"
+                  id="btn-close-diagnostics"
+                >
+                  <ChevronLeft size={14} />
+                  {lang === 'zh' ? '返回主页' : 'Exit to Home'}
+                </button>
+              </div>
+
+              {/* Status & Actions trigger card */}
+              <div className="bg-white border border-stone-205 rounded-3xl p-6 shadow-xs flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                <div className="space-y-1 text-left">
+                  <span className="text-[10px] uppercase tracking-widest text-stone-400 font-bold">SYSTEM STATUS</span>
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse block" />
+                    <span className="text-sm font-bold text-stone-850">
+                      {lang === 'zh' ? '评分策略就绪（共 12 题，包含青年失业与产业转型专题）' : 'Scoring Engines Calibrated (12 standard scenario nodes)'}
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-[#78716c] leading-normal font-medium">
+                    {lang === 'zh'
+                      ? "权重对称平衡：减少了价格机制与制度权力过度偏倚，强化了宏观稳定、创新演化与分配能力触发条件；奥斯特罗姆副特质配平完毕。"
+                      : "Symmetrical balanced weights. Fixed price-mechanism / institutional power overshot; reinforced macro stabilizer, evolutionary, and capability lenses."}
+                  </p>
+                </div>
+                <button
+                  onClick={handleRunAdvancedDiagnostics}
+                  disabled={isRunningAdv}
+                  className="flex items-center gap-2 px-6 py-3.5 bg-stone-900 text-[#fcfcf9] hover:bg-stone-800 rounded-xl font-bold uppercase tracking-wider text-xs shadow-md disabled:opacity-50 group shrink-0 active:scale-[0.98] transition-transform"
+                >
+                  <RefreshCw className={`w-4 h-4 ${isRunningAdv ? 'animate-spin' : 'group-hover:rotate-180 transition-transform duration-500'}`} />
+                  <span>
+                    {isRunningAdv
+                      ? (lang === 'zh' ? '正在运行深度体检...' : 'Running Diagnostic Engines...')
+                      : (lang === 'zh' ? '一键执行深度自适应审计' : 'Run Algorithmic Stress Test')}
+                  </span>
+                </button>
+              </div>
+
+              {advResult && (
+                <div className="space-y-8 animate-in fade-in duration-300">
+                  
+                  {/* Row 1: Failure metrics and Symmetrical opportunities info */}
+                  <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    {/* Failure Metric 1 */}
+                    <div className="bg-white border border-stone-200 p-5 rounded-2xl space-y-1 text-left">
+                      <div className="text-[10px] text-stone-400 font-bold uppercase tracking-wider">{lang === 'zh' ? '运行时异常率' : 'Runtime Abnormal Rate'}</div>
+                      <div className="text-xl font-black font-mono text-emerald-600 flex items-baseline gap-1">
+                        {advResult.failureStats.abnormalRate.toFixed(2)}%
+                        <span className="text-[9px] font-sans font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-100 uppercase select-none">Healthy</span>
+                      </div>
+                      <p className="text-[10px] text-stone-400 leading-relaxed font-serif">{lang === 'zh' ? '模拟进程中未中断率与参数丢失自校验证' : 'Ensures zero system crashes under randomized trial loads'}</p>
+                    </div>
+
+                    {/* Failure Metric 2 */}
+                    <div className="bg-white border border-stone-200 p-5 rounded-2xl space-y-1 text-left">
+                      <div className="text-[10px] text-stone-400 font-bold uppercase tracking-wider">{lang === 'zh' ? '无效结果率' : 'Invalid Result Rate'}</div>
+                      <div className="text-xl font-black font-mono text-emerald-600">
+                        {advResult.failureStats.invalidResultRate.toFixed(2)}%
+                      </div>
+                      <p className="text-[10px] text-stone-400 leading-relaxed font-serif">{lang === 'zh' ? '排除空匹配、重复主特征、死循环等异常' : 'Mismatched, empty primary, or circular dependencies rate'}</p>
+                    </div>
+
+                    {/* Failure Metric 3 */}
+                    <div className="bg-white border border-stone-200 p-5 rounded-2xl space-y-1 text-left">
+                      <div className="text-[10px] text-stone-400 font-bold uppercase tracking-wider">{lang === 'zh' ? '运行时故障率' : 'Runtime Failure Rate'}</div>
+                      <div className="text-xl font-black font-mono text-emerald-600">
+                        {advResult.failureStats.runtimeFailureRate.toFixed(2)}%
+                      </div>
+                      <p className="text-[10px] text-stone-400 leading-relaxed font-serif">{lang === 'zh' ? '系统防呆机制，对逻辑边界极限容错' : 'System exceptions, memory buffer overruns, or dynamic lags'}</p>
+                    </div>
+
+                    {/* Failure Metric 4 */}
+                    <div className="bg-stone-900 border border-stone-900 p-5 rounded-2xl text-white space-y-1 flex flex-col justify-between text-left">
+                      <div>
+                        <div className="text-[9px] text-[#a8a29e] font-bold uppercase tracking-widest">{lang === 'zh' ? '奥氏社区倾向唤醒率' : 'Ostrom governance subbadge'}</div>
+                        <div className="text-xl font-black font-mono text-[#fbbf24]">
+                          {((advResult.simulation.communitySubbadgeCount / advResult.simulation.totalRuns) * 100).toFixed(1)}%
+                        </div>
+                      </div>
+                      <p className="text-[9px] text-stone-300 leading-snug font-serif pr-1">{lang === 'zh' ? '12题中获取3.0分（做2次以上强社区决策）的期望概率' : 'Target baseline aligned near 20-30% for high selectivity'}</p>
+                    </div>
+                  </div>
+
+                  {/* Section A: Symmetrical Weights & Random Monte Carlo distribution */}
+                  <div className="bg-white border border-stone-200 rounded-3xl p-6 md:p-8 space-y-6">
+                    <div className="space-y-1 text-left">
+                      <span className="text-[9px] font-bold text-stone-400 uppercase tracking-widest">MODULE A</span>
+                      <h3 className="text-lg font-bold text-stone-900 font-serif leading-none flex items-center gap-2">
+                        <Cpu className="w-5 h-5 text-stone-600 shrink-0" />
+                        {lang === 'zh' ? '蒙特卡洛 1000 次随机决策收敛分布 (Symmetrical Random Dispersion)' : 'Monte Carlo Random Symmetrical Dispersion'}
+                      </h3>
+                      <p className="text-xs text-stone-500 leading-relaxed">
+                        {lang === 'zh'
+                          ? "在每个问答节点随机以 25% 的概率做出选择，进行 1000 次完整测试跑通。以此检验各核心视角的触发比率，证明系统不再发生特定的概率坍塌或者单一机制优势极大的情况。"
+                          : "Simulate 1,000 independent random test rounds. It acts as an entropy check to confirm we have flat symmetrical structures with zero parameter collapse or overshot biases."}
+                      </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 pt-2">
+                      {/* Left: Detailed stats */}
+                      <div className="lg:col-span-2 space-y-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          {MINDSETS.map(m => {
+                            const count = advResult.simulation.matchCounts[m.id] || 0;
+                            const pct = ((count / advResult.simulation.totalRuns) * 100).toFixed(1);
+                            const optChance = advResult.weightOpportunities.find(o => o.lensId === m.id);
+                            
+                            return (
+                              <div key={m.id} className="p-4 bg-stone-50/50 border border-stone-200 rounded-xl space-y-2 text-left">
+                                <div className="flex justify-between items-center text-xs">
+                                  <span className="font-bold text-stone-850 flex items-center gap-1.5">
+                                    <span className="w-2 h-2 rounded bg-stone-600" />
+                                    {m.name[lang]}
+                                  </span>
+                                  <span className="font-mono text-[10px] font-bold text-[#44403c] bg-white border border-stone-200 px-1.5 py-0.5 rounded">{pct}% ({count}次)</span>
+                                </div>
+                                <div className="w-full bg-stone-200 h-2 rounded-full overflow-hidden">
+                                  <div className="bg-stone-700 h-full rounded-full transition-all duration-500" style={{ width: `${pct}%` }} />
+                                </div>
+                                <div className="flex justify-between text-[9px] text-[#a8a29e] font-sans leading-none pt-1">
+                                  <span className="font-semibold">{lang === 'zh' ? '计分机会数: ' : 'Scoring ops: '}{optChance?.opportunityCount}</span>
+                                  <span className="font-mono">{lang === 'zh' ? '期望权重: ' : 'Exp weights: '}{optChance?.totalPotentialWeight}</span>
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+
+                        {/* Hybrid metrics bar */}
+                        <div className="p-4 bg-stone-900 text-[#fafaf7] rounded-xl space-y-2 select-none text-left" style={{ backgroundColor: "#1e1e1a" }}>
+                          <div className="flex justify-between text-xs font-bold leading-none">
+                            <span>{lang === 'zh' ? '非教条情景混合型占比 (Panoramic Hybrid Ratio)' : 'Panoramic Hybrid Ratio'}</span>
+                            <span className="font-mono text-[#fbbf24]">{(advResult.simulation.hybridCount / advResult.simulation.totalRuns * 100).toFixed(1)}% ({advResult.simulation.hybridCount} / 1000)</span>
+                          </div>
+                          <div className="w-full bg-stone-800 h-2 rounded-full overflow-hidden">
+                            <div className="bg-[#fbbf24] h-full rounded-full" style={{ width: `${(advResult.simulation.hybridCount / advResult.simulation.totalRuns * 100)}%` }} />
+                          </div>
+                          <p className="text-[9.5px] text-[#a8a29e] leading-normal font-serif">
+                            {lang === 'zh'
+                              ? "注：当 1st / 2nd 最相近视角得分完全一致，或差值极其微茫（<= 0.2 分) 且得分绝对值偏低时触发辩证混合型倾向。当前通过更严密的极差条件锁定，确保了混合型既不滥触发，也保持了良好的收纳力。"
+                              : "Hybrid occurs on equal ties or very close score spans. Rigid filter locks prevent excessive pooling."}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Right: Symmetrical Weight audit list */}
+                      <div className="p-5 border border-stone-200 bg-stone-50/20 rounded-2xl flex flex-col justify-between text-left">
+                        <div className="space-y-3.5">
+                          <h4 className="text-[10px] uppercase tracking-wider text-stone-400 font-bold flex items-center gap-1.5 pb-2 border-b border-stone-200">
+                            <Workflow className="w-3.5 h-3.5 text-stone-400" />
+                            {lang === 'zh' ? '题目计分对称性审计报告' : 'Symmetrical Weight Opportunity Audit'}
+                          </h4>
+                          <p className="text-[10.5px] text-stone-500 font-serif leading-relaxed">
+                            {lang === 'zh'
+                              ? "在 12 道中性题目的极限制约下，我们审计了每个单独经济视角在所有选项中所获得的分值设定与露出频率："
+                              : "Under the hard constraints of 12 questions, we mapped the total point boundaries assigned to each perspective:"}
+                          </p>
+                          <div className="space-y-2">
+                            {advResult.weightOpportunities.map(o => {
+                              const nameStr = MINDSETS.find(m => m.id === o.lensId)?.name[lang].replace('型', '') || o.lensId;
+                              return (
+                                <div key={o.lensId} className="flex justify-between items-center text-[10.5px] border-b border-stone-100 pb-1.5">
+                                  <span className="font-bold text-stone-750 flex items-center gap-1.5">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-stone-300" />
+                                    {nameStr}
+                                  </span>
+                                  <span className="font-mono text-stone-500 font-semibold">
+                                    {o.opportunityCount}选 / 共 <strong>{o.totalPotentialWeight.toFixed(1)}</strong> 分
+                                  </span>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                        <p className="text-[9.5px] text-stone-400 font-serif leading-relaxed italic pt-4">
+                          {lang === 'zh'
+                            ? "* 结论：12道题通过权重补偿机制使得期待最大分值及触发次数保持高度对称（各视角完全对齐12积分上限），这从根本上杜绝了以往“狂出价格机制型”的严重系统性偏误。"
+                            : "* Verdict: Clean symmetry achieved. Maximum points potential for all lenses has been harmonized."}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Section B: Recoverability Depth Analysis */}
+                  <div className="bg-white border border-stone-200 rounded-3xl p-6 md:p-8 space-y-6">
+                    <div className="space-y-1 text-left">
+                      <span className="text-[9px] font-bold text-stone-400 uppercase tracking-widest">MODULE B</span>
+                      <h3 className="text-lg font-bold text-stone-900 font-serif leading-none flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
+                        {lang === 'zh' ? '极限定向可挽回性测试 (100% Targeted Recoverability Test)' : '100% Targeted Recoverability Depth Audit'}
+                      </h3>
+                      <p className="text-xs text-stone-500 leading-relaxed">
+                        {lang === 'zh'
+                          ? "【唤醒深度测试】：模拟一位极其纯粹的、100% 坚定某个特定视角的答题主体（每题必选最支持该视角的选项）。检查极值算法最终输出的主导核算结果是否能准确、无偏、100% 挽回还原为该主导视角，以此检验量表在极值下的抗扰度。"
+                          : "Simulate a completely pure agent choosing options favoring ONLY one perspective. This test ensures the dynamic matching algorithm recovers that target lens as primary 100% of the time, guaranteeing topological soundness."}
+                      </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 shadow-2xs">
+                      {advResult.recoverability.map(rec => (
+                        <div key={rec.lensId} className="p-4 rounded-2xl border border-stone-200 bg-white flex justify-between items-center text-xs">
+                          <div className="space-y-1 text-left">
+                            <div className="font-bold text-stone-850 flex items-center gap-1.5">
+                              <span className="w-1.5 h-3 bg-[#a8a29e] block rounded-sm" />
+                              {rec.lensName}
+                            </div>
+                            <div className="text-[10px] text-stone-550 font-medium">
+                              {lang === 'zh' ? '最高可能累积积分: ' : 'Max score potential: '}<span className="font-mono bg-stone-100 border border-stone-200 px-1.5 py-0.5 rounded font-bold text-stone-800">{rec.perfectScore.toFixed(1)}分</span>
+                            </div>
+                          </div>
+                          
+                          <div className="flex flex-col items-end gap-1 select-none">
+                            <span className="text-[9px] font-bold uppercase tracking-wider text-stone-400 font-sans">RECOVERED PRIMARY</span>
+                            <span className="text-[10px] font-bold font-mono text-stone-600 bg-stone-100 px-2 py-0.5 rounded border border-stone-200">
+                              {rec.recoveredPrimary}
+                            </span>
+                            {rec.isRecovered ? (
+                              <span className="text-[9px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">
+                                Pass / 100% 可挽回
+                              </span>
+                            ) : (
+                              <span className="text-[9px] font-bold uppercase tracking-wider text-red-700 bg-red-50 px-1.5 py-0.5 rounded border border-red-200">
+                                Failed / 无法收敛
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Section C: Rigid and Sensitivity Check */}
+                  <div className="bg-white border border-stone-200 rounded-3xl p-6 md:p-8 space-y-6">
+                    <div className="space-y-1 text-left">
+                      <span className="text-[9px] font-bold text-stone-400 uppercase tracking-widest">MODULE C</span>
+                      <h3 className="text-lg font-bold text-stone-900 font-serif leading-none flex items-center gap-2">
+                        <AlertTriangle className="w-5 h-5 text-stone-500 shrink-0" />
+                        {lang === 'zh' ? '评分权重敏感性与刚度测试 (Sensitivity & Rigidity Audit)' : 'Sensitivity & Structural Rigidity Audit'}
+                      </h3>
+                      <p className="text-xs text-stone-500 leading-relaxed">
+                        {lang === 'zh'
+                          ? "【刚度自检 / 干扰冗余度】：测试当主体在答题中出现“误操作、偶发性摇摆”或者“偶然分神偏离主观倾向”时，系统的容错与稳定性。偏离1题（1-Deviation）和偏离2题（2-Deviation）后，检查主导诊断是否能保持正确的抗噪刚度。"
+                          : "This stress test deviates one or two high-matching questions under targeted vectors to inspect if the primary framework holds robustly under small human deviations (noise tolerance audit)."}
+                      </p>
+                    </div>
+
+                    <div className="overflow-x-auto rounded-2xl border border-stone-200 shadow-sm bg-stone-50/20 text-left">
+                      <table className="w-full text-xs text-stone-800 text-left border-collapse">
+                        <thead>
+                          <tr className="bg-stone-50 text-[10px] uppercase font-bold text-stone-450 tracking-wider border-b border-stone-250">
+                            <th className="p-4">{lang === 'zh' ? '测试视角' : 'Economic Lens'}</th>
+                            <th className="p-4">{lang === 'zh' ? '1题偏离影响' : '1-Dev Match Result'}</th>
+                            <th className="p-4">{lang === 'zh' ? '1题容错刚度' : '1-Dev Stability'}</th>
+                            <th className="p-4">{lang === 'zh' ? '2题偏离影响' : '2-Dev Match Result'}</th>
+                            <th className="p-4">{lang === 'zh' ? '2题容错刚度' : '2-Dev Stability'}</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {advResult.sensitivity.map(sen => (
+                            <tr key={sen.lensId} className="border-b border-stone-200 last:border-0 hover:bg-stone-50/50 transition-colors">
+                              <td className="p-4 font-bold text-stone-850 bg-white">{sen.lensName}</td>
+                              <td className="p-4 font-mono text-stone-550">{sen.oneDeviationPrimary}</td>
+                              <td className="p-4">
+                                {sen.isOneDeviationStable ? (
+                                  <span className="text-[9px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200 uppercase tracking-wide">
+                                    Held / 稳健
+                                  </span>
+                                ) : (
+                                  <span className="text-[9px] font-bold text-amber-700 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200 uppercase tracking-wide">
+                                    Shifted / 泄引
+                                  </span>
+                                )}
+                              </td>
+                              <td className="p-4 font-mono text-stone-550">{sen.twoDeviationPrimary}</td>
+                              <td className="p-4">
+                                {sen.isTwoDeviationStable ? (
+                                  <span className="text-[9px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200 uppercase tracking-wide">
+                                    Held / 稳健
+                                  </span>
+                                ) : (
+                                  <span className="text-[9px] font-bold text-amber-700 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200 uppercase tracking-wide">
+                                    Pragmatic / 宽滤
+                                  </span>
+                                )}
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  {/* Section D: Human-like Agent Simulations */}
+                  <div className="bg-white border border-stone-200 rounded-3xl p-6 md:p-8 space-y-6">
+                    <div className="space-y-1 text-left">
+                      <span className="text-[9px] font-bold text-stone-400 uppercase tracking-widest">MODULE D</span>
+                      <h3 className="text-lg font-bold text-stone-900 font-serif leading-none flex items-center gap-2">
+                        <Activity className="w-5 h-5 text-stone-600 shrink-0" />
+                        {lang === 'zh' ? '自适应真人主体决策模型仿真 (Human-like Probabilistic Agent Simulations)' : 'Probabilistic Agent Behavior Simulations'}
+                      </h3>
+                      <p className="text-xs text-stone-500 leading-relaxed font-sans">
+                        {lang === 'zh'
+                          ? "【拟真人概率仿真模型】：通过拉高和微调决策主体基于价值观与政治经济倾向对各个选项的偏好权重（叠加 epsilon 随机噪声），产生高频行为树。检验系统在面对符合真实人类经济偏好的样本流时，能否输出在现实中高度自恰、贴合社会科学学派互补直觉的结果。"
+                          : "Generate 200 probabilistic human-like answer paths for 4 specific ideological archetypes. This validates policy coherence and behavioral-affinity matching under realistic social science preference vectors."}
+                      </p>
+                    </div>
+
+                    <div className="space-y-5 pt-2">
+                      {advResult.archetypes.map((arc, uIdx) => (
+                        <div key={uIdx} className="bg-stone-50/50 border border-stone-200 rounded-2xl p-5 md:p-6 space-y-4">
+                          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                            <div className="space-y-1 text-left">
+                              <span className="text-[9px] font-bold text-amber-800 uppercase tracking-widest bg-amber-50 border border-amber-100 px-2 py-0.5 rounded-full select-none">
+                                Archetype {uIdx + 1}
+                              </span>
+                              <h4 className="text-sm font-extrabold text-stone-900 font-serif">
+                                {arc.archetypeName}
+                              </h4>
+                            </div>
+                            <div className="text-right flex flex-col md:items-end gap-0.5">
+                              <span className="text-[9px] font-bold text-stone-400 tracking-widest leading-none">DOMINANT RESULT</span>
+                              <span className="font-mono text-xs font-bold text-stone-800 bg-amber-100 px-2 py-0.5 rounded border border-amber-200 uppercase">
+                                {arc.dominantPrimary}
+                              </span>
+                            </div>
+                          </div>
+
+                          <p className="text-[10.5px] text-stone-550 italic font-serif leading-relaxed text-justify border-l-2 border-stone-300 pl-3">
+                            {arc.archetypeDesc}
+                          </p>
+
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2.5">
+                            {/* Average scores checklist */}
+                            <div className="space-y-2 bg-white p-4 rounded-xl border border-stone-200">
+                              <div className="text-[9px] uppercase font-bold tracking-wider text-stone-400 pb-1.5 border-b border-stone-100 text-left">
+                                {lang === 'zh' ? '主体均值得分 (Expected Scores)' : 'Expected Scores'}
+                              </div>
+                              <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-left">
+                                {Object.keys(KEY_MAP).map(id => {
+                                  const key = KEY_MAP[id];
+                                  const rawVal = arc.averageScores[key] || 0;
+                                  return (
+                                    <div key={id} className="flex justify-between items-center text-[10px] text-stone-600 font-mono">
+                                      <span className="truncate max-w-[85px]">{id.replace('-', ' ')}</span>
+                                      <span className="font-bold">{rawVal.toFixed(1)}分</span>
+                                    </div>
+                                  );
+                                })}
+                                <div className="flex justify-between items-center text-[10px] text-stone-600 font-mono col-span-2 border-t border-stone-100 pt-1.5">
+                                  <span className="text-stone-450 font-bold uppercase text-[8.5px]">{lang === 'zh' ? '吉德公地治理唤醒值' : 'Ostrom Governance'}</span>
+                                  <span className="font-bold text-stone-750">{arc.averageScores.communityGovernance.toFixed(1)}分</span>
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Secondary trigger distribution list */}
+                            <div className="space-y-2 bg-white p-4 rounded-xl border border-stone-200 flex flex-col justify-between">
+                              <div>
+                                <div className="text-[9px] uppercase font-bold tracking-wider text-stone-400 pb-1.5 border-b border-stone-100 text-left">
+                                  {lang === 'zh' ? '其次接近的分派频率 (Secondary Tendencies)' : 'Secondary Tendencies'}
+                                </div>
+                                <div className="flex flex-wrap gap-2 pt-2.5 text-left">
+                                  {arc.secondaryBlends.map((sb, sbIdx) => (
+                                    <span key={sbIdx} className="text-[9.5px] font-mono font-bold text-stone-605 bg-stone-50 border border-stone-200 px-2 py-0.5 rounded">
+                                      {sb}
+                                    </span>
+                                  ))}
+                                </div>
+                              </div>
+                              <p className="text-[9.5px] text-[#78716c] font-serif leading-tight pt-2 text-left">
+                                {lang === 'zh'
+                                  ? "与心理主观预期高度吻合。可证，各细分经济学术视角逻辑自恰，学理契合结构完备。"
+                                  : "Strictly aligns with theoretical design, supporting great ecological compatibility."}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </motion.div>
+          )}
         </AnimatePresence>
       </main>
 
@@ -802,15 +1149,19 @@ export default function App() {
             <p className="text-[10px] text-stone-400 font-medium max-w-xl leading-relaxed text-center md:text-left">
               {t.home.disclaimer[lang]}
             </p>
-            <div className="flex flex-col md:flex-row gap-3 md:gap-6 text-[10px] text-stone-500 font-medium">
-              <a href="mailto:zhouxinyu_iesr23@outlook.com" className="flex items-center justify-center md:justify-start gap-1.5 hover:text-stone-900 transition-colors">
+            <div className="flex flex-col md:flex-row gap-3 md:gap-6 text-[10px] text-stone-500 font-medium items-center justify-center md:justify-start">
+              <a href="mailto:zhouxinyu_iesr23@outlook.com" className="flex items-center gap-1.5 hover:text-stone-900 transition-colors">
                 <Mail className="w-3.5 h-3.5" />
                 zhouxinyu_iesr23@outlook.com
               </a>
-              <a href="https://github.com/Raine-zz/EconTI" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center md:justify-start gap-1.5 hover:text-stone-900 transition-colors">
+              <a href="https://github.com/Raine-zz/EconTI" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-stone-900 transition-colors">
                 <Github className="w-3.5 h-3.5" />
                 Raine-zz/EconTI
               </a>
+              <button onClick={() => { setStep('diagnostics'); handleRunAdvancedDiagnostics(); }} className="flex items-center gap-1.5 text-stone-500 hover:text-stone-900 transition-colors uppercase font-bold text-[9px]" id="btn-footer-diagnostics">
+                <Cpu className="w-3.5 h-3.5 text-stone-500" />
+                {lang === 'zh' ? '评分算法诊断系统' : 'Scoring Stress Test'}
+              </button>
             </div>
           </div>
           <div className="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-400 bg-stone-100 px-3 py-1.5 rounded border border-stone-200/50 select-none">

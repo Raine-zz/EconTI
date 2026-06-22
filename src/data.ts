@@ -13,14 +13,14 @@ export const QUESTIONS: Question[] = [
           zh: "放宽城市规划等土地限制，减免建设相关税种，鼓励私人资本与开发商增建各类住宅以提升房屋供给。",
           en: "Relax zoning laws and land restrictions, cut construction taxes, and encourage private builders to rapidly increase overall housing supply."
         },
-        weights: { priceMechanism: 1.5 }
+        weights: { priceMechanism: 1.0, evolutionaryInnovation: 0.5 }
       },
       {
         text: {
           zh: "出台租金上涨红线（如租金管制），设立租客协商代表，限制非理性驱逐以保护弱势居住群体的基本权益。",
           en: "Enact a cap on rent hikes (rent control), support tenant unions, and limit eviction rules to shield vulnerable residents."
         },
-        weights: { institutionalPower: 1.5 }
+        weights: { institutionalPower: 1.0, equityCapability: 0.5 }
       },
       {
         text: {
@@ -31,10 +31,10 @@ export const QUESTIONS: Question[] = [
       },
       {
         text: {
-          zh: "扶持非营利性社区信托自自治和房屋自组织合作社，通过邻里协商共同决定、自建房屋、分摊保障、自主维护。",
+          zh: "扶持非营利性社区信托自治和房屋自组织合作社，通过邻里协商共同决定、自建房屋、分摊保障、自主维护。",
           en: "Empower non-profit community land trusts and housing cooperatives to co-develop, allocate, and manage properties via collaborative consensus."
         },
-        weights: { institutionalPower: 1.0, communityGovernance: 2.0 }
+        weights: { institutionalPower: 0.5, communityGovernance: 1.5 }
       }
     ]
   },
@@ -50,7 +50,7 @@ export const QUESTIONS: Question[] = [
           zh: "尊重供求决定的相对价格，自发上涨的价格才能合理激励新商家进入和引导消费者削减非必要需求，让市场恢复均衡。",
           en: "Respect free price movements; rising relative prices incentivize supply diversification and guide customers to reduce non-essential demand."
         },
-        weights: { priceMechanism: 1.5 }
+        weights: { priceMechanism: 1.0, evolutionaryInnovation: 0.5 }
       },
       {
         text: {
@@ -91,10 +91,10 @@ export const QUESTIONS: Question[] = [
       },
       {
         text: {
-          zh: "必须保障普通人在规则博弈中的基本尊严和劳动议价权，要求平台与科技巨头依法购买社会保护，限制任意解聘行为。",
+          zh: "必须保障普通人在规则博弈中的基本尊严 and 劳动议价权，要求平台与科技巨头依法购买社会保护，限制任意解聘行为。",
           en: "Bolster employees' collective bargain rights, ensure labor protections remain intact, and prevent Tech giants from cutting safety nets."
         },
-        weights: { institutionalPower: 1.5 }
+        weights: { institutionalPower: 1.0, equityCapability: 0.5 }
       },
       {
         text: {
@@ -124,14 +124,14 @@ export const QUESTIONS: Question[] = [
           zh: "依法引入集体谈判机制，赋予骑手共同商讨派单时间算法边界的制度表决权，并联合重构用工最低工资法和雇主兜底标准。",
           en: "Legislate collective bargaining. Empower couriers to participate in redefining algorithmic boundaries and guarantee workplace floor pay."
         },
-        weights: { institutionalPower: 1.5 }
+        weights: { institutionalPower: 1.0, equityCapability: 0.5 }
       },
       {
         text: {
           zh: "维持平台弹性灵活用工规则以拓宽更庞大的大众就业盘，并在多个配送品牌之间培育充分的自由竞争，引导其动态提高骑手回报。",
           en: "Assert contract flexibility to safeguard vast low-barrier employment, and foster dynamic platform competition to push market compensation."
         },
-        weights: { priceMechanism: 1.5 }
+        weights: { priceMechanism: 1.0, evolutionaryInnovation: 0.5 }
       },
       {
         text: {
@@ -145,7 +145,7 @@ export const QUESTIONS: Question[] = [
           zh: "联合社区工作站、地方志愿者与商户，合作构建地区级“骑手温暖网格”生态（如饮水点、自组织歇脚站、邻里紧急调解委员会）。",
           en: "Synthesize localized community support networks, where local store owners, worker councils, and neighborhood volunteers provide shelter."
         },
-        weights: { behavioralReality: 1.0, communityGovernance: 2.0 }
+        weights: { behavioralReality: 0.5, communityGovernance: 1.5 }
       }
     ]
   },
@@ -161,7 +161,7 @@ export const QUESTIONS: Question[] = [
           zh: "一刀切地禁绝学校竞争无益。应该鼓励民间办学供给多样化，放开公办民办定价权并健全市场竞争，以此来根本平复名校溢价。",
           en: "Encourage private sector options and ease standard price restrictions on tuition. Boost educational options to absorb excess premium."
         },
-        weights: { priceMechanism: 1.5 }
+        weights: { priceMechanism: 1.0, evolutionaryInnovation: 0.5 }
       },
       {
         text: {
@@ -182,7 +182,7 @@ export const QUESTIONS: Question[] = [
           zh: "充分调动地方社区公会或基层自治委员会，建立街坊课后托管、互助学习共享小组，用地方熟人凝聚力平摊课后看护的社会压力。",
           en: "Delegate educational care. Coordinate school-parent neighborhood collectives and student clubs to cushion childcarer stress."
         },
-        weights: { equityCapability: 1.0, communityGovernance: 2.0 }
+        weights: { equityCapability: 0.8, communityGovernance: 1.5 }
       }
     ]
   },
@@ -198,7 +198,7 @@ export const QUESTIONS: Question[] = [
           zh: "科学界定排碳指标并开征碳排碳税（庇古税），让排碳企业完全承担外部不经济性，将社会成本完整自发反射在企业产品标价中。",
           en: "Levy a precise Pigouvian carbon tax or trade credits to force firms to internalize the societal cost, leveraging the price mechanism."
         },
-        weights: { priceMechanism: 1.5 }
+        weights: { priceMechanism: 1.0, macroStabilization: 0.5 }
       },
       {
         text: {
@@ -219,7 +219,7 @@ export const QUESTIONS: Question[] = [
           zh: "鼓励地区自治协商（奥斯特罗姆框架），支持工厂代表与周边受损社区代表、邻里自治理事会当面谈判，商定符合本地方利益的最大减排规约。",
           en: "Pioneer localized negotiation, letting industrial associations, local community boards, and civic unions co-agree on micro emissions agreements."
         },
-        weights: { institutionalPower: 1.0, communityGovernance: 2.0 }
+        weights: { institutionalPower: 0.5, communityGovernance: 1.5 }
       }
     ]
   },
@@ -235,7 +235,7 @@ export const QUESTIONS: Question[] = [
           zh: "允许资深医生在合规范围内合理自主定价，利用特需调节削减不必要或轻度诉求门类，回收盈利用于研发扩增优质供给。",
           en: "Allow competitive pricing for premium consultation to weed out non-essential demand, while recycling revenues into new medical capacity."
         },
-        weights: { priceMechanism: 1.5 }
+        weights: { priceMechanism: 1.0, evolutionaryInnovation: 0.5 }
       },
       {
         text: {
@@ -256,7 +256,7 @@ export const QUESTIONS: Question[] = [
           zh: "大排长龙暴露出医生、患者与医院组织规则议价权的失衡；规范核心执业标准，保障基本卫生工会福利并严厉防范内部灰色利益输送。",
           en: "Examine institutional bias. Tighten audits on hospital procurement networks and regulate doctor-pharma marketing connections."
         },
-        weights: { institutionalPower: 1.5 }
+        weights: { institutionalPower: 1.0 }
       }
     ]
   },
@@ -269,10 +269,10 @@ export const QUESTIONS: Question[] = [
     choices: [
       {
         text: {
-          zh: "严肃遵循市场纪律和责任自负原则。拒绝无条件救助，避免严重的“道德风险”（Moral Hazard），让市场充分定价和信用自然淘汰。",
+          zh: "严肃遵循市场纪律和责任自负原则。拒绝无条件救助，避免严重的“道德风险”（Moral Hazard），让市场充分定价并信用自然淘汰。",
           en: "Observe pure market discipline. Deny blank-check bailouts to avoid serious 'moral hazard' and restore baseline healthy asset behavior."
         },
-        weights: { priceMechanism: 1.5 }
+        weights: { priceMechanism: 1.0 }
       },
       {
         text: {
@@ -293,7 +293,7 @@ export const QUESTIONS: Question[] = [
           zh: "挤兑暴露了底层资本的所有权控制弊端，借此机会对这些金融机构进行深度监管听证、推行重大信用资产重组并追究股东的契约责任。",
           en: "Investigate structural exploitation. Execute rigorous administrative audits into the financial elites and reorganize asset ownership boards."
         },
-        weights: { institutionalPower: 1.5 }
+        weights: { institutionalPower: 1.0 }
       }
     ]
   },
@@ -316,14 +316,14 @@ export const QUESTIONS: Question[] = [
           zh: "重构企业法和超额收益分配。重点解决垄断平台、超大资本财团和劳动者之间在组织话语和权利博弈上的不均，限制不平等的寻租红利。",
           en: "Introduce progressive inheritance taxes and curb platform rent-seeking to level the structurally skewed playing field between labor and capital."
         },
-        weights: { institutionalPower: 1.5 }
+        weights: { institutionalPower: 1.0 }
       },
       {
         text: {
           zh: "应当警惕严酷的一刀切财产税挫伤了关键财富创造者的长线创业热情，需通过培育生机勃勃的私营竞争来拉高蛋糕体积与创造大量就业。",
           en: "Avoid heavy wealth levies that disincentivize job creators. Maintain competitive dynamics to scale the pie and boost baseline employment."
         },
-        weights: { priceMechanism: 1.5 }
+        weights: { priceMechanism: 1.0, evolutionaryInnovation: 0.5 }
       },
       {
         text: {
@@ -346,7 +346,7 @@ export const QUESTIONS: Question[] = [
           zh: "数字资产被巨头垄断控制。应制定前瞻算法透明法，保障网民可以就自己的个人数据产权进行自主主张与交易所有权。",
           en: "Legislate digital consumer guidelines. Force transparency in algos and give users legal control and property rights over their data assets."
         },
-        weights: { institutionalPower: 1.5 }
+        weights: { institutionalPower: 1.0 }
       },
       {
         text: {
@@ -367,7 +367,81 @@ export const QUESTIONS: Question[] = [
           zh: "这本质上是每个用户理性决策与有限时间约束相互适应的过程。消费者自愿花费时间去换多巴胺是个体效用的自主选择，无需行政过度监管。",
           en: "Recognize subjective individual valuation. Customers intentionally trade time for infotainment based on their personal marginal utility."
         },
-        weights: { priceMechanism: 1.5 }
+        weights: { priceMechanism: 1.0 }
+      }
+    ]
+  },
+  {
+    id: 11,
+    title: {
+      zh: "当青年失业率升高、企业招聘缩减且家庭开支趋于保守时，你认为政策重点应放在哪里？",
+      en: "When youth unemployment rises, recruiting retracts, and households tighten budgets, where should policy focus?"
+    },
+    choices: [
+      {
+        text: {
+          zh: "启动逆周期的财政支出，针对青年专门扩增保障性的环保、公教等公共岗位，并发放中期的临时性生活保障金以撑住消费预期的总有效需求。",
+          en: "Launch countercyclical fiscal expansion to create temporary public sector jobs and issue survival stipends to defend general effective demand."
+        },
+        weights: { macroStabilization: 1.5 }
+      },
+      {
+        text: {
+          zh: "通过定向返租减税、削减社保代扣开支等措施，实质降低企业雇佣青年的边际总成本，放开创业准入门槛，让劳动力市场的价格和供求自发适配。",
+          en: "Offer corporate tax discounts on hiring and lower labor cost parameters to allow supply and demand forces to clear youth job markets."
+        },
+        weights: { priceMechanism: 1.2 }
+      },
+      {
+        text: {
+          zh: "重点投放专项职业转换奖学金、新青年数字化高阶学徒计划和职业指导自组基金，全链条重构普通青年在长程技术更替时的核心可行能力。",
+          en: "Sponsor digital training fellowships, specialized apprenticeships, and adaptive learning accounts to rebuild youths' core capabilities to adapt."
+        },
+        weights: { equityCapability: 1.3, behavioralReality: 0.3 }
+      },
+      {
+        text: {
+          zh: "建立高频实习和派遣用工的硬性最低薪酬红线，发挥劳动监察并强化集体议价谈判权，坚决斩断大中企业利用劳动力积压肆意转嫁用工风险的抢掠势头。",
+          en: "Enforce minimum intern compensation and promote youth labor union collective voice to block employers from shifting operational risks onto workers."
+        },
+        weights: { institutionalPower: 1.2, evolutionaryInnovation: 0.4 }
+      }
+    ]
+  },
+  {
+    id: 12,
+    title: {
+      zh: "面对新能源、芯片和尖端生成式人工智能（AI）的全球产业升级风潮，你认为一个地区该如何推动赶超？",
+      en: "Across semiconductors and generative AI global upgrades, how should a region best promote industrial transition?"
+    },
+    choices: [
+      {
+        text: {
+          zh: "集中资源扶持具有极高探索上限的尖端国家科研基金、高风险技术试验室以及新锐创业风口，拥抱新旧生产力的“创造性破坏”与突变重组。",
+          en: "Supercharge cutting-edge tech venture grants and support high-risk labs, championing daring entrepreneurs and long-term Schumpeterian transformations."
+        },
+        weights: { evolutionaryInnovation: 1.5 }
+      },
+      {
+        text: {
+          zh: "通过出台中长期的国家战略产业规划稳定投资者和就业群体的信心，利用宏观新型大基建投融资平稳转型期的总投资和宏观经济预期波动。",
+          en: "Establish long-term industry roadmaps and public infrastructure bonds to buffer baseline investment and secure systemic economic stability."
+        },
+        weights: { macroStabilization: 1.5 }
+      },
+      {
+        text: {
+          zh: "定向巨额产业财政补贴往往会助长寻租与产能过剩。应坚决破除要素垄断障碍、降税免阻，让透明的市场利润自发优选并过滤出最高效的企业。",
+          en: "Avoid direct state financial hand-outs which fuel crony rents; lower tax blocks and let open market returns organically discover efficient operators."
+        },
+        weights: { priceMechanism: 1.2 }
+      },
+      {
+        text: {
+          zh: "严防补贴被大财团及地方特权利益圈子俘获，确立穿透式听证机制，并将核心转型红利溢出的专项资金返还用于受损行业员工再培训与平衡补偿。",
+          en: "Enforce fierce public audits against corporate capture of subsidies, redistributing windfall rents to retrain laborers displaced by structural upgrades."
+        },
+        weights: { institutionalPower: 1.0, equityCapability: 0.5 }
       }
     ]
   }
