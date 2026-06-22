@@ -1,1362 +1,1041 @@
-import { Question, Economist } from './types';
+import { Question, MindsetType } from './types';
 
-export const QUESTIONS: Question[] = [
+export const MINDSETS: MindsetType[] = [
   {
-    "id": 1,
-    "title": {
-      "en": "Your favorite local café just raised prices by 30%. Your response is:",
-      "zh": "你最喜欢的本地咖啡馆涨价了30%。你的反应是："
+    id: "market-coordination",
+    name: { en: "Market Coordination Type", zh: "市场协调型" },
+    summary: { 
+      en: "You treat price mechanisms as spontaneous coordination miracles of human civilization.",
+      zh: "你将价格机制视为人类文明在去中心化模式下自发协作的奇迹。"
     },
-    "choices": [
-      {
-        "text": {
-          "en": "Just pay it; supply and demand is just how things work.",
-          "zh": "照付不误；供需关系就是这么运作的。"
-        },
-        "weights": {
-          "interventionism": -0.8,
-          "rationality": 0.8,
-          "vision": -0.175,
-          "scope": -0.05
-        }
-      },
-      {
-        "text": {
-          "en": "Complain to the manager about price-gouging.",
-          "zh": "找经理抱怨他们是在敲竹杠。"
-        },
-        "weights": {
-          "interventionism": 0.8,
-          "rationality": -0.6,
-          "scope": -0.05,
-          "vision": 0.225
-        }
-      },
-      {
-        "text": {
-          "en": "Stop going there as a personal protest.",
-          "zh": "作为个人抗议，不再去那儿买东西了。"
-        },
-        "weights": {
-          "rationality": -0.7,
-          "scope": -0.45,
-          "vision": 0.025
-        }
-      },
-      {
-        "text": {
-          "en": "Start checking if your grocery bills are also creeping up.",
-          "zh": "开始检查你的超市账单是否也在悄悄涨价。"
-        },
-        "weights": {
-          "scope": 0.55,
-          "rationality": 0.5,
-          "vision": -0.075
-        }
-      }
-    ]
-  },
-  {
-    "id": 2,
-    "title": {
-      "en": "There's a massive housing shortage in your city. You think we should:",
-      "zh": "你所在的城市正面临严重的住房短缺。你认为我们应该："
+    representative: { en: "Adam Smith / Friedrich Hayek", zh: "亚当·斯密 (Adam Smith) / 弗里德里希·哈耶克 (Friedrich Hayek)" },
+    representativeBio: {
+      en: "Adam Smith defined the 'Invisible Hand', showing decentralized exchange creates wealth. Hayek proved price is a decentralized system to process scattered information, solving coordinate challenges of human society.",
+      zh: "亚当·斯密开创了“看不见的手”理论，展示去中心化交易如何创造财富。哈耶克进一步指出价格是由无数分散的人自发传递供需信号的通信网络，远比集中计划敏捷。"
     },
-    "choices": [
-      {
-        "text": {
-          "en": "Clear all the red tape and let builders build fast.",
-          "zh": "扫除所有繁文缛节，让开发商快马加鞭地盖房。"
-        },
-        "weights": {
-          "interventionism": -1,
-          "scope": -0.225,
-          "vision": -0.6
-        }
-      },
-      {
-        "text": {
-          "en": "Protest for lower rents and better public housing.",
-          "zh": "抗议要求降低租金并提供更好的公共住房。"
-        },
-        "weights": {
-          "interventionism": 0.7,
-          "vision": 0.3,
-          "scope": -0.025
-        }
-      },
-      {
-        "text": {
-          "en": "Give people moving out to the suburbs a tax break.",
-          "zh": "为搬到郊区的人提供税收优惠。"
-        },
-        "weights": {
-          "interventionism": 0.2,
-          "scope": 0.275,
-          "vision": -0.1
-        }
-      },
-      {
-        "text": {
-          "en": "Join a communal living project that shares space.",
-          "zh": "加入一个共享空间的社区共同生活项目。"
-        },
-        "weights": {
-          "vision": 0.4,
-          "interventionism": 0.1,
-          "scope": -0.025
-        }
-      }
-    ]
-  },
-  {
-    "id": 3,
-    "title": {
-      "en": "A new AI robot can do 90% of manual labor. Your first thought is:",
-      "zh": "一台新型AI机器人可以完成90%的体力劳动。你的第一想法是："
+    keywords: {
+      en: ["Spontaneous Order", "Price Signal", "Division of Labor", "Decentralized Action"],
+      zh: ["自发秩序", "价格信号", "劳动分工", "去中心化行为"]
     },
-    "choices": [
-      {
-        "text": {
-          "en": "Sweet! We can finally spend all day at the beach.",
-          "zh": "太棒了！我们终于可以整天在海滩躺平了。"
-        },
-        "weights": {
-          "vision": 0.4,
-          "scope": -0.15,
-          "interventionism": -0.075,
-          "rationality": 0.025
-        }
-      },
-      {
-        "text": {
-          "en": "Terrifying! We should tax robots to pay for our lost jobs.",
-          "zh": "太吓人了！我们应该对机器人征税来支付我们失去的工作。"
-        },
-        "weights": {
-          "interventionism": 0.625,
-          "vision": 0.3,
-          "rationality": 0.025,
-          "scope": 0.05
-        }
-      },
-      {
-        "text": {
-          "en": "Time to sign up for a coding bootcamp, I guess.",
-          "zh": "我想，该报名参加一个编程训练营了。"
-        },
-        "weights": {
-          "rationality": 0.725,
-          "interventionism": -0.475,
-          "vision": -0.2,
-          "scope": 0.05
-        }
-      },
-      {
-        "text": {
-          "en": "Meh, people have been saying this for a hundred years.",
-          "zh": "额，人们一百年来一直这么说。"
-        },
-        "weights": {
-          "rationality": -0.775,
-          "vision": -0.5,
-          "interventionism": -0.075,
-          "scope": 0.05
-        }
-      }
-    ]
-  },
-  {
-    "id": 4,
-    "title": {
-      "en": "When you see a giant tech monopoly, you usually:",
-      "zh": "当你看到一家巨型科技垄断企业时，你通常会："
-    },
-    "choices": [
-      {
-        "text": {
-          "en": "Use their app anyway because it's so convenient.",
-          "zh": "照样用他们的App，因为太方便了。"
-        },
-        "weights": {
-          "interventionism": -0.625,
-          "rationality": 0.55,
-          "vision": -0.35,
-          "scope": -0.1
-        }
-      },
-      {
-        "text": {
-          "en": "Call for them to be broken up by the government.",
-          "zh": "呼吁政府将其拆分。"
-        },
-        "weights": {
-          "interventionism": 0.775,
-          "vision": 0.35,
-          "rationality": -0.35,
-          "scope": -0.1
-        }
-      },
-      {
-        "text": {
-          "en": "Wonder how they actually manage such a huge workforce.",
-          "zh": "好奇他们到底是如何管理如此庞大的员工队伍的。"
-        },
-        "weights": {
-          "rationality": 0.15,
-          "scope": 0.3,
-          "vision": -0.25,
-          "interventionism": 0.075
-        }
-      },
-      {
-        "text": {
-          "en": "Expect a scrappy startup to take them down eventually.",
-          "zh": "期待最终会有一家斗志旺盛的初创公司打败他们。"
-        },
-        "weights": {
-          "vision": 0.25,
-          "interventionism": -0.225,
-          "rationality": -0.35,
-          "scope": -0.1
-        }
-      }
-    ]
-  },
-  {
-    "id": 5,
-    "title": {
-      "en": "During a major financial crash, you think we should:",
-      "zh": "在重大金融危机期间，你认为我们就应该："
-    },
-    "choices": [
-      {
-        "text": {
-          "en": "Have the government spend big to keep us afloat.",
-          "zh": "让政府大手笔支出以维持我们的生存。"
-        },
-        "weights": {
-          "interventionism": 0.725,
-          "scope": 0.425,
-          "rationality": -0.3,
-          "vision": -0.15
-        }
-      },
-      {
-        "text": {
-          "en": "Let the failing banks collapse; that's just life.",
-          "zh": "让倒闭的银行破产吧；这就是现实。"
-        },
-        "weights": {
-          "interventionism": -0.975,
-          "rationality": 0.1,
-          "scope": -0.275,
-          "vision": -0.15
-        }
-      },
-      {
-        "text": {
-          "en": "Tighten our belts and make sure the currency stays strong.",
-          "zh": "勒紧裤腰带，确保货币维持强势。"
-        },
-        "weights": {
-          "scope": 0.125,
-          "rationality": 0.5,
-          "interventionism": -0.075,
-          "vision": -0.15
-        }
-      },
-      {
-        "text": {
-          "en": "Use the crisis to build a whole new green economy.",
-          "zh": "利用危机建立一个全新的绿色经济体系。"
-        },
-        "weights": {
-          "vision": 0.45,
-          "interventionism": 0.325,
-          "rationality": -0.3,
-          "scope": -0.275
-        }
-      }
-    ]
-  },
-  {
-    "id": 6,
-    "title": {
-      "en": "What's the main reason you do anything in life?",
-      "zh": "你做任何事的主要动力是什么？"
-    },
-    "choices": [
-      {
-        "text": {
-          "en": "To get the best possible outcome for myself.",
-          "zh": "为自己争取最好的结果。"
-        },
-        "weights": {
-          "rationality": 1,
-          "scope": -0.375,
-          "vision": -0.55,
-          "interventionism": 0.025
-        }
-      },
-      {
-        "text": {
-          "en": "Just because that's what everyone else is doing.",
-          "zh": "仅仅因为大家都在这么做。"
-        },
-        "weights": {
-          "rationality": -1,
-          "scope": -0.175,
-          "vision": -0.25,
-          "interventionism": 0.025
-        }
-      },
-      {
-        "text": {
-          "en": "Because my background and status expect it of me.",
-          "zh": "因为我的背景和地位对我有这种期待。"
-        },
-        "weights": {
-          "vision": 0.45,
-          "scope": 0.525,
-          "interventionism": 0.025
-        }
-      },
-      {
-        "text": {
-          "en": "To create something original that breaks the mold.",
-          "zh": "为了创造一些打破常规的原创东西。"
-        },
-        "weights": {
-          "vision": 0.35,
-          "interventionism": -0.075,
-          "scope": 0.025
-        }
-      }
-    ]
-  },
-  {
-    "id": 7,
-    "title": {
-      "en": "The massive gap between rich and poor makes you:",
-      "zh": "巨大的贫富差距让你觉得："
-    },
-    "choices": [
-      {
-        "text": {
-          "en": "Want to work harder to join the top 1%.",
-          "zh": "想更努力地工作以挤进那1%的圈子。"
-        },
-        "weights": {
-          "interventionism": -0.85,
-          "vision": -0.9,
-          "rationality": 0.375,
-          "scope": 0.075
-        }
-      },
-      {
-        "text": {
-          "en": "Want to tax the rich until everyone has the same.",
-          "zh": "想对富人课重税，直到大家的生活水平都一样。"
-        },
-        "weights": {
-          "interventionism": 0.65,
-          "vision": 0.4,
-          "rationality": -0.325,
-          "scope": 0.075
-        }
-      },
-      {
-        "text": {
-          "en": "Assume it's just because some people went to better schools.",
-          "zh": "认为这仅仅是因为有些人上了更好的学校。"
-        },
-        "weights": {
-          "rationality": 0.275,
-          "scope": -0.225,
-          "interventionism": -0.15,
-          "vision": -0.1
-        }
-      },
-      {
-        "text": {
-          "en": "Feel that true freedom is impossible for the poor.",
-          "zh": "觉得由于贫困，真正的自由对穷人来说是不可能的。"
-        },
-        "weights": {
-          "vision": 0.6,
-          "interventionism": 0.35,
-          "rationality": -0.325,
-          "scope": 0.075
-        }
-      }
-    ]
-  },
-  {
-    "id": 8,
-    "title": {
-      "en": "The best way to save the planet from pollution is:",
-      "zh": "让地球免受污染的最佳方式是："
-    },
-    "choices": [
-      {
-        "text": {
-          "en": "Make companies pay a fee for every ton of CO2.",
-          "zh": "让公司为每吨二氧化碳排放支付费用。"
-        },
-        "weights": {
-          "rationality": 0.75,
-          "interventionism": 0.175,
-          "scope": 0.125,
-          "vision": -0.2
-        }
-      },
-      {
-        "text": {
-          "en": "Have the government ban gas cars and plan green cities.",
-          "zh": "让政府禁止燃油车并规划绿色城市。"
-        },
-        "weights": {
-          "interventionism": 0.675,
-          "vision": 0.3,
-          "rationality": -0.05,
-          "scope": 0.125
-        }
-      },
-      {
-        "text": {
-          "en": "Hope that new tech makes being 'green' more profitable.",
-          "zh": "希望新技术能让“环保”变得更有利可图。"
-        },
-        "weights": {
-          "interventionism": -0.725,
-          "scope": -0.075,
-          "rationality": -0.05,
-          "vision": -0.2
-        }
-      },
-      {
-        "text": {
-          "en": "Let local neighborhoods manage their own forests and parks.",
-          "zh": "让当地社区管理他们自己的森林和公园。"
-        },
-        "weights": {
-          "vision": 0.1,
-          "scope": -0.175,
-          "rationality": -0.65,
-          "interventionism": -0.125
-        }
-      }
-    ]
-  },
-  {
-    "id": 9,
-    "title": {
-      "en": "When you choose a career, what matters most?",
-      "zh": "当你选择职业时，最重要的是什么？"
-    },
-    "choices": [
-      {
-        "text": {
-          "en": "The salary and growth potential.",
-          "zh": "薪水和增长潜力。"
-        },
-        "weights": {
-          "rationality": 0.75,
-          "scope": -0.475,
-          "vision": -0.75,
-          "interventionism": -0.025
-        }
-      },
-      {
-        "text": {
-          "en": "Having a job that lets me help my local community.",
-          "zh": "拥有一份能让我帮助当地社区的工作。"
-        },
-        "weights": {
-          "vision": 0.25,
-          "scope": 0.425,
-          "interventionism": -0.025,
-          "rationality": -0.25
-        }
-      },
-      {
-        "text": {
-          "en": "Just finding something stable so I can pay the bills.",
-          "zh": "只求找份稳定的工作，好付账单。"
-        },
-        "weights": {
-          "vision": 0.35,
-          "interventionism": 0.275,
-          "rationality": -0.25,
-          "scope": 0.025
-        }
-      },
-      {
-        "text": {
-          "en": "Finding a place where I can invent new things.",
-          "zh": "找一个能让我发明新事物的地方。"
-        },
-        "weights": {
-          "vision": 0.15,
-          "interventionism": -0.225,
-          "rationality": -0.25,
-          "scope": 0.025
-        }
-      }
-    ]
-  },
-  {
-    "id": 10,
-    "title": {
-      "en": "Who should pay for college tuition?",
-      "zh": "大学学费应该由谁承担？"
-    },
-    "choices": [
-      {
-        "text": {
-          "en": "The government, so everyone has a fair shot.",
-          "zh": "政府，这样每个人都有公平的机会。"
-        },
-        "weights": {
-          "interventionism": 0.8,
-          "scope": 0.275,
-          "rationality": -0.325,
-          "vision": 0.025
-        }
-      },
-      {
-        "text": {
-          "en": "The students, so they actually show up to class.",
-          "zh": "学生自己，这样他们才会真的去上课。"
-        },
-        "weights": {
-          "interventionism": -0.4,
-          "rationality": 0.475,
-          "vision": -0.375,
-          "scope": -0.025
-        }
-      },
-      {
-        "text": {
-          "en": "A mix of both, using income-based loans.",
-          "zh": "两者兼顾，使用基于收入的贷款方式。"
-        },
-        "weights": {
-          "rationality": 0.175,
-          "scope": -0.225,
-          "interventionism": 0.1,
-          "vision": 0.025
-        }
-      },
-      {
-        "text": {
-          "en": "Let's just learn from each other and skip the fancy degrees.",
-          "zh": "咱们互相学习得了，别去拿那些昂贵的学位。"
-        },
-        "weights": {
-          "vision": 0.325,
-          "interventionism": -0.5,
-          "rationality": -0.325,
-          "scope": -0.025
-        }
-      }
-    ]
-  },
-  {
-    "id": 11,
-    "title": {
-      "en": "Buying goods from abroad is usually:",
-      "zh": "从国外购买商品通常是："
-    },
-    "choices": [
-      {
-        "text": {
-          "en": "Awesome; I can get cool stuff cheaper.",
-          "zh": "太棒了；我可以更便宜地买到酷炫的东西。"
-        },
-        "weights": {
-          "interventionism": -0.8,
-          "scope": 0.1,
-          "rationality": 0.525,
-          "vision": -0.4
-        }
-      },
-      {
-        "text": {
-          "en": "A bit guilty; I worry about the workers who made them.",
-          "zh": "有点愧疚；我担心生产这些东西的工人。"
-        },
-        "weights": {
-          "vision": 0.4,
-          "interventionism": 0.5,
-          "rationality": -0.175,
-          "scope": -0.3
-        }
-      },
-      {
-        "text": {
-          "en": "Bad for the shops in my own neighborhood.",
-          "zh": "对我们自己社区的商店不好。"
-        },
-        "weights": {
-          "interventionism": 0.4,
-          "rationality": -0.175,
-          "vision": -0.1
-        }
-      },
-      {
-        "text": {
-          "en": "A cool way to feel connected to the whole world.",
-          "zh": "一种感觉与全世界相连的酷炫方式。"
-        },
-        "weights": {
-          "vision": 0.1,
-          "scope": 0.2,
-          "interventionism": -0.1,
-          "rationality": -0.175
-        }
-      }
-    ]
-  },
-  {
-    "id": 12,
-    "title": {
-      "en": "When the economy grows, you see it as:",
-      "zh": "当经济增长时，你将其视为："
-    },
-    "choices": [
-      {
-        "text": {
-          "en": "Life generally getting better for my family.",
-          "zh": "全家人的生活通常都在变好。"
-        },
-        "weights": {
-          "scope": 0.5,
-          "rationality": 0.65,
-          "vision": -0.375,
-          "interventionism": -0.025
-        }
-      },
-      {
-        "text": {
-          "en": "An excuse to keep trashing the planet for objects.",
-          "zh": "为了物质而继续破坏地球的借口。"
-        },
-        "weights": {
-          "vision": 0.325,
-          "rationality": -0.75,
-          "interventionism": -0.025,
-          "scope": -0.1
-        }
-      },
-      {
-        "text": {
-          "en": "Pointless if the rich just get richer and I don't.",
-          "zh": "如果只是富人变得更富而我没有，那就毫无意义。"
-        },
-        "weights": {
-          "interventionism": 0.575,
-          "vision": 0.225,
-          "rationality": 0.05,
-          "scope": -0.1
-        }
-      },
-      {
-        "text": {
-          "en": "A side-effect of people inventing better ways to work.",
-          "zh": "人们发明了更好的工作方式所带来的副作用。"
-        },
-        "weights": {
-          "interventionism": -0.525,
-          "scope": -0.3,
-          "rationality": 0.05,
-          "vision": -0.175
-        }
-      }
-    ]
-  },
-  {
-    "id": 13,
-    "title": {
-      "en": "A billionaire gives away half their money. You think:",
-      "zh": "一位亿万富翁捐出了他们一半的钱。你认为："
-    },
-    "choices": [
-      {
-        "text": {
-          "en": "Wow, they are such a nice person.",
-          "zh": "哇，他们真是个好人。"
-        },
-        "weights": {
-          "interventionism": -0.575,
-          "vision": -0.625,
-          "rationality": -0.225,
-          "scope": 0.1
-        }
-      },
-      {
-        "text": {
-          "en": "They should have just paid more taxes in the first place.",
-          "zh": "他们当初就应该交更多的税。"
-        },
-        "weights": {
-          "interventionism": 0.725,
-          "vision": 0.275,
-          "rationality": 0.075,
-          "scope": 0.1
-        }
-      },
-      {
-        "text": {
-          "en": "It's probably just a PR move to look good.",
-          "zh": "这可能只是为了树立良好形象的公关手段。"
-        },
-        "weights": {
-          "rationality": 0.775,
-          "scope": -0.2,
-          "interventionism": -0.075,
-          "vision": -0.025
-        }
-      },
-      {
-        "text": {
-          "en": "We should all be sharing more like that anyway.",
-          "zh": "反正我们大家都应该更多地进行那样的分享。"
-        },
-        "weights": {
-          "vision": 0.375,
-          "rationality": -0.625,
-          "interventionism": -0.075
-        }
-      }
-    ]
-  },
-  {
-    "id": 14,
-    "title": {
-      "en": "When hotels double their prices during the holidays, you:",
-      "zh": "当酒店在假期期间价格翻倍时，你会："
-    },
-    "choices": [
-      {
-        "text": {
-          "en": "Expect it; everyone wants to travel then.",
-          "zh": "预料之中；那时大家都想去旅游。"
-        },
-        "weights": {
-          "interventionism": -0.625,
-          "rationality": 1.125,
-          "vision": -0.275,
-          "scope": -0.025
-        }
-      },
-      {
-        "text": {
-          "en": "Get angry that they are taking advantage of us.",
-          "zh": "对他们利用我们而感到愤怒。"
-        },
-        "weights": {
-          "interventionism": 0.675,
-          "vision": 0.225,
-          "rationality": 0.125,
-          "scope": -0.025
-        }
-      },
-      {
-        "text": {
-          "en": "Just stay home or look for a cheaper Airbnb.",
-          "zh": "干脆待在家里或找一家更便宜的Airbnb。"
-        },
-        "weights": {
-          "rationality": -0.875,
-          "scope": -0.425,
-          "interventionism": -0.025,
-          "vision": 0.025
-        }
-      },
-      {
-        "text": {
-          "en": "Think about how it prices out regular families.",
-          "zh": "思考这如何让普通家庭望而却步。"
-        },
-        "weights": {
-          "scope": 0.475,
-          "rationality": -0.375,
-          "interventionism": -0.025,
-          "vision": 0.025
-        }
-      }
-    ]
-  },
-  {
-    "id": 15,
-    "title": {
-      "en": "Farming should mostly focus on:",
-      "zh": "农业应该主要关注："
-    },
-    "choices": [
-      {
-        "text": {
-          "en": "Using science to grow as much food as possible.",
-          "zh": "利用科学种植尽可能多的粮食。"
-        },
-        "weights": {
-          "rationality": 0.95,
-          "interventionism": -0.55,
-          "vision": -0.625,
-          "scope": 0.025
-        }
-      },
-      {
-        "text": {
-          "en": "Making sure the people working the land get a fair deal.",
-          "zh": "确保在土地上劳作的人获得公平待遇。"
-        },
-        "weights": {
-          "interventionism": 0.45,
-          "vision": 0.275,
-          "rationality": -0.85,
-          "scope": 0.025
-        }
-      },
-      {
-        "text": {
-          "en": "Strict rules to stop polluting the soil.",
-          "zh": "通过严格的规则防止土壤污染。"
-        },
-        "weights": {
-          "interventionism": 0.35,
-          "scope": 0.325,
-          "rationality": -0.05,
-          "vision": -0.125
-        }
-      },
-      {
-        "text": {
-          "en": "Going back to old-school, natural ways of growing.",
-          "zh": "回归老派、自然的种植方式。"
-        },
-        "weights": {
-          "vision": 0.475,
-          "scope": -0.375,
-          "interventionism": -0.25,
-          "rationality": -0.05
-        }
-      }
-    ]
-  },
-  {
-    "id": 16,
-    "title": {
-      "en": "Social media apps are mostly there to:",
-      "zh": "社交媒体App的存在主要是为了："
-    },
-    "choices": [
-      {
-        "text": {
-          "en": "Keep us entertained and talking to friends.",
-          "zh": "让我们保持娱乐并与朋友交谈。"
-        },
-        "weights": {
-          "vision": -0.55,
-          "scope": -0.35,
-          "rationality": -0.3,
-          "interventionism": -0.175
-        }
-      },
-      {
-        "text": {
-          "en": "Harvest our data to sell and make a profit.",
-          "zh": "收集我们的数据进行销售并获取利润。"
-        },
-        "weights": {
-          "rationality": 0.6,
-          "vision": 0.25,
-          "interventionism": -0.175,
-          "scope": 0.05
-        }
-      },
-      {
-        "text": {
-          "en": "Manipulate our attention, so we should limit them.",
-          "zh": "操控我们的注意力，所以我们应该限制它们。"
-        },
-        "weights": {
-          "interventionism": 0.525,
-          "rationality": -0.3,
-          "scope": 0.05,
-          "vision": -0.05
-        }
-      },
-      {
-        "text": {
-          "en": "Give us a place to build digital communities.",
-          "zh": "为我们提供建立数字社区的场所。"
-        },
-        "weights": {
-          "vision": 0.35,
-          "scope": 0.25,
-          "interventionism": -0.175
-        }
-      }
-    ]
-  },
-  {
-    "id": 17,
-    "title": {
-      "en": "When parents leave money to their kids, it should be:",
-      "zh": "当父母把钱留给孩子时，这应该是："
-    },
-    "choices": [
-      {
-        "text": {
-          "en": "Their total right, and the government should stay out of it.",
-          "zh": "他们的绝对权利，政府不应插手。"
-        },
-        "weights": {
-          "interventionism": -1,
-          "rationality": 0.425,
-          "vision": -0.875,
-          "scope": 0.025
-        }
-      },
-      {
-        "text": {
-          "en": "Taxed heavily so every kid starts on a level playing field.",
-          "zh": "重税收，以便每个孩子都在平等的起跑线上开始。"
-        },
-        "weights": {
-          "interventionism": 0.8,
-          "vision": 0.525,
-          "rationality": -0.275,
-          "scope": 0.025
-        }
-      },
-      {
-        "text": {
-          "en": "Spent on the kids' studies anyway.",
-          "zh": "反正应该花在孩子的学业上。"
-        },
-        "weights": {
-          "rationality": 0.125,
-          "scope": -0.075,
-          "interventionism": -0.1,
-          "vision": -0.075
-        }
-      },
-      {
-        "text": {
-          "en": "Mostly shared with the public to help everyone.",
-          "zh": "大部分与公众分享以帮助大家。"
-        },
-        "weights": {
-          "vision": 0.425,
-          "interventionism": 0.3,
-          "rationality": -0.275,
-          "scope": 0.025
-        }
-      }
-    ]
-  },
-  {
-    "id": 18,
-    "title": {
-      "en": "The best way to stop bad traffic jams is:",
-      "zh": "解决严重交通拥堵的最佳方式是："
-    },
-    "choices": [
-      {
-        "text": {
-          "en": "Charge a fee for driving into the center during rush hour.",
-          "zh": "在高峰时段进城收取费用。"
-        },
-        "weights": {
-          "rationality": 0.175,
-          "interventionism": 0.2,
-          "scope": -0.075,
-          "vision": 0.025
-        }
-      },
-      {
-        "text": {
-          "en": "Build way more public buses, subways, and bike lanes.",
-          "zh": "建设更多的公共汽车、地铁和自行车道。"
-        },
-        "weights": {
-          "interventionism": 0.6,
-          "scope": 0.325,
-          "rationality": -0.325,
-          "vision": 0.025
-        }
-      },
-      {
-        "text": {
-          "en": "Let private companies build better toll roads.",
-          "zh": "让私人公司建设更好的收费公路。"
-        },
-        "weights": {
-          "interventionism": -0.7,
-          "scope": -0.275,
-          "rationality": 0.475,
-          "vision": -0.375
-        }
-      },
-      {
-        "text": {
-          "en": "Just let more people work from their couches.",
-          "zh": "干脆让更多人坐在沙发上办公。"
-        },
-        "weights": {
-          "vision": 0.325,
-          "scope": 0.025,
-          "interventionism": -0.1,
-          "rationality": -0.325
-        }
-      }
-    ]
-  },
-  {
-    "id": 19,
-    "title": {
-      "en": "Why is putting money in a savings account important?",
-      "zh": "为什么把钱存进储蓄账户很重要？"
-    },
-    "choices": [
-      {
-        "text": {
-          "en": "To make sure I'm safe if I lose my job.",
-          "zh": "为了确保如果我丢了工作也能有保障。"
-        },
-        "weights": {
-          "rationality": 0.525,
-          "scope": -0.55,
-          "vision": -0.4,
-          "interventionism": 0.05
-        }
-      },
-      {
-        "text": {
-          "en": "So I can buy a house or a car down the road.",
-          "zh": "这样以后我可以买房或买车。"
-        },
-        "weights": {
-          "rationality": 0.225,
-          "interventionism": -0.15,
-          "scope": -0.05
-        }
-      },
-      {
-        "text": {
-          "en": "It gives banks money to lend out for new buildings.",
-          "zh": "它让银行有钱贷出去建造新楼。"
-        },
-        "weights": {
-          "scope": 0.65,
-          "rationality": -0.275,
-          "interventionism": 0.05
-        }
-      },
-      {
-        "text": {
-          "en": "To leave something behind for my family one day.",
-          "zh": "为了有一天能给家人留点遗产。"
-        },
-        "weights": {
-          "vision": 0.4,
-          "rationality": -0.475,
-          "interventionism": 0.05,
-          "scope": -0.05
-        }
-      }
-    ]
-  },
-  {
-    "id": 20,
-    "title": {
-      "en": "A truly happy country should focus on:",
-      "zh": "一个真正幸福的国家应该关注："
-    },
-    "choices": [
-      {
-        "text": {
-          "en": "Making sure there are lots of jobs and things to buy.",
-          "zh": "确保有大量的工作和可购买的东西。"
-        },
-        "weights": {
-          "interventionism": -0.475,
-          "scope": -0.475,
-          "rationality": 0.425,
-          "vision": -0.35
-        }
-      },
-      {
-        "text": {
-          "en": "Health, schools, and looking after each other.",
-          "zh": "健康、学校和互相照顾。"
-        },
-        "weights": {
-          "interventionism": 0.725,
-          "vision": 0.25,
-          "scope": 0.225,
-          "rationality": -0.775
-        }
-      },
-      {
-        "text": {
-          "en": "Keeping prices stable and our money valuable.",
-          "zh": "保持物价稳定并让我们的货币保值。"
-        },
-        "weights": {
-          "scope": 0.425,
-          "rationality": 0.425,
-          "interventionism": 0.025,
-          "vision": -0.35
-        }
-      },
-      {
-        "text": {
-          "en": "Making sure everyone is free to live their own best life.",
-          "zh": "确保每个人都能自由地过上他们认为最好的生活。"
-        },
-        "weights": {
-          "vision": 0.45,
-          "interventionism": -0.275,
-          "rationality": -0.075,
-          "scope": -0.175
-        }
-      }
-    ]
-  }
-];
-
-export const ECONOMISTS: Economist[] = [
-  {
-    id: "smith",
-    name: { en: "Adam Smith", zh: "亚当·斯密 (Adam Smith)" },
-    summary: { en: "The Market Maestro", zh: "自发秩序的指挥家" },
     description: {
-      en: "You find deep logic in the 'Invisible Hand', seeing the market as a miracle of spontaneous coordination where individual effort builds social wealth.",
-      zh: "你在“看不见的手”中发现了深层逻辑，将市场视为自发协作的奇迹，个人的努力在此建立了社会财富。"
+      en: "You have strong faith in spontaneous market mechanisms. You believe millions of individuals acting locally on local price signals produce order and wealth far superior to any top-down master design. For you, top-down coordination should only act as a neutral framework of rules, rather than dictating actual trading results.",
+      zh: "你对自发的市场机制抱有极强的信心。你相信数以百万计的个体根据局部价格信号进行决策，自然演化出的社会秩序和繁荣程度，远非任何自上而下的完美规划所能及。对你而言，集中计划往往赶不上市场参与者灵活调整的效率。"
     },
-    authorBio: {
-      en: "Adam Smith was the pioneer of classical economics and the master of Enlightenment logic. Writing in 1776, his 'The Wealth of Nations' became the blueprint for the modern world, explaining how decentralized systems could thrive without a single person in charge.\n\nHe famously observed that it is not from the benevolence of the butcher or the baker that we expect our dinner, but from their regard to their own interest. This simple yet profound realization laid the groundwork for understanding how specialization and free exchange create universal prosperity.\n\nBeyond pure math, Smith was a moral philosopher who deeply valued 'Moral Sentiments' and human empathy. He believed that the 'Invisible Hand' worked best when supported by a clear legal framework and a baseline of social justice, ensuring that the fruit of industry reached all levels of society.",
-      zh: "亚当·斯密是古典经济学的先驱，也是启蒙运动逻辑的大师。他在1776年撰写的《国富论》成为了现代世界的蓝图，解释了去中心化的系统如何在没有单一负责人管理的情况下蓬勃发展。\n\n他那句著名的观察是：我们期望的晚餐并非来自屠夫、酿酒师或面包师的恩惠，而是来自他们对自身利益的关注。这种简单而深刻的感悟为理解专业化分工和自由交换如何创造普遍繁荣奠定了基础。\n\n除了纯粹的计算，斯密亦是一位深切看重“道德情操”和人类移情的道德哲学家。他相信，“看不见的手”在清晰的法律框架和社会正义底线的支持下运作得最为出色，确保勤劳的成果能够触及社会的各个层面。"
+    strengths: {
+      en: [
+        "Deep respect for organic complexity and decentralization, preventing system-wide plans that backfire.",
+        "Clear grasp of how prices guide resources efficiently without needing a saintly or expert referee.",
+        "Saves enormous administrative and supervisory heavy costs by prioritizing market adjustment."
+      ],
+      zh: [
+        "尊重复杂系统的有机自发演化，极力避免好心办坏事、代价高昂的集中决策扭曲。",
+        "敏锐地理解价格是如何自动调节供需、引导资源最高效流动的，无需完美且居高临下的设计者。",
+        "优先利用价格和交易发现方案，省去繁冗庞大的行政与监管隐性成本。"
+      ]
     },
-    commonTraits: {
-      en: "You possess a profound trust in decentralized systems, much like a tech developer who believes open-source code naturally evolves into the best software. You prefer the organic flow of local interactions over the rigid predictability of a top-down master plan.\n\nYour view of human nature is balanced; you understand that personal drive is a powerful engine for progress. Just as a small business owner works late to perfect their product for customers, you believe that when individuals excel for themselves, they inadvertently serve the whole world.\n\nIn policy, you advocate for a stable referee state. Like a football official who ensures fair play without deciding the score, you believe government should focus on core infrastructure and justice, leaving the creative 'game' of life to the free players.",
-      zh: "你对去中心化系统抱有极深的信任，就像一位相信开源代码能自然演化成最佳软件的技术开发者。比起自上而下蓝图的那种呆板可预测性，你更倾向于局部互动的有机流动。\n\n你的人性观非常平衡；你明白个人动力是进步的强大引擎。正如一位小店主为了顾客熬夜完善产品一样，你相信当个人为了自己而追求卓越时，无意中也服务了整个世界。\n\n在政策上，你主张建立稳定的“裁判型”国家。就像一位只确保公平竞赛而不决定比分的足球裁判，你认为政府应专注于核心基础设施和正义，而将充满创造力的“生活游戏”留给自由的参与者。"
+    blindspots: {
+      en: [
+        "May underestimate market gaps, public goods shortages, or negative externalities like long-term carbon crises.",
+        "Could ignore initially skewed asset allocations and bargaining power gaps.",
+        "Sometimes treats systemic blockages as merely local regulatory interferences."
+      ],
+      zh: [
+        "可能低估市场无法解决的外部性（如碳排放等环境危机）和公共物品天然供给不足的问题。",
+        "容易忽视由于初始禀赋、资本积累和市场支配势力不对等所导致的实质性议价权差距。",
+        "有时容易不加区分地把所有的系统性失灵，一律归结为政府或非市场力量的过度干预。"
+      ]
     },
-    idealScores: { interventionism: -0.8, rationality: 0.9, scope: -0.6, vision: -0.7 },
+    concepts: [
+      { name: "Invisible Hand", desc: { en: "How self-interested actions lead to optimal societal resource allocation.", zh: "个人在追求自身利益的同时，受无形机制指导实现了促进社会整体利益的效果。" } },
+      { name: "Spontaneous Order", desc: { en: "Order emerging without intentional top-down design (e.g., markets, language).", zh: "没有中央指令或特意设计，多主体自发产生的精妙稳定秩序（如市场、语言）。" } },
+      { name: "Information Problem", desc: { en: "Knowledge is highly localized and fragmented, central planning cannot aggregate it.", zh: "社会性决策所需的具体知识分散且具有局部性，任何中央权威都无法完美收集并处理。" } }
+    ],
+    idealScores: {
+      marketVsIntervention: 0.9,
+      incentiveVsPower: 0.5,
+      rationalVsBehavioral: 0.4,
+      efficiencyVsEquity: 0.7,
+      localVsCentral: 0.8
+    },
     imageUrl: "https://api.dicebear.com/7.x/notionists/svg?seed=Felix&backgroundColor=b6e3f4"
   },
   {
-    id: "keynes",
-    name: { en: "John Maynard Keynes", zh: "约翰·梅纳德·凯恩斯 (John Maynard Keynes)" },
-    summary: { en: "The Crisis Architect", zh: "大衰退的“救火队长”" },
+    id: "free-choice",
+    name: { en: "Individual Choice & Incentive Type", zh: "自由选择型" },
+    summary: { 
+      en: "You treat human actions as rational reactions to costs, returns, and behavioral incentives.",
+      zh: "你习惯将各种人类活动转化为对成本、收益与核心激励机制做出的理性反应。"
+    },
+    representative: { en: "Milton Friedman / Gary Becker", zh: "米尔顿·弗里德曼 (Milton Friedman) / 加里·贝克尔 (Gary Becker)" },
+    representativeBio: {
+      en: "Friedman defended consumer freedom and monetary rules. Becker expanded economic tools to daily choices, proving marriage, crime, and human capital are products of incentive assessment.",
+      zh: "弗里德曼是自由市场竞争与个人选择权的坚实捍卫者。贝克尔将微观经济学分析开创性地运用到家庭、犯罪、族群歧视等社会学领域，证明人类行为遵循着统一的成本激励抉择。"
+    },
+    keywords: {
+      en: ["Incentives", "Opportunity Cost", "Human Capital", "Consumer Sovereignty"],
+      zh: ["激励机制", "机会成本", "人力资本", "消费者主权"]
+    },
     description: {
-      en: "You are the architect of the middle path, believing that while markets are powerful, they are prone to sudden collapses in confidence.",
-      zh: "你是中间道路的建筑师，相信尽管市场力量强大，但它们很容易在信心崩溃时突然瓦解。"
+      en: "Your thinking focuses on individuals rather than labels. You believe the best way to explain human cooperation and development is to analyze how people trade off options based on their constraints, payoffs, and individual costs. To resolve complex public problems, your primary focus is changing the underlying incentive structure rather than appealing to pure moral solidarity.",
+      zh: "你的思维始终聚焦于具体的行动主体，而非宏大集体的道德标签。你认为解释一切人类合作、行为与制度最可信的钥匙，就是去观察人们在面临有限资源和真实成本制约下，如何对边际得失做出反应。重新理顺激励机制往往是解决社会问题的关键。"
     },
-    authorBio: {
-      en: "John Maynard Keynes revolutionized 20th-century thought by challenging the dogma that markets always balance themselves. When the Great Depression hit, he observed that economic machines could get stuck in deep ruts, requiring a 'kickstart' from high-level intervention.\n\nHis core insight was that 'animal spirits'—the shifting moods of fear and confidence—drive our largest spending decisions. He famously argued that 'in the long run we are all dead', urging governments to handle the immediate pain of the present rather than waiting for a distant, natural equilibrium.\n\nKeynes helped build the Bretton Woods system, the foundation of modern global finance. He aimed to save capitalism from its own volatile extremes, proposing that the state use its unique power to borrow and spend during downturns to keep the heart of the economy beating.",
-      zh: "约翰·梅纳德·凯恩斯通过挑战“市场总能自我平衡”的教条，彻底改变了20世纪的思想。当大萧条来袭时，他观察到经济机器可能会陷入深坑，需要来自高层的干预来“启动”。\n\n他的核心见解是：是“动物精神”——即恐惧和信心的情绪转变——驱动了我们重大的消费决定。他那句名言是“长期来看，我们都死了”，以此敦促政府处理现下的痛苦，而非等待遥远且自然发生的均衡。\n\n凯恩斯帮助建立了布雷顿森林体系，这是现代全球金融的基础。他致力于将资本主义从其自身剧烈的极端波动中拯救出来，提出国家应在低迷时期利用其特有的借贷和支出能力，保持经济脉搏的跳动。"
+    strengths: {
+      en: [
+        "Superb ability to predict human behavioral responses, cutting through idealistic but failing policies.",
+        "Empowers local users and consumers instead of strengthening management or monopoly organizations.",
+        "Deep focus on opportunities, treating human skills and education as high-yield human capital investments."
+      ],
+      zh: [
+        "卓越的行为预测能力，能凭理性的成本收益路径敏锐看穿那些出于好意但违背人性的空头政策。",
+        "崇尚消费者主权，主张以此建立充分竞争，把真正的决定抉择权交还给最终使用者和民众本身。",
+        "注重长远潜力，将人的受教育与技能提升视为一种回报极其丰厚的人力资本积累行为。"
+      ]
     },
-    commonTraits: {
-      en: "You have a natural talent for macro-thinking, focusing on how large systems interact rather than individual line items. If a local community center is falling apart during a recession, you are the first to say we should fund its repair today to create jobs and boost local hope.\n\n You understand that confidence is the currency of growth. Much like a visionary CEO who invests in a project because they 'believe' in the future, you recognize that fear can lead to a 'liquidity trap' where saving too much kills the very system we are trying to protect.\n\nYour approach is essentially pragmatic; you believe policy should be a flexible toolkit. You view the government not as a rigid overseer, but as a 'safety net architect' whose task is to manage the volatile rhythms of human optimism and despair.",
-      zh: "你拥有宏观思维的天赋，关注大系统如何互动而非仅仅是细节条目。如果一个社区中心在衰退期破败不堪，你会第一个说：我们今天就应该出资修缮它，以此创造就业并提振当地的信心。\n\n你明白信心才是增长的货币。就像一位因为“相信”未来而投资项目的愿景型 CEO，你意识到恐惧可能导致“流动性陷阱”，即存钱过多反而杀死了我们试图保护的系统。\n\n你的方法本质上是务实的；你认为政策应当是一个灵活的工具箱。你并不将政府视为死板的监察者，而是将其视为“安全网建筑师”，其任务是管理人类乐观与绝望的剧烈波动节奏。"
+    blindspots: {
+      en: [
+        "May dismiss psychological biases, systematic framing, and long-term habits.",
+        "Could reduce deep emotional, historical, or relational bonds into simple calculation spreadsheets.",
+        "Tends to ignore structural privilege blocks that limit individual choices to begin with."
+      ],
+      zh: [
+        "可能忽视心理认知偏误、社会情境锚定以及文化惯性等心理与非理性非计算要素。",
+        "容易将复杂多变的情感、历史积怨或社会伦理关系，过于片面地抽象为单一维度上的得失考量。",
+        "有时容易忽略由于系统性特权、出身阶层差距等前提条件的不对等，导致某些自由选择名存实亡。"
+      ]
     },
-    idealScores: { interventionism: 0.9, rationality: -0.8, scope: 0.9, vision: 0.6 },
-    imageUrl: "https://api.dicebear.com/7.x/notionists/svg?seed=Oliver&backgroundColor=c0aede"
-  },
-  {
-    id: "marx",
-    name: { en: "Karl Marx", zh: "卡尔·马克思 (Karl Marx)" },
-    summary: { en: "The Structural Rebel", zh: "旧世界的“叛逆挖掘者”" },
-    description: {
-      en: "You view the world through the lens of power and history, believing that progress requires changing the underlying structures of society.",
-      zh: "你通权力和历史的透镜看待世界，相信真正的进步需要改变社会的底层结构。"
+    concepts: [
+      { name: "Opportunity Cost", desc: { en: "The value of the next-best alternative forgone when making a choice.", zh: "为了做出某种选择而必须放弃的、在其他备选项中所对应的最高价值。" } },
+      { name: "Human Capital", desc: { en: "The skills, knowledge, and experience possessed by an individual, viewed as a value creator.", zh: "将个人所拥有的技能、健康状况和知识储备，视为可以通过长线投入促成未来持续生财的资本。" } },
+      { name: "Consumer Sovereignty", desc: { en: "The power of consumers to determine what goods and services are produced.", zh: "消费者的偏好和需求才是最终决定社会生产要素流向与商品生死存亡的至高决定者。" } }
+    ],
+    idealScores: {
+      marketVsIntervention: 0.8,
+      incentiveVsPower: 0.9,
+      rationalVsBehavioral: 0.9,
+      efficiencyVsEquity: 0.5,
+      localVsCentral: 0.6
     },
-    authorBio: {
-      en: "Karl Marx spent his life in libraries and exile, documenting the internal 'laws of motion' that drive capitalist societies. He looked beyond the surface of individual trades to see the deep historical currents of class struggle that define human labor.\n\nIn his monumental work 'Capital', he developed the theory of surplus value, arguing that the wealth created by workers often accumulates in the hands of those who own the means of production. He famously declared that the history of all hitherto existing society is the history of class struggles.\n\nMarx wasn't just a theorist but a revolutionary who sought to reunite humans with their own creative essence. He envisioned a future where work was not just a commodified burden for survival, but a direct expression of human potential, free from the mechanical requirements of the market.",
-      zh: "卡尔·马克思在图书馆和流放中度过了一生，记录了驱动资本主义社会的内在“运动规律”。他看透了个体贸易的表象，洞察到了定义人类劳动的阶级斗争的深厚历史潮流。\n\n在他那部巨制《资本论》中，他发展了剩余价值理论，主张劳工创造的财富往往积聚在那些拥有生产资料的人手中。他那句名言是：至今一切社会的历史都是阶级斗争的历史。\n\n马克思不仅是一个理论家，更是一位致力于让渡人类与其自身创造本性重聚的革命者。他憧憬着一个将来，在那里工作不再是单纯为了生存而被商品化的负担，而是人类潜力的直接表达，摆脱了市场的机械需求。"
-    },
-    commonTraits: {
-      en: "You care deeply about the 'foundations' of a situation, much like an architect who checks the soil and core pillars before looking at the paint. You are sensitive to how power dynamics shape daily interactions, noticing who sets the rules and who simply follows them.\n\nYou likely possess a fierce sense of solidarity with the underdog and a vision for systemic overhaul. If you see a gig worker struggling with a faulty algorithm, you don't just blame the worker; you look at the entire platform economy and wonder how the very rules of ownership should be rewritten.\n\nYou identify labor as the soul of all creation. You are wary of systems that treat humans as mere 'inputs' in a spreadsheet, instead seeking ways to empower collectives to own the fruits of their own hard work and ingenuity.",
-      zh: "你非常关注情境的“地基”，就像一位先检查土壤 and 核心支柱再看油漆的建筑师。你对权力动态如何塑造日常互动非常敏感，总能注意到谁在制定规则，谁在服从规则。\n\n你可能对弱势群体拥有强烈的共情，并且渴望系统性的变革集。如果你看到一个外卖骑手被算法困住，你不会只责怪骑手，而是会审视整个平台经济，思考所有权的规则该如何重写。\n\n你将劳动视为一切创新的灵魂。你警惕那些将人类视为电子表格中“投入要素”的系统，相反，你寻求各种方式赋予集体力量，让他们拥有自己辛勤工作和才智的果实。"
-    },
-    idealScores: { interventionism: 1.0, rationality: -0.6, scope: 1.0, vision: 1.0 },
-    imageUrl: "https://api.dicebear.com/7.x/notionists/svg?seed=George&backgroundColor=ffdfbf"
-  },
-  {
-    id: "hayek",
-    name: { en: "Friedrich Hayek", zh: "弗里德里希·哈耶克 (Friedrich Hayek)" },
-    summary: { en: "The Liberty Sentinel", zh: "自由秩序的哨兵" },
-    description: {
-      en: "You have a profound respect for the complexity of human interaction, believing that knowledge is scattered among millions.",
-      zh: "你对人类互动的复杂性怀有深深的敬意，相信知识分散在数百万人之中。"
-    },
-    authorBio: {
-      en: "Friedrich Hayek, a Nobel laureate, dedicated his work to exposing the limits of human planning. Having seen the rise of totalitarianism in Europe, he wrote 'The Road to Serfdom' to explain how central management often accidentally leads to the end of individual liberty.\n\nHis greatest contribution was the idea of 'Spontaneous Order'—the concept that complex patterns, like language or common law, emerge whenever people are free to interact without a central designer. He famously called the problem of coordinating society 'The Use of Knowledge in Society'.\n\nHayek argued that only a price system can coordinate the vast, fragmented knowledge held by millions of unique individuals. He saw freedom not as a luxury, but as the only effective way for a civilization to discover what it actually needs to survive and grow.",
-      zh: "弗里德里希·哈耶克是一位诺贝尔奖得主，他致力于揭示人类计划的局限性。在见证了欧洲极权主义的兴起后，他撰写了《通往奴役之路》，解释了中央管理往往如何意外地导致个人自由的终结。\n\n他最大的贡献是“自发秩序”的理念——即语言或普通法等复杂模式，只要人们拥有自由互动的权利，且没有中央设计者，就会产生。他那句著名的论述将社会协调问题称为“社会中知识的利用”。\n\n哈耶克主张只有价格系统才能协调数百万个独特个体所掌握的宏大、碎片化的知识。他并不将自由视为奢侈品，而是将其视为人类文明发现生存和增长所需要素的唯一有效方式。"
-    },
-    commonTraits: {
-      en: "You share a deep skepticism of 'top-down' authorities who claim to have all the answers. Just as a forest thrives through the tiny, uncoordinated growth of millions of plants, you believe that decentralization is the ultimate safeguard of a resilient and functional community.\n\nYou likely find beauty in the 'Price Network', recognizing that a local hike in milk prices is actually a silent signal that someone, somewhere, needs it more. You prefer these organic signals over the slow, biased decisions of an expert committee or a central planner.\n\nYou value clear, stable rules of the game over specific outcomes. You think the task of government is to protect the 'Rule of Law', ensuring that the boundaries are safe so that millions of unique individuals can invent their own futures and solve their own problems.",
-      zh: "你对那些声称掌握所有答案的“自上而下”权威持有深刻的怀疑。正如森林通过数百万株植物微小且互不协调的生长而繁茂一样，你相信去中心化是一个坚韧且运作良好的社会的终极保障。\n\n你可能发现了“价格网络”的美妙之处，意识到局部牛奶价格的上涨实际上是一个无声的信号，表明在某地的某个人更有需求。比起专家委员会或计划者的那种迟缓且带有偏差的决定，你更倾向于这种有机的信号。\n\n比起特定的结果，你更看重清晰、稳定的游戏规则。你认为政府的任务是保护“法治”，确保边界安全，这样数亿个独特的人才能创造他们自己的未来并解决他们自己的问题。"
-    },
-    idealScores: { interventionism: -1.0, rationality: -0.8, scope: -1.0, vision: -0.9 },
-    imageUrl: "https://api.dicebear.com/7.x/notionists/svg?seed=Charlie&backgroundColor=d1d4f9"
-  },
-  {
-    id: "friedman",
-    name: { en: "Milton Friedman", zh: "米顿·弗里德曼 (Milton Friedman)" },
-    summary: { en: "The Logic Warrior", zh: "自由选择的逻辑斗士" },
-    description: {
-      en: "You are a sharp, realistic thinker who believes that individual choice and economic freedom are the foundation of all other liberties.",
-      zh: "你是一位敏锐、现实的思考者，相信个人选择和经济自由是所有其他自由的基础。"
-    },
-    authorBio: {
-      en: "Milton Friedman was the towering figure of the Chicago School and perhaps the most persuasive champion of free markets in history. He served as a advisor to major world leaders, famously using a simple 'Lead Pencil' to illustrate how thousands of people collaborate for mutual benefit.\n\nHe revolutionized monetary policy with his focus on the money supply, famously stating that 'inflation is always and everywhere a monetary phenomenon'. He sought to show that when governments try to micromanage markets, they often create the very instabilities they were trying to fix.\n\nIn his popular work 'Free to Choose', he argued that political freedom is impossible without economic freedom. He championed innovative ideas like school vouchers and floating exchange rates, believing that empowering the individual consumer was always more effective than empowering a bureaucrat.",
-      zh: "米顿·弗里德曼是芝加哥学派的泰斗，或许也是历史上最具说服力的自由市场捍卫者。他曾担任多位世界级领导人的顾问，曾用一支简单的“铅笔”来展示数千人是如何为了共同利益而协作的。\n\n他通过关注货币供应彻底改变了货币政策，留下了名言：“通货膨胀在任何时候、任何地方都是一种货币现象”。他试图证明，当政府试图微观管理市场时，往往恰恰制造了他们本想解决的不稳定性。\n\n在他广受欢迎的作品《自由选择》中，他主张政治自由离不开经济自由。他支持教育券和浮动汇率等创新观点，相信赋予个体消费者权力总比赋予官僚权力更为有效。"
-    },
-    commonTraits: {
-      en: "You possess an incredibly sharp, results-oriented mind. If you see a government program that isn't working, your first instinct is to ask: 'Why not just give the money directly to the people and let them choose the service?' You value direct, logical solutions over complicated theories.\n\nYou believe in the 'Power of Comparison', trusting that competition forces everyone to get better. Just as you might shop around for the best phone plan, you think that applying market logic to things like education or mail delivery ensures better quality for everyone at a lower cost.\n\nYou see yourself as a champion of individual autonomy. You are wary of any group that claims to know what is 'best' for you, preferring the messy but real freedom of making your own mistakes and reaping your own rewards in an open market.",
-      zh: "你拥有一颗极其敏锐、结果导向的头脑。如果你看到一个政府项目运作不善，你的第一直觉是：为什么不直接把钱发给民众，让他们自己选择服务呢？比起复杂的理论，你更看重直接、符合逻辑的方案。\n\n你相信“竞争的力量”，信任竞争会迫使每个人变得更好。正如你会到处比价寻找最合适的手机套餐一样，你认为将市场逻辑应用于教育或邮政等领域，能确保每个人都能以更低的成本获得更好的质量。\n\n你视自己为个人自主的捍卫者。你警惕任何声称知道什么对你“最好”的群体，更倾向于在开放市场中自己犯错并自己承担后果的那种看似杂乱但真实的自由。"
-    },
-    idealScores: { interventionism: -0.9, rationality: 1.0, scope: 0.8, vision: -0.4 },
     imageUrl: "https://api.dicebear.com/7.x/notionists/svg?seed=Jack&backgroundColor=ffd5dc"
   },
   {
-    id: "thaler",
-    name: { en: "Richard Thaler", zh: "理查德·塞勒 (Richard Thaler)" },
-    summary: { en: "The Nudge Master", zh: "人性偏误的“助推员”" },
+    id: "macro-stability",
+    name: { en: "Macro Stabilization Type", zh: "宏观稳定型" },
+    summary: { 
+      en: "You look at the world through system-wide links, focusing on demand and policy stabilizer roles during recessions.",
+      zh: "你习惯从大国总需求、总流动的全局高度解剖经济问题，主张在经济低迷时以政策手段对抗系统波动。"
+    },
+    representative: { en: "John Maynard Keynes", zh: "约翰·梅纳德·凯恩斯 (John Maynard Keynes)" },
+    representativeBio: {
+      en: "The founder of modern macroeconomics. He argued that total spending dictates economic output and employment, urging proactive fiscal and monetary measures during massive demand gaps.",
+      zh: "现代宏观经济学之父。他提出了总需求管理的核心框架，证实在危机中市场的自我均衡力量可能会失效，需要政府在流动性凝结时担当“最后借款人与最终购买者”。"
+    },
+    keywords: {
+      en: ["Aggregate Demand", "Animal Spirits", "Fiscal Multiplier", "Liquidity Trap"],
+      zh: ["总需求", "动物精神", "财政乘数", "流动性陷阱"]
+    },
     description: {
-      en: "You understand that humans aren't perfect calculating machines, preferring to build systems that work with human nature rather than against it.",
-      zh: "你明白人类并非完美的计算机器，比起对抗人性，你更倾向于建立顺应人性的系统。"
+      en: "You analyze problems from a macro system-wide viewpoint. For you, the market is not a self-contained smooth balance system; instead, waves of systemic confidence shifts (what Keynes called 'Animal Spirits') can trigger deep freezes. You believe aggregate policy interventions are essential public anchors to support confidence and restore national cycle health.",
+      zh: "你倾向于从全局系统的流转和连带关系来观察经济冷热。在你看来，微观的市场竞争虽然重要，但宏观系统由于信心剧变、消费低迷而陷入“流沙”时，往往无法自拔。需要国家出面，通过逆周期的调节工具向全社会注入有效总需求，重新激活死水的循环。"
     },
-    authorBio: {
-      en: "Richard Thaler, a Nobel laureate, redefined economics by adding a human face to the dry equations. He famously listed 'unrealistic behaviors' in his early work, identifying concepts like 'endowment effects' where we overvalue what we already possess just because it's ours.\n\nHe showed that humans are systematically biased rather than perfectly rational. His work on 'Mental Accounting' explained why we treat money from a salary differently than money won in a lottery, proving that context and framing are everything in our decisions.\n\nThaler is the pioneer of 'Libertarian Paternalism', the idea captured in his book 'Nudge'. He argued that by simply changing the 'choice architecture'—like setting retirement savings to automatically start—we can help people achieve their own long-term goals without taking away their freedom.",
-      zh: "诺贝尔奖得主理查德·塞勒通过为枯燥的方程式加入“人性面孔”，重新定义了经济学。他在早期的工作中列举了“非理性行为”，识别了“禀赋效应”等概念，即我们仅仅因为某物属于自己就过度低估其价值。\n\n他证明了人类是系统性带有偏见的，而非完全理性。他在“心理账户”方面的研究解释了为什么我们会将薪水收入和中奖奖金区别对待，证明了语境和框架在决策中决定了一切。\n\n塞勒是“自由意志家长制”的先驱，这一理念体现在他的著作《助推》中。他主张通过简单地改变“选择架构”——例如将退休储蓄设定为自动启动——我们就能在不剥夺自由的情况下，帮助人们实现其长远目标。"
+    strengths: {
+      en: [
+        "Highly realistic grasp of deep economic systemic crises, employment crunches, and chain collapses.",
+        "Combines micro elements into clear macro linkages, keeping public infrastructure well-funded.",
+        "Saves long-term health by preventing short-term demand crashes from causing irreversible destruction."
+      ],
+      zh: [
+        "对深层次系统危机、大范围失业和信用断链风险有高度敏锐的大局预判，极具抗危机和救火意识。",
+        "能够整合微观局部矛盾到总需求的拼图里，推动公共工程在逆风期完成跨越式基础设施建设。",
+        "主张用积极有为的救助阻止短期的需求崩溃演变为持久的结构性毁损（滞后效应）。"
+      ]
     },
-    commonTraits: {
-      en: "You have a natural curiosity about 'Human Quirks', noticing the small psychological traps we fall into every day. If you see a long line at a buffet making people eat more than they planned, you are the person wondering how to rearrange the plates to gently guide them toward healthier choices.\n\nYou likely prefer a 'Soft Touch' when it comes to rules. You find that you can solve major social problems, like low saving rates or organ donation shortages, by making the 'right' thing the 'easy' thing. You value outcomes that come from understanding behavior rather than forcing it.\n\nYou are a realist who embraces our imperfections. You don't expect people to be saints or calculators; instead, you find harmony in designing systems that recognize we are biased, emotional, and prone to mistakes, and help us be our best selves anyway.",
-      zh: "你对“人性的怪癖”抱有天然的好奇心，总能注意到我们每天掉入的小心理陷阱。如果你看到自助餐厅的长队让人们吃得比计划的还多，你会是那个思考如何重新排列餐具以含蓄引导他们做出更健康选择的人。\n\n在规则问题上，你可能更倾向于“柔和的处理方式”。你发现通过把“正确的事”变成“容易的事”，就能解决储蓄率低或器官捐赠短缺等重大社会问题。你更看重源于理解行为而非强迫行为的结果。\n\n你是一位拥抱我们并不完美这一事实的现实主义者。你并不期待人们都是圣人或计算器；相反，你通过设计承认我们带有偏见、感性且易犯错的系统来实现和谐，无论如何都帮助我们成为最好的自己。"
+    blindspots: {
+      en: [
+        "May ignore high public debts or inflation triggered by sustained liquidity flows.",
+        "Could fail to focus on microeconomic structural incentives and private sector dynamic drive.",
+        "Usually faces time-lag bottlenecks where policies arrive too late, bringing structural inefficiencies."
+      ],
+      zh: [
+        "容易对公共债务的无节制膨胀、财政赤字的长期高企以及滥发流动性带来的通胀风险重视不足。",
+        "相对容易忽视由高负税、繁重管制造成的私营主体长远微观激励损伤与效率低下。",
+        "容易面临政策执行的时滞瓶颈，行政干预资源偏分配可能会造成持久性国进民退和低效率垄断。"
+      ]
     },
-    idealScores: { interventionism: 0.4, rationality: -1.0, scope: -0.6, vision: 0.1 },
+    concepts: [
+      { name: "Effective Demand", desc: { en: "The level of spending in an economy that matches actual production capability.", zh: "消费者、企业、政府有真实的购买力与意愿进行支付的总支出水平，是拉动供给的引擎。" } },
+      { name: "Animal Spirits", desc: { en: "Emotional factors and psychological consensus driving consumer and investor decisions.", zh: "指那些驱动人类经济决策过程中的非理性情绪变化、恐惧与盲目乐观等心理波动。" } },
+      { name: "Fiscal Multiplier", desc: { en: "The proportional shift in national income caused by changes in government spending.", zh: "政府每投下一笔新增支出的流动，在整个社会中多轮循环放大并撬动数倍国民产出的效应。" } }
+    ],
+    idealScores: {
+      marketVsIntervention: -0.9,
+      incentiveVsPower: -0.3,
+      rationalVsBehavioral: -0.5,
+      efficiencyVsEquity: 0.3,
+      localVsCentral: -0.7
+    },
+    imageUrl: "https://api.dicebear.com/7.x/notionists/svg?seed=Oliver&backgroundColor=c0aede"
+  },
+  {
+    id: "behavioral-nudge",
+    name: { en: "Behavioral & Choice Nudge Type", zh: "行为助推型" },
+    summary: { 
+      en: "You study how flesh-and-blood humans act, optimizing systems by working with human habits rather than fighting them.",
+      zh: "你致力于探究真实而有偏误的人类心理，坚信通过温和的“选择架构”与助推，比粗暴的禁止更能解决问题。"
+    },
+    representative: { en: "Richard Thaler / Daniel Kahneman", zh: "理查德·塞勒 (Richard Thaler) / 丹尼尔·卡尼曼 (Daniel Kahneman)" },
+    representativeBio: {
+      en: "Kahneman pioneered decision psychology, defining cognitive shortcuts. Thaler mapped economic behaviors, promoting 'nudge' designs to guide public outcomes.",
+      zh: "卡尼曼开创了前景理论与认知心理学，证实人类思维拥有本能偏误。塞勒进一步将其引入公共政策，主张设立友好的“选择架构”帮助普通人在面临复杂决策时免遭诱骗。"
+    },
+    keywords: {
+      en: ["Bounded Rationality", "Nudge", "Choice Architecture", "Mental Accounting"],
+      zh: ["有限理性", "助推", "选择架构", "心理账户"]
+    },
+    description: {
+      en: "You have a deep understanding of human psychological quirks. You know that real individuals are not cold supercomputers; we get anxious, have limited willpower, get anchored by defaults, and easily fall into visual traps. Instead of lecturing people to behave rationally or setting heavy fines, you prefer to optimize choice environments — like auto-enrollments — to help people make the best choices easily.",
+      zh: "你对人心的复杂脆弱有着惊人的洞察。你深知现实生活中的个体绝非冷血、精准的超级计算器，人们会拖延、会冲动、容易被默认选项牵着走。相比于冷冰冰地呼吁人必须要保持理智，或者采取粗暴的高额行政罚款，你更倾倒于使用柔性、巧妙的触引和助推机制，促使多赢结果自然显现。"
+    },
+    strengths: {
+      en: [
+        "Incredibly realistic understanding of consumer psychology, error patterns, and daily struggles.",
+        "Guarantees freedom while gently guiding better choices, avoiding absolute state mandates.",
+        "Changes public outcomes with low capital outlays by adjusting simple rules (e.g., organ donor defaults)."
+      ],
+      zh: [
+        "极其人性化的洞察力，看淡抽象的纯理性假说，高度贴合最普罗大众真实的心理决策细节。",
+        "首创“自由意志家长制”，在没有消灭个人选择裁量权的前提下默默实现公共利益的最大化。",
+        "性价比惊人，往往只需修改申请表默认勾选项等极低成本，就能瞬间彻底扭转深重的社会难题。"
+      ]
+    },
+    blindspots: {
+      en: [
+        "May focus excessively on micro tweaks, ignoring larger macro conflicts like power dynamic blocks.",
+        "Could be exploited by commercial monopolists using dark design nudges against users.",
+        "Runs potential ethical controversies over who holds the authority to design 'good options' for others."
+      ],
+      zh: [
+        "可能容易过度流连于微观上的“精雕细琢”，错失对重大的社会底层制度和权力不公层面的宏观解构。",
+        "这种助推策略一不留神也容易沦为平台巨头和商家操纵用户注意力的“暗黑模式”帮凶。",
+        "面临道德边界的拷问：谁拥有定义什么是“好”、什么是“最优”的选择设计师权力？"
+      ]
+    },
+    concepts: [
+      { name: "Bounded Rationality", desc: { en: "Human cognitive limits restrict perfect decision-making in a complex world.", zh: "人类受限于信息、时间、处理能力的边界，行事只能追求局部的、基本满意的决策。" } },
+      { name: "Nudge", desc: { en: "Small adjustments in choice context that alter behavior without forbidding options.", zh: "不改变经济激励，不消灭可选项，只靠重构背景信息便引导人们朝着特定方向靠拢的小设计。" } },
+      { name: "Choice Architecture", desc: { en: "The structured way choices are presented, exerting strong influence on human decisions.", zh: "选项在被视觉、流程呈现时所对应的组合结构，决定了一般参与者最习惯走哪条懒人道路。" } }
+    ],
+    idealScores: {
+      marketVsIntervention: -0.3,
+      incentiveVsPower: 0.3,
+      rationalVsBehavioral: -0.9,
+      efficiencyVsEquity: 0.4,
+      localVsCentral: 0.5
+    },
     imageUrl: "https://api.dicebear.com/7.x/notionists/svg?seed=Alexander&backgroundColor=c1f0c1"
   },
   {
-    id: "sen",
-    name: { en: "Amartya Sen", zh: "阿马蒂亚·森 (Amartya Sen)" },
-    summary: { en: "The Dignity Guardian", zh: "人类能力的“正义使者”" },
+    id: "institutional-power",
+    name: { en: "Institutional & Power Analysis Type", zh: "制度权力型" },
+    summary: { 
+      en: "You investigate who holds market rules, bargaining leverage, and asset control before evaluating deals.",
+      zh: "你绝不轻易相信任何市场的自动均衡，而是会习惯性地追问：是谁在暗中分配博弈规则与话语主导权？"
+    },
+    representative: { en: "Joan Robinson / Thorstein Veblen", zh: "琼·罗宾逊 (Joan Robinson) / 索尔斯坦·凡勃伦 (Thorstein Veblen)" },
+    representativeBio: {
+      en: "Robinson created 'Monopsony' and imperfect match models, exposing how power tilts wage negotiations. Veblen satirized status showmanship, showing consumption is driven by a quest for honor.",
+      zh: "罗宾逊开创了不完全竞争和买方垄断模型，拆穿了资方压榨工资的制度漏洞。凡勃伦则用辛辣幽默剖析了“炫耀性消费”，指出商品购买有时是个人证明阶级优越感的社会演戏。"
+    },
+    keywords: {
+      en: ["Market Power", "Monopsony", "Conspicuous Consumption", "Institutional Inertia"],
+      zh: ["市场支配力", "买方垄断", "炫耀性消费", "制度惯性"]
+    },
     description: {
-      en: "For you, economics is about ethics and human capability, believing real development is the expansion of human freedom.",
-      zh: "对你而言，经济学关乎伦理和人类能力，相信真正的繁荣是人类自由的扩展。"
+      en: "You reject easy stories of perfect competition. You observe that free transactions often carry power imbalances. In negotiations between a single gig driver and a trillion-dollar algorithm platform, you don't call it 'fair market equilibrium'; you call it unequal bargaining power. For you, analyzing economy means dissecting who owns properties, who controls laws, and who pays the hidden human costs.",
+      zh: "你对教科书上描绘的“完全竞争神话”保持清醒的怀疑。你注意到，市场交易很少发生在真空或完全对称的真空状态中。在外卖骑手与超级垄断算法平台、单打独斗的租客与大型长租公寓之间，你看到的不是自由谈判，而是权力差距。重构规则和增设制衡保护是你不变的呼吁。"
     },
-    authorBio: {
-      en: "Amartya Sen, a Nobel Prize winner, brought a deep humanism to the study of wealth. Growing up in India, he witnessed the 1943 Bengal famine, leading him to the radical insight that famines are often caused by the collapse of democratic rights and food accessibility, not just a lack of grain.\n\nHe pioneered the 'Capability Approach', moving the world's focus away from simple GDP numbers toward what people can actually 'be and do'. He famously argued that poverty is the deprivation of basic capabilities, like the ability to be educated or healthy, rather than just a low bank balance.\n\nSen's work directly led to the UN's Human Development Index, changing how nations are measured. He believes that public reasoning and open debate are the core engines of development, and that the ultimate goal of any economy is to provide everyone with the dignity of real choice.",
-      zh: "诺贝尔奖得主阿马蒂亚·森为财富研究引入了深刻的人道主义。在印度长大的他目睹了1943年的孟加拉大饥荒，这促使他产生了激进的见解：饥荒通常是由民主权利和食物获取途径的崩溃引起的，而不仅仅是缺粮。\n\n他开创了“能力方法”，将世界的关注点从简单的 GDP 数字转向人们实际能“成为和做成”的事情。他那句名言是：贫困是对基本能力的剥夺，比如受教育或健康的能力，而不仅仅是银行余额低。\n\n森的工作直接推动了联合国人类发展指数的创立，改变了衡量国家的方式。他相信公共理性和开放辩论是发展的核心引擎，任何经济体的终极目标都是赋予每个人拥有真实选择权力的尊严。"
+    strengths: {
+      en: [
+        "Unyielding critical voice, uncovering monopolies, exploitations, and power blocks.",
+        "Deep understanding of how status, peer imitation, and custom drive wasteful spending.",
+        "Advocates for balanced protections like antitrust laws, unions, and transparency."
+      ],
+      zh: [
+        "极具批判性的审视视角，擅长揭开完美竞争的温情面纱，拆穿垄断暴利与单向倾斜的劳动盘剥关系。",
+        "深刻地看透各种社会符号性行为，指出攀比心理、面子消费和身份认同对真实生活资源的消耗与扭曲。",
+        "极力呼吁反垄断拆分、劳方集体议价以及利益关联透明化等平权机制，维护实质性底线尊严。"
+      ]
     },
-    commonTraits: {
-      en: "You possess a powerful sense of 'Moral Purpose' in everything you do. If you are looking at a school system, you don't just ask about test scores; you ask if the students are gaining the freedom to lead lives they actually have reason to value. You care about the 'Why' behind the numbers.\n\nYou likely look at the world through a multi-dimensional lens. You recognize that a high income means very little to someone who lacks access to healthcare or basic security. You identify success the way a community leader does: by the expansion of the tangible opportunities available to the most vulnerable.\n\nYou are a pragmatist for human dignity. You believe that to have real freedom, one must have the fundamental 'tools' of health and knowledge. You identify with the struggle for social justice and seek economic paths that empower people to flourish as whole, choosing individuals.",
-      zh: "你在所做的每一件事中都拥有强烈的“道德使命感”。如果你在考察一个学校系统，你不会只问考试分数；你会问学生是否获得了去过他们有理由看重的生活的自由。你在乎数字背后的那个“为什么”。\n\n你可能通过多维视觉观察世界。你意识到对于一个缺乏医疗或基本保障的人来说，高收入意义微乎其微。你像一位社区领袖那样定义成功：即最弱势群体所能获得的切实机会的扩展。\n\n你是为了人类尊严而战的务实主义者。你相信要获得真实的自由，一个人必须具备健康和知识这些基础“工具”。你认同对社会正义的追求，并寻找能赋权于人、让人作为一个完整的、有选择权的个体蓬勃发展的经济道路。"
+    blindspots: {
+      en: [
+        "May underestimate the direct efficiency and creative impulse generated by pure price systems.",
+        "Could overlook cases where dynamic competition replaces monopolies naturally via tech change.",
+        "Sometimes treats every voluntary transaction as an act of power dominance, losing sight of win-win gains."
+      ],
+      zh: [
+        "容易在一些竞争本已非常充分的微观行业，高估合规监管门槛的积极效用，压抑了本属于市场的活力。",
+        "可能会低估“创造性毁灭”所伴随的技术迭代，在缺少干预下也能顺应用户拥护自发淘汰旧垄断者。",
+        "容易习惯性将所有的自由商业协议一概套上剥削阶级的印记，忽视了低摩擦互通所创造的巨大真实合作增量。"
+      ]
     },
-    idealScores: { interventionism: 0.7, rationality: -0.7, scope: 0.5, vision: 1.0 },
+    concepts: [
+      { name: "Monopsony", desc: { en: "A market situation where there is only one buyer (e.g., employers possessing lopsided local hiring power).", zh: "市场上存在垄断性的买方，使得资方掌握单向定价权阻碍了平等自由择业，蓄意压低工资。" } },
+      { name: "Conspicuous Consumption", desc: { en: "Buying flashy premium goods to show off economic status rather than for core utility.", zh: "购买并炫耀昂贵且低实用价值的奢侈品，借此显露财富门槛以换取社会尊重地位的举动。" } },
+      { name: "Asymmetric Bargaining Power", desc: { en: "Lopsided influence where one group dictates terms to a weaker participant.", zh: "不平等的议价博弈，强势一方凭借对生存资源的完全掐死，迫使弱势方无奈接受不公条款。" } }
+    ],
+    idealScores: {
+      marketVsIntervention: -0.8,
+      incentiveVsPower: -1.0,
+      rationalVsBehavioral: -0.6,
+      efficiencyVsEquity: -0.5,
+      localVsCentral: -0.4
+    },
+    imageUrl: "https://api.dicebear.com/7.x/notionists/svg?seed=George&backgroundColor=ffdfbf"
+  },
+  {
+    id: "equity-capability",
+    name: { en: "Social Justice & Capability Type", zh: "公平能力型" },
+    summary: { 
+      en: "You measure progress by human growth, valuing peoples' real freedoms and foundational tools to shape meaningful lives.",
+      zh: "你主张将人的自由和选择能力作为评估国家发展的终极标尺，强调效率必须为全体人的生存尊严服务。"
+    },
+    representative: { en: "Amartya Sen", zh: "阿马蒂亚·森 (Amartya Sen)" },
+    representativeBio: {
+      en: "Famine researcher and Nobel laureate. He created the 'Capability Approach', moving policy metrics from mere GDP outputs toward healthcare access, educational outcomes, and social inclusion.",
+      zh: "诺贝尔奖得主，福利经济学大师，经历过印度大饥荒。他开创了“能力进路（Capability Approach）”，证实饥荒往往由制度不公、交换权遭到剥夺引起，而不单是粮食匮乏。"
+    },
+    keywords: {
+      en: ["Capability Approach", "Substantive Freedom", "Entitlement", "Human Development Index"],
+      zh: ["能力方法", "实质自由", "可行能力", "人类发展指数"]
+    },
+    description: {
+      en: "You treat economics as an extension of moral philosophy and justice. For you, a high average GDP is hollow if millions are trapped by illiteracy or illness. Your core policy mission is expanding 'Feasible Capability' — ensuring every citizen possesses the healthcare, education, and political access to build a life they have genuine reason to value.",
+      zh: "在你的人格底色中，经济学绝非冰冷无情的会计学电子表格，而是伦理、社会正义与人类发展的前线。你认为，如果数以千万计的普通家庭仍被识字率低下、医疗匮乏和选择空白捆绑，高昂的 GDP 数据只是虚无的幻象。扩大每个普通个体的“实质可行能力”，是所有经济决策的崇高标尺。"
+    },
+    strengths: {
+      en: [
+        "Incredibly strong ethical lens, ensuring most vulnerable communities are not discarded in name of efficiency.",
+        "Multi-dimensional analysis of welfare, addressing long-term barriers like healthcare and training gaps.",
+        "Redesigning metrics to track what humans can actually do and be, inspiring global agencies."
+      ],
+      zh: [
+        "无比崇高的道德关怀与人道底色，保障最底层的边缘困难群体在追求冰冷效率的过程中不被粗暴抛弃。",
+        "跳出单一纯收入测量的偏狭，从医疗、女性受教育、社会自尊和公共理性辩论等多重空间重写进步内涵。",
+        "极具实操感召力，推动联合国构建了“人类发展指数（HDI）”，从根本上扭转了诸多国家政策导向。"
+      ]
+    },
+    blindspots: {
+      en: [
+        "Multiple dimensions make it difficult to condense capability targets into unified, low-friction policy rules.",
+        "Requires deep and sustained redistribution efforts, run with risks of heavy fiscal strains in practice.",
+        "Could occasionally overlook the raw dynamic growth needs of highly competitive basic industries."
+      ],
+      zh: [
+        "由于“可行能力”的内涵极其宏大，往往在实际转化为简单明确、低交易成本的立法判例时面临争议。",
+        "推进包容性全面公平需要极高且长期的转移支付与教育资源补贴投入，容易令公共财政面临沉重负荷。",
+        "有时容易弱化效率积累本身的滚雪球效应，在不发达阶段如果过早高福利分配，可能会损失资本积累源泉。"
+      ]
+    },
+    concepts: [
+      { name: "Capability Approach", desc: { en: "Defining well-being by what a person actually has the capability to be and do.", zh: "核心理论认为，人一生的幸福取决于其真实拥有的可行选择（如维持健康、能上学、参与民主议政的要素组合）。" } },
+      { name: "Substantive Freedom", desc: { en: "The real opportunities a person has to live the life they value.", zh: "实质自由不仅是没有阻碍，更是真实持有使人免于贫困、逃离伤痛折磨并发挥各自潜能的基础机会。" } },
+      { name: "Entitlement", desc: { en: "The basket of goods and choices a person can command within the social legal system.", zh: "一个人在所在社会法律体系下，凭劳动、产权或社会保障所能正当支配、交换得到的消费要素组合。" } }
+    ],
+    idealScores: {
+      marketVsIntervention: -0.7,
+      incentiveVsPower: -0.4,
+      rationalVsBehavioral: -0.4,
+      efficiencyVsEquity: -0.9,
+      localVsCentral: 0.2
+    },
     imageUrl: "https://api.dicebear.com/7.x/notionists/svg?seed=Thomas&backgroundColor=fbe2ff"
   },
   {
-    id: "schumpeter",
-    name: { en: "Joseph Schumpeter", zh: "约瑟夫·熊彼特 (Joseph Schumpeter)" },
-    summary: { en: "The Prophet of Innovation", zh: "“创造性毁灭”的先知" },
+    id: "community-governance",
+    name: { en: "Polycentric & Community Management Type", zh: "社区治理型" },
+    summary: { 
+      en: "You champion trust and shared user agreements, navigating between private market limits and state mandates.",
+      zh: "你不迷信市场的自由投机，也警惕政府的一刀切管制，认为身处一线的本地社群自有一套守护公共家园的智慧。"
+    },
+    representative: { en: "Elinor Ostrom", zh: "埃莉诺·奥斯特罗姆 (Elinor Ostrom)" },
+    representativeBio: {
+      en: "The first female Nobel laureate in Economics. Overturning 'the Tragedy of the Commons' dogma, she proved communities can co-manage shared resources using localized trusts, clear boundaries, and mutual monitoring.",
+      zh: "第一位获诺贝尔学奖的女性学者。她推翻了学术界流行的“唯有私有化或者唯有收归国有才能解决公共资源枯竭”的教条，通过大量的实地勘察和历史考证，证实民间自组织自有一发生力。"
+    },
+    keywords: {
+      en: ["Tragedy of the Commons", "Common-Pool Resources", "Polycentricity", "Local Knowledge"],
+      zh: ["公地悲剧", "共有池塘资源", "多中心主义", "地方性知识"]
+    },
     description: {
-      en: "You see the economy as a restless sea of 'Creative Destruction', believing that bold innovation is the true driver of history.",
-      zh: "你将经济视为“创造性毁灭”的不息海洋，相信大胆的创新才是历史真正的驱动力。"
+      en: "You have strong doubts about rigid dualisms. You do not believe public systems must either be privatized on open markets or fully controlled by government bureaucracies. You look for the 'Third Way': local users creating self-monitoring circles, based on mutual trust, shared rules, and adaptive feedback. You believe that those who actually work with resources are best suited to design its rules.",
+      zh: "你天然抗拒“市场还是国家”这种二极管式的非黑即白论断。你相信，在浩瀚的公有草场、淡水渔区、乃至现代小区的绿化维护、开源软件代码库的共创中，本地社群能够通过平等的协商契约、适度的动态处罚和道德约束，在不需要外部强力干预下完美自我救赎。"
     },
-    authorBio: {
-      en: "Joseph Schumpeter was a flamboyant Austrian-American economist who famously aimed to be the world's greatest economist, lover, and horseman. He moved beyond the static models of his peers to analyze the dynamic, often painful process of how capitalism actually evolves through constant revolution.\n\nHe introduced the world to the concept of 'Creative Destruction'—the process by which new innovations incessantly replace outdated structures from within. He argued that the real hero of the economy is the Entrepreneur, the individual who has the vision and nerve to disrupt the status quo with something entirely new.\n\nSchumpeter believed that a healthy economy isn't one at rest or in 'perfect balance', but one in a state of constant, turbulent change. For him, the cyclical booms and busts were not just accidents, but the very heartbeat of a system that lives by reinventing itself.",
-      zh: "约瑟夫·熊彼特是一位性格张扬的奥地利裔美国经济学家，他曾立志成为世界上最伟大的经济学家、情圣和骑手。他超越了同龄人那些静态的模型，转而分析资本主义是如何通过不断的革命而在动态且往往痛苦的过程中实际演化的。\n\n他向世界引入了“创造性毁灭”的概念——即新的创新不断地从内部取代过时结构的进程。他主张经济中真正的英雄是企业家，即那些拥有远见和胆量、用全新的事物打破现状的个人。\n\n熊彼特相信，健康的经济并非处于静止或“完美平衡”状态，而是处于一种持续、动荡的变革之中。对他而言，周期性的繁荣与萧条并非仅仅是意外，而是一个靠自我重塑而生存的系统的脉搏。"
+    strengths: {
+      en: [
+        "Protects precious shared resources from over-exploitation without giant overhead of policing systems.",
+        "Embraces dynamic local conditions, avoiding centralized 'one-size-fits-all' policy disasters.",
+        "Fosters high social capital, building safe and long-term habits of cooperation in neighbor circles."
+      ],
+      zh: [
+        "既避免了私有化导致的公共资源分配断截、丧失共享权，也摆脱了官僚管理导致的高成本治理冗余。",
+        "极具对症下药的灵活性，因地制宜，最大程度地盘活并汲取了无法写进行政规划的地方经验。",
+        "极力培育民间互信这一宝贵的社会资本，为社会各维度面对危机时的自愈建立弹性韧性。"
+      ]
     },
-    commonTraits: {
-      en: "You have a deep appreciation for the 'Grit' of progress, recognizing that to build something great, something old often has to fall. Like a tech visionary who embraces a market pivot, you find energy in the messy transitions and see them as signs of life rather than failure.\n\nYou likely identity with the spirit of the 'Disruptor'. You aren't interested in maintaining things just because 'that's how we've always done it'. You probably value the high-stakes gamble of a new idea over the safe, slow growth of a guaranteed dividend.\n\nYour worldview is inherently dynamic. You see the economy as a story of evolution rather than a math problem to be solved. You find harmony in the chaos of the laboratory and the startup, believing that the future belongs to those who dare to destroy the present to build what's next.",
-      zh: "你对进步中的“阵痛”有着深切的认同，意识到为了建立伟大的事业，旧的事物往往必须倒下。就像一位拥抱市场转型的技术愿景家，你在那些混乱的转型中发现了活力，并将其视为生命的迹象而非失败。\n\n你可能对“颠覆者”的精神深有共鸣。你对仅仅因为“一向如此”而维持现状毫无兴趣。比起稳健且极其缓慢的红利增长，你可能更看重一个新想法所带来的高风险博弈。\n\n你的世界观本质上是动态的。你将经济视为演化的故事，而非待解的数学题。你在实验室和创业公司的混乱中寻找到了和谐，相信未来属于那些敢于摧毁现状以构建未来的人。"
+    blindspots: {
+      en: [
+        "Scaling can be difficult; localized community setups sometimes struggle with massive global common challenges.",
+        "Can experience internal tribalism, dynamic split conflicts, or exclusion of outside newcomers.",
+        "Runs risk of complete collapse if underlying structures of mutual peer trust and memory fade away."
+      ],
+      zh: [
+        "“小国寡民式”的社群自治经验在大范围、跨国境和涉及全人类利益的博弈（如全球碳中和）中复制困难。",
+        "自治团体容易走向隐秘的“内部熟人部落主义”，圈外人融入成本高，也可能产生难以调解的内部恶性倾轧。",
+        "极其脆弱地依赖于地方共同记忆和持久不散的互信基础，一旦出现人口大幅流出、异化则有可能全盘瘫痪。"
+      ]
     },
-    idealScores: { interventionism: -0.4, rationality: 0.6, scope: 0.8, vision: 1.0 },
-    imageUrl: "https://api.dicebear.com/7.x/notionists/svg?seed=Aiden&backgroundColor=fef3c7"
-  },
-  {
-    id: "ostrom",
-    name: { en: "Elinor Ostrom", zh: "埃莉诺·奥斯特罗姆 (Elinor Ostrom)" },
-    summary: { en: "The Community Weaver", zh: "公地秩序的“编织者”" },
-    description: {
-      en: "You believe that local communities, not just states or markets, are the best managers of the resources we share.",
-      zh: "你相信地方社区，而不仅仅是国家或市场，才是我们共有资源的最佳管理者。"
+    concepts: [
+      { name: "Tragedy of the Commons", desc: { en: "Individual self-interest leads to the depletion of unowned common resources.", zh: "公地悲剧描述了当资源没有排他性产权、人人触手可及时，理性谋私的个体最终促成全盘枯竭毁坏的局面。" } },
+      { name: "Polycentric Governance", desc: { en: "A system where multiple governing authorities overlap and coordinate instead of relying on a single monolith.", zh: "承认并倡导社会中存在多个、多维、多层级重叠的决策中心，通过自组织实现复杂网络的大协作协调。" } },
+      { name: "Design Principles for CPR", desc: { en: "Ostrom's 8 rules for stable collective resource management (e.g., clear boundaries, graduated sanctions).", zh: "由奥斯特罗姆归纳出的 8 项长寿共有池塘管理特征（如设立明确边界、实施渐进惩罚机制等）。" } }
+    ],
+    idealScores: {
+      marketVsIntervention: 0.1,
+      incentiveVsPower: -0.2,
+      rationalVsBehavioral: -0.5,
+      efficiencyVsEquity: -0.5,
+      localVsCentral: 0.9
     },
-    authorBio: {
-      en: "Elinor Ostrom made history as the first woman to win the Nobel Prize in Economics, but her real legacy was overturning the 'Tragedy of the Commons'. For decades, experts believed that shared resources (like forests or fisheries) would always be overused unless privatized or strictly policed by the government.\n\nOstrom spent years in the field, observing how local groups around the world actually managed to cooperate without top-down orders. She identified eight 'Design Principles' that allow people to build trust and solve problems together through shared rules and mutual monitoring.\n\nHer work is a powerful defense of polycentric governance—the idea that many different centers of power and decision-making can overlap and work together. She showed that humans are far more capable of collective action than the 'rational selfish' model often suggests.",
-      zh: "埃莉诺·奥斯特罗姆作为第一位获得诺贝尔经济学奖的女性载入史册，但她真正的遗产是推翻了“公地悲剧”。几十年来，专家们一直认为共有资源（如森林或渔场）除非私有化或受到政府严格监控，否则总会被过度使用。\n\n奥斯特罗姆在实地度过了多年，观察世界各地的地方群体是如何在没有自上而下指令的情况下实现协作的。她确定了八项“设计原则”，让人们能够通过共同的规则和相互监督建立信任并共同解决问题。\n\n她的工作是对多中心治理的有力辩护——即许多不同的权力和决策中心可以重叠且协同工作。她证明了人类集体行动的能力远超“理性自私”模型所暗示的那种程度。"
-    },
-    commonTraits: {
-      en: "You place an immense value on 'Local Trust' and the power of the group. If a neighborhood garden is being neglected, you don't call the city or try to sell the land; you knock on neighbors' doors and ask: 'How can we build a schedule together?' You believe in the power of the handshake.\n\nYou likely look for solutions that aren't 'One Size Fits All'. You recognize that a rule that works in a mountain village might fail in a seaside town, and you value the wisdom of those who actually live with the resources every day. You are a pragmatist for the community.\n\nYour worldview is rooted in cooperation rather than competition or control. You see the economy as a social fabric that requires tending and maintenance. You find harmony in the 'Middle Way' between the giant state and the cold market, trusting in the ingenuity of small, organized groups.",
-      zh: "你极其看重“局部信任”和群体的力量。如果社区花园被荒废了，你不会打电话给市政部门或试图卖掉土地，而是会敲开邻居的门问：“我们怎么一起定个排班表？”你相信握手的力量。\n\n你倾向于寻找非“一刀切”的解决方案。你意识到在山村奏效的规则在海边小镇可能会失效，你尊重那些每天都与资源共处的人们的智慧。你是为了社区而战的务实主义者。\n\n你的世界观植根于协作而非竞争或控制。你将经济视为需要照料和维护的社会织物。你在宏大国家与冷酷市场之间的“中间道路”中寻找到了和谐，信任小型有组织群体的智慧。"
-    },
-    idealScores: { interventionism: -0.6, rationality: -0.4, scope: -1.0, vision: 0.9 },
     imageUrl: "https://api.dicebear.com/7.x/notionists/svg?seed=Sarah&backgroundColor=dcfce7"
   },
   {
-    id: "becker",
-    name: { en: "Gary Becker", zh: "加里·贝克尔 (Gary Becker)" },
-    summary: { en: "The Logic Imperialist", zh: "生活逻辑的“头号猎人”" },
+    id: "evolutionary-innovation",
+    name: { en: "Evolutionary & Innovation Type", zh: "创新演化型" },
+    summary: { 
+      en: "You analyze economy as dynamic seas of technological change, valuing entrepreneurs disruptively breaking old equilibriums.",
+      zh: "你认为研究静态的供给平衡毫无意义，你对由企业家与技术狂潮掀起的狂风暴雨（创造性破坏）心驰神往。"
+    },
+    representative: { en: "Joseph Schumpeter", zh: "约瑟夫·熊彼特 (Joseph Schumpeter)" },
+    representativeBio: {
+      en: "Introduced 'Creative Destruction' as the ultimate law of capitalist development. Identified the bold Entrepreneur as the force that propels civilizations forward through technological and business paradigm leaps.",
+      zh: "动态经济学之王。他定义了“创造性毁灭”这一资本主义演化真理，将独具远见、无视常规且敢于把世界撕开裂口的企业家视为推动人类科技进步的真正火种。"
+    },
+    keywords: {
+      en: ["Creative Destruction", "Entrepreneurship", "Dynamic Disequilibrium", "Paradigm Shift"],
+      zh: ["创造性毁灭", "企业家精神", "动态非均衡", "范式转换"]
+    },
     description: {
-      en: "You apply economic logic to every corner of human life—believing that behavior is always shaped by incentives.",
-      zh: "你将经济逻辑应用于人类生活的每一个角落——相信行为总是由激励机制塑造的。"
+      en: "You have a natural passion for long-wave technological curves. You do not treat the economy as a neat, boring spreadsheet of supply and demand balancing at rest. Instead, you focus on tech paradigm leaps and bold industry disruptions. For you, high profits are not monopolies to be banned, but natural temporary premiums awarded to pioneers who dare to challenge the old and outdated world.",
+      zh: "你的视线始终牢牢盯着经济长波周期里的科技颠覆曲线。在你眼里，一味通过计划去维持某种静态、完美的产业秩序是迂腐的。只有那些勇为人先、逆势破坏旧格局的企业家所掀起的技术大迁徙，才是文明脱胎换骨的生机。你主张呵护自由颠覆的野蛮生长空间。"
     },
-    authorBio: {
-      en: "Gary Becker was a Nobel laureate who famously expanded the boundaries of economics into sociology and daily life. While others were studying interest rates and inflation, Becker was using the tools of microeconomics to analyze marriage, family size, education, and even crime.\n\nHe is the father of 'Human Capital' theory, arguing that we don't just 'spend' on school or health, we invest in ourselves as productive assets. He saw the family not just as a sentimental union, but as a small factory producing valuable future outcomes through careful decision-making.\n\nBecker's work was controversial because he dared to treat 'irrational' choices—like choosing a partner or committing a crime—as the result of an internal cost-benefit analysis. He believed that if you change the incentives, you change the human story.",
-      zh: "诺贝尔奖得主加里·贝克尔以将经济学的边界扩展到社会学和日常生活中而闻名。当别人在研究利率和通胀时，贝克尔却在利用微观经济学的工具分析婚姻、家庭规模、教育甚至犯罪。\n\n他是“人力资本”理论之父，主张我们不只是在学校或健康上“消费”，而是在将自己作为生产性资产进行投资。他不将家庭单纯视为情感联盟，而是将其视为一个通过缜密决策产出宝贵未来成果的小型工厂。\n\n贝克尔的工作极具争议，因为他敢于将“非理性”的选择——如选择伴侣或实施犯罪——视为内部成本效益分析的结果。他相信，只要改变激励机制，你就改变了人类的故事。"
+    strengths: {
+      en: [
+        "Unrivaled dynamic analysis, explaining where new industries, productivity leaps, and jobs actually come from.",
+        "Incentivizes world-changing bold investments, rewarding research and startup leap-taking.",
+        "Embraces painful transitions as necessary dynamic phases of upward societal self-renewal."
+      ],
+      zh: [
+        "无与伦比的动态全局观，唯独只有你能说清楚：崭新的行业、飞跃的生产力、乃至更酷的未来职业究竟是怎么诞生的。",
+        "能够从制度上大度宽容高风险、超额回报的资本冒险，极力催化并呵护了风险投资和前沿未知科学的生民空间。",
+        "豁达地直面阵痛，将旧产业死亡、巨头倒闭视为整个社会肌体吐故纳新、重新轻装上阵的必由之路。"
+      ]
     },
-    commonTraits: {
-      en: "You possess a razor-sharp 'Analytical Filter', looking at life as a series of trade-offs and investments. If you are choosing a career, you don't just look at the salary; you weigh the 'Return on Investment' of your time, sanity, and network. You are a master of internal math.\n\nYou likely believe in the power of 'Incentives' over morality or rules. You are the first to notice that if a city wants cleaner streets, it shouldn't just ask nicely—it should make littering expensive and recycling rewarding. You value the clarity of why people actually do what they do.\n\nYour worldview is unified and consistent. You see the same fundamental patterns of choice in the boardroom and the living room. You find harmony in the predictive power of logic, trusting that a deep understanding of human motivation is the only way to solve the world's puzzles.",
-      zh: "你拥有一层极其锋利的“分析滤镜”，将生活视为一系列的权衡和投资。如果你在选择职业，你不会只看薪水，你会衡量时间、精力和人脉的“投资回报率”。你是内部心理计算的高手。\n\n相对于道德或规章，你可能更相信“激励”的力量。你会第一个注意到，如果一个城市想要街道更干净，不该只是礼貌请求，而应该让乱丢垃圾变得昂贵，让回收变得有奖。你重视“人们为什么实际这么做”背后的清晰逻辑。\n\n你的世界观是统一且一致的。你在董事会和客厅里看到了相同的基本选择模式。你在逻辑的预测力量中寻找到了和谐，相信对人类动机的深刻理解是解决世界谜题的唯一途径。"
+    blindspots: {
+      en: [
+        "May dismiss massive transition pain, leaving displaced workers or distressed towns to rot in name of long-term progress.",
+        "Could under-estimate monopolists extending software dominances to completely kill small creative newcomers.",
+        "Tends to ignore immediate, urgent social safety needs during periods of intense digital paradigm displacements."
+      ],
+      zh: [
+        "极易滑向冷酷的进步崇拜，把被时代列车无情碾碎、失去生计并无辜遭下岗的底层人们淡化为一笔必要的“历史代价”。",
+        "有时容易高估技术超越的简单性，无视巨无霸科技寡头利用生态完全掐死后续弱小颠覆者的垄断。 ",
+        "忽略在惊涛骇浪的“新旧交替”大时代里，全社会本能需要的极速兜底式结构性补偿与保障工程。"
+      ]
     },
-    idealScores: { interventionism: -0.7, rationality: 1.0, scope: -0.9, vision: -0.6 },
-    imageUrl: "https://api.dicebear.com/7.x/notionists/svg?seed=Leo&backgroundColor=f1f5f9"
+    concepts: [
+      { name: "Creative Destruction", desc: { en: "The continuous product and process revolution that destroys old economic structures or firms from within.", zh: "由技术跃迁或经营创新，不断从经济系统内部将陈旧落后的业态打破、覆灭并在死灰中孕育初生奇迹的洪流。" } },
+      { name: "Entrepreneurship", desc: { en: "The dynamic will to capture new ideas, carry out new combinations, and break old norms.", zh: "指那些超越常轨、顶着极度不确定性重新排布生产力要素，实现开拓性飞跃的实干远见。" } },
+      { name: "Dynamic Disequilibrium", desc: { en: "Growth driven by constant disruption instead of comfortable static resting balance.", zh: "坚信经济生机并不来自于舒服的匀速滑行和静态平衡，它本身就是在非均衡的浪潮里不断冲刷跳跃前行。" } }
+    ],
+    idealScores: {
+      marketVsIntervention: 0.7,
+      incentiveVsPower: 0.5,
+      rationalVsBehavioral: 0.1,
+      efficiencyVsEquity: 0.8,
+      localVsCentral: 0.3
+    },
+    imageUrl: "https://api.dicebear.com/7.x/notionists/svg?seed=Aiden&backgroundColor=fef3c7"
+  }
+];
+
+export const QUESTIONS: Question[] = [
+  {
+    id: 1,
+    measurement: {
+      en: "Rent Control vs Market Incentives in Housing Crises.",
+      zh: "住房危机中的租金管控与市场激励权衡。"
+    },
+    title: {
+      en: "There's an acute housing shortage in your city, and rents are skyrocketing. What should be done first?",
+      zh: "你所在的城市正面临严重的住房短缺，租金一路狂飙。你首要倾向于支持哪种方案？"
+    },
+    choices: [
+      {
+        text: {
+          en: "Cap maximum rents immediately to relieve tenant pressure and prevent landlord exploitation.",
+          zh: "立即出台法令锁死租金上限，保护租客不被房东随意驱逐和坐地起价。"
+        },
+        weights: { marketVsIntervention: -0.9, efficiencyVsEquity: -0.8, incentiveVsPower: -0.7 },
+        explanation: {
+          en: "Institutional Power view: Protect vulnerable tenants from asymmetrical landlord power immediately.",
+          zh: "制度权力型观点：直接介入纠正不平等的博弈地位，阻止租客在买方弱势下遭到强征。"
+        }
+      },
+      {
+        text: {
+          en: "Relax municipal zoning codes and density rules to let private builders rapidly increase supply.",
+          zh: "大举放宽容积率和审批限制，提供税收激励，鼓励开发商无阻碍地建房。"
+        },
+        weights: { marketVsIntervention: 0.9, efficiencyVsEquity: 0.8, incentiveVsPower: 0.8 },
+        explanation: {
+          en: "Market Coordination view: Artificially capping prices kills the long-term incentive to build new supply.",
+          zh: "市场协调与选择型观点：强制限价无异于饮鸩止渴，松绑和顺应价格利润才能吸引新资本涌入解决根本供给。"
+        }
+      },
+      {
+        text: {
+          en: "Have the central government issue low-cost construction bonds to build extensive public social housing.",
+          zh: "由政府统一进行城市规划，直接发债拨款开工，大规模建设非营利性公共保障房。"
+        },
+        weights: { marketVsIntervention: -0.7, localVsCentral: -0.8, efficiencyVsEquity: -0.5 },
+        explanation: {
+          en: "Macro Stabilization view: Public capital must directly supply essential societal goods where market flows lag.",
+          zh: "宏观稳定型观点：基础公共品不应当成为资本投机的赌场，需要政府出手担当供应中流砥柱。"
+        }
+      },
+      {
+        text: {
+          en: "Foster local neighborhood associations and co-ops to collectively manage shared, adaptive rental spaces.",
+          zh: "培育本地租户合作社与非营利信托社群，自主制定住房契约和低频动态协商机制。"
+        },
+        weights: { localVsCentral: 0.9, marketVsIntervention: 0.2, efficiencyVsEquity: -0.4 },
+        explanation: {
+          en: "Community Governance view: Refuses simple central control or market chaos; leverages localized trust boundaries.",
+          zh: "社区治理型观点：淡化一刀切或野蛮逐利，用在地人对共有资源的自主协商形成可持性的共治框架。"
+        }
+      }
+    ]
   },
   {
-    id: "veblen",
-    name: { en: "Thorstein Veblen", zh: "凡勃伦 (Thorstein Veblen)" },
-    summary: { en: "The Satirist of Status", zh: "炫耀性消费的“毒舌观察员”" },
-    description: {
-      en: "You notice how habits, social status, and 'conspicuous consumption' drive our spending, not just simple utility.",
-      zh: "你注意到习惯、社会地位和“炫耀性消费”是如何驱动我们的支出，而非仅仅是简单的效用。"
+    id: 2,
+    measurement: {
+      en: "Economic externalities and pigouvian taxing on Environmental Crises.",
+      zh: "环境危机中的外部性、污染产权与排碳管制权衡。"
     },
-    authorBio: {
-      en: "Thorstein Veblen was a brilliant, eccentric sociologist and economist who gave the world the term 'Conspicuous Consumption'. He lived at the height of the Gilded Age and spent his time dissecting the vanity and waste he saw among the ultra-rich and those trying to imitate them.\n\nIn 'The Theory of the Leisure Class', he argued that we don't buy expensive things just because they are better; we buy them to prove that we can afford to waste money. He saw humans not as calculators, but as creatures driven by deep evolutionary urges for prestige and social ranking.\n\nVeblen was a pioneer of Institutional Economics, believing that our choices are shaped more by deep-rooted social habits and cultural 'institutions' than by abstract market laws. He was the ultimate outsider, looking at modern life like a biologist examining a strange species.",
-      zh: "索尔斯坦·凡勃伦是一位才华横溢、性格古怪的社会学家和经济学家，他向世界贡献了“炫耀性消费”一词。他生活在镀金时代的顶峰，致力于剖析他在巨富阶层及其模仿者身上所看到的虚荣与浪费。\n\n在《有闲阶级论》中，他主张我们购买昂贵的东西并不只是因为它们更好，而是为了证明我们“浪费得起”。他不将人类视为计算器，而是视为受深层进化冲动驱动、追求声望和社会等级的生物。\n\n凡勃伦是制度经济学的先驱，他相信我们的选择更多是由根深蒂固的社会习惯和文化“制度”塑造的，而非抽象的市场规律。他是一位终极的局外人，像生物学家观察奇怪物种一样观察着现代生活。"
+    title: {
+      en: "Fossil emissions are driving a severe global carbon crisis. What is the most effective policy mechanism?",
+      zh: "高能耗产业的高碳排放正在加剧环境危机。如果要最理性地推进资源重估，应首先引入哪种方案？"
     },
-    commonTraits: {
-      en: "You possess a 'Cynical Curiosity', and you are often the first to notice that people buy things they don't need just to impress people they don't like. You see the economy as a vast theater of 'Status Games' rather than a simple exchange of goods. You look for the hidden motives.\n\nYou likely identity as a 'Cultural Skeptic'. You are wary of the 'Machine Culture' and the drive for endless efficiency, preferring to ask what our work and consumption really say about who we think we are. You value authenticity over social signaling.\n\nYour worldview is rooted in psychology and sociology. You see the economy as an extension of our tribal history. You find harmony in the truth of human behavior, even if that truth is messy and a little bit ridiculous, believing that understanding our vanities is the first step toward real freedom.",
-      zh: "你拥有一种“愤世嫉俗的好奇心”，通常第一个注意到人们购买不真实需要的东西，仅仅是为了给他们并不喜欢的人留下深刻印象。你将经济视为“地位博弈”的大剧场，而非简单的商品交换。你寻找那些隐藏的动机。\n\n你可能对“文化怀疑论者”的身份有共鸣。你警惕“机器文化”和对无止境效率的追求，更倾向于追问我们的工作和消费究竟反映了我们认为自己是谁。你更看重真实性而非社会信号。\n\n你的世界观植根于心理学和社会学。你将经济视为人类部落历史的延续。你在人类行为的真相中寻找到了和谐，即便这个真相混乱且有点可笑，你相信理解我们的虚荣心是通往真实自由的第一步。"
-    },
-    idealScores: { interventionism: 0.5, rationality: -1.0, scope: -0.2, vision: 0.5 },
-    imageUrl: "https://api.dicebear.com/7.x/notionists/svg?seed=Milo&backgroundColor=fae8ff"
+    choices: [
+      {
+        text: {
+          en: "Impose a clear Pigouvian tax on carbon, allowing the price to guide firms to find their best mitigation tactics.",
+          zh: "出台科学计量的碳税（Pigouvian Tax），让生产成本内含社会外部成本，由市场主体自主权衡最划算的减排路径。"
+        },
+        weights: { marketVsIntervention: 0.5, rationalVsBehavioral: 0.8, efficiencyVsEquity: 0.4 },
+        explanation: {
+          en: "Free Choice view: Corrects external market failure by internalizing the social cost into the price system.",
+          zh: "个体选择型观点：利用碳税重构企业面临的机会成本与利润模型，借用价格系统温和引导资源替换。"
+        }
+      },
+      {
+        text: {
+          en: "Draft sweeping administrative standards to ban coal-firing units and mandate high wind-solar targets.",
+          zh: "由中央规划部门制定强有力的禁令与产业刚性绿色配额，限期关闭不达标企业并罚款。"
+        },
+        weights: { marketVsIntervention: -0.9, localVsCentral: -0.8 },
+        explanation: {
+          en: "Macro Stabilization view: Climate is a massive central crisis; weak slow taxes cannot match swift administrative action.",
+          zh: "宏观稳定型观点：气候问题是极其迫切的大型危机，缓慢的价格摸索可能为时已晚，必须以法治刚性底线强推。"
+        }
+      },
+      {
+        text: {
+          en: "Assign clean carbon properties locally, encouraging regional community councils and companies to directly trade rights.",
+          zh: "明确区域级碳排放与环境权边界，让本地排污者与居民在受法律庇护的前提下当面进行自发博弈换算。"
+        },
+        weights: { localVsCentral: 0.8, marketVsIntervention: 0.6 },
+        explanation: {
+          en: "Community Governance view: Favors localized property agreements over giant central bureaucracies or tax schemes.",
+          zh: "社区管理型观点：不迷信中心机构，由地方基于直接知情、利益相关的细化契约来进行低损耗自主交易。"
+        }
+      },
+      {
+        text: {
+          en: "Aggressively fund technology pioneers and risk capital; count on dynamic competition to make fossil energy outdated.",
+          zh: "向光伏、聚变与氢能等初创科技派发放超高奖励，用野蛮崛起的廉价新清洁能源自然毁灭高碳旧垄断巨头。"
+        },
+        weights: { marketVsIntervention: 0.6, efficiencyVsEquity: 0.8, rationalVsBehavioral: 0.2 },
+        explanation: {
+          en: "Evolutionary Innovation view: The only sustainable way out is tech paradigm leap via creative destruction.",
+          zh: "创新演化型观点：用新一轮“创造性毁灭”将高碳燃煤归入尘埃，技术换代升级才是解决终极危机的唯一途径。"
+        }
+      }
+    ]
   },
   {
-    id: "robinson",
-    name: { en: "Joan Robinson", zh: "琼·罗宾逊 (Joan Robinson)" },
-    summary: { en: "The Structural Realist", zh: "不完美市场的“揭秘者”" },
-    description: {
-      en: "You challenge the easy myths of perfect competition, seeing a world of uncertainty and power imbalances.",
-      zh: "你挑战了完美竞争的简单神话，看到了一个充满不确定性和权力失衡的世界。"
+    id: 3,
+    measurement: {
+      en: "Gig Economy workers, structural algortihmic monopolies, and social safety nets.",
+      zh: "零工经济、平台算法控制与底层福利兜底权衡。"
     },
-    authorBio: {
-      en: "Joan Robinson was a powerhouse of the Cambridge School who famously said that the reason to study economics is to 'avoid being deceived by economists'. She was one of the few women in a male-dominated field, and she spent her life dismantling the neat, unrealistic models of her peers.\n\nShe developed the theory of 'Monopsony' and 'Imperfect Competition', showing that real markets are often dominated by powerful buyers and sellers who distort prices. She believed that the economy is deeply historical—meaning that where we started matters just as much as where we think we are going.\n\nRobinson was a critic of the idea that markets always lead to 'fair' equilibrium. She argued that the world is messy, power is unequal, and the 'logic' of the market is often just a cover for the interests of those already at the top.",
-      zh: "琼·罗宾逊是剑桥学派的中坚力量，她有句名言：学习经济学的理由就是“避免被经济学家所欺骗”。她是这个男性主导领域中为数不多的女性之一，她的一生致力于拆解同僚们那些整齐却不切实际的模型。\n\n她发展了“买方垄断”和“不完全竞争”理论，证明了真实的市往往由强大的买方和卖方主导，从而扭曲了价格。她相信经济具有深厚的历史性——这意味着我们的起点与我们所认为的去向同样重要。\n\n罗宾逊批评了“市场总能导向‘公平’均衡”的观点。她主张世界是混乱的，权力是不对等的，而市场的“逻辑”往往只是为那些已经处于顶层的人的需求打掩护。"
+    title: {
+      en: "Trillion-dollar platforms utilize real-time price algorithms to manage delivery workers, with razor-thin individual wages. How do you view this scene?",
+      zh: "超级外卖与零工平台利用实时定价算法管理数百万骑手，骑手在算法压迫下只拿到极薄的派送费。你对此倾向于如何应对？"
     },
-    commonTraits: {
-      en: "You possess a 'Critical Realism', refusing to accept simple answers to complex problems. If a store is the only one in town and keeps its wages low, you don't say 'that's just supply and demand'—you say 'that's market power'. You look for the underlying imbalance.\n\nYou likely identity as a 'Systemic Challenger'. You aren't afraid to question the status quo or the 'experts' who claim that everything is working as it should. You value the messy truth of history and context over the clean, abstract math of the textbook.\n\nYour worldview is rooted in the reality of uncertainty. You see the economy as a site of potential conflict and negotiation. You find harmony in the struggle for clarity, believing that the only way to build a better world is to be brutally honest about how this one actually functions.",
-      zh: "你拥有一种“批判性的现实主义”，拒绝接受复杂问题的简单答案。如果镇上只有一家商店且一直压低工资，你不会说“这只是供需关系”——你会说“这是市场权力”。你寻找底层的失衡。\n\n你可能对“系统性的挑战者”这一身份有共鸣。你并不畏惧质疑现状，或是质疑那些声称一切正如预期般运作的“专家”。比起教科书上整洁抽象的数学，你更看重历史与语境中的混乱真相。\n\n你的世界观植根于不确定性的现实中。你将经济视为潜在冲突与博弈的场所。你在追求清晰的过程中寻找到了和谐，相信建立一个更好世界的唯一途径，就是对当前这个世界实际上是如何运作的保持残酷的诚实。"
+    choices: [
+      {
+        text: {
+          en: "This is a typical lopsided monopsony. We must legally break platform algorithmic monopolies and unionize riders immediately.",
+          zh: "这是经典的“买方垄断（Monopsony）”。必须通过反垄断强拆算法，建立工会，保障骑手的集体议价权线。"
+        },
+        weights: { incentiveVsPower: -0.9, marketVsIntervention: -0.8, efficiencyVsEquity: -0.7 },
+        explanation: {
+          en: "Institutional Power view: Lopsided platform advantages require counter-balancing rules and labor checks.",
+          zh: "制度权力型观点：在强大的资方算法剥削下，单个骑手无法凭市价谈判，必须以法定工会等强硬制约夺回博弈权。"
+        }
+      },
+      {
+        text: {
+          en: "Riders chose this flexible gig with open options. Intervention will destroy their high employment rate and choice flexibility.",
+          zh: "这是数百万人在自由意志下做出权衡后的现实结果。强行设卡干预只会让平台关闭职位、减少低门槛工作选择。"
+        },
+        weights: { marketVsIntervention: 0.8, incentiveVsPower: 0.9, rationalVsBehavioral: 0.8 },
+        explanation: {
+          en: "Free Choice view: Riders make rational choices under constraints. Arbitrary wage floors risk throwing people into unemployment.",
+          zh: "个体选择型观点：骑手们正是在现有生存资源限制下进行自由机会对比。强制保护只会转嫁成本、杀伤平台竞争，最终反噬底层饭碗。"
+        }
+      },
+      {
+        text: {
+          en: "Provide unconditional basic safety dividends or capability grants to riders, so they own the capacity to leave bad gigs.",
+          zh: "避开平台纠葛，政府直接给低收入劳工提供无附加条件的技能飞跃补贴，从教育、医疗、自尊层面改善其可行能力。",
+        },
+        weights: { efficiencyVsEquity: -0.9, marketVsIntervention: -0.4, incentiveVsPower: -0.3 },
+        explanation: {
+          en: "Equity Capability view: Welfare is not just about platform wages, but empowering people's life-shaping capacities so they have true choice.",
+          zh: "公平能力型观点：比起无休止的限价纠纷，最纯粹的是从根本上赋予他们随时离开糟糕零工的底气——即受教育和退出的自尊筹码。"
+        }
+      },
+      {
+        text: {
+          en: "Set platform software settings and health check apps to automatically prompt default breaks to combat physical burnout.",
+          zh: "不强压定价，只以法定准则要求系统在界面将“每 4 小时强制休息 15 分钟”设为退出按钮的默认状态，消除诱导沉迷行为。"
+        },
+        weights: { rationalVsBehavioral: -0.8, marketVsIntervention: -0.2, incentiveVsPower: 0.2 },
+        explanation: {
+          en: "Behavioral Nudge view: Uses choice architecture. Gentle design default-anchors protect humans from hyper-exploitation without banishing market transaction.",
+          zh: "行为助推型观点：不消灭派单交易，但在系统界面重构选择架构（默认自动间歇），纠正骑手为了短暂金钱激励而忽视健康的认知偏差。"
+        }
+      }
+    ]
+  },
+  {
+    id: 4,
+    measurement: {
+      en: "Technological displacement (AI) vs Creative Destruction and redistribution.",
+      zh: "技术跃迁（AI）的冲击与创造性毁灭及再分配博弈。"
     },
-    idealScores: { interventionism: 0.8, rationality: 0.3, scope: 0.7, vision: 0.4 },
-    imageUrl: "https://api.dicebear.com/7.x/notionists/svg?seed=Nala&backgroundColor=e0f2fe"
+    title: {
+      en: "Advanced AI systems threaten to displace tens of millions of professional office and programming workers. What is your fundamental attitude?",
+      zh: "高能AI大模型和自动化算法正在闪击大片初级编程、文案与行政服务岗位。面对海量白领阶层可能被技术替代，你的主要态度是？"
+    },
+    choices: [
+      {
+        text: {
+          en: "This is a textbook 'Creative Destruction'. We must let AI companies sprint; temporary displacement will seed cooler industries.",
+          zh: "这是最教科书般的“创造性毁灭”。不该阻碍AI进化，阵痛是必要的。旧岗位消亡必将以更酷、更颠覆的未知产业诞生为补偿。"
+        },
+        weights: { marketVsIntervention: 0.8, efficiencyVsEquity: 0.9, incentiveVsPower: 0.6 },
+        explanation: {
+          en: "Evolutionary Innovation view: Squelching technology saves buggy buggy-whips but kills human industrial leap progress.",
+          zh: "创新演化型观点：若为眼下阵痛扼杀新范式，等同于马车时代禁止汽车。唯有包容剧烈颠覆，文明生产力才能跨代升级。"
+        }
+      },
+      {
+        text: {
+          en: "Levy high automation taxes on tech monopolists, using proceeds to subsidize manual industries and shorten weekly work.",
+          zh: "立即对利用海量用户公有数据训练AI的科技寡头加征高额自动化税，给被拆解人员提供基本薪酬和缩短工时补贴。"
+        },
+        weights: { marketVsIntervention: -0.8, efficiencyVsEquity: -0.7, incentiveVsPower: -0.8 },
+        explanation: {
+          en: "Institutional Power view: Prevent capitalists from fully capturing public knowledge fruits as raw monopoly capital profits.",
+          zh: "制度权力型观点：AI大模型是搭了人类公共知识长河的便车，其红利必须面临反垄断税支，不能由少数财阀寡头独吞暴利。"
+        }
+      },
+      {
+        text: {
+          en: "We must guarantee comprehensive educational grants to re-skill citizens, returning genuine ability choice to humans.",
+          zh: "不该阻止技术，但应由国家提供一辈子随时可取用的重组学费资金，让每个人都跟得上科技曲线并拥有不被机器支配的可行能力。"
+        },
+        weights: { efficiencyVsEquity: -0.8, marketVsIntervention: -0.3, incentiveVsPower: -0.2 },
+        explanation: {
+          en: "Equity Capability view: Humans must have substantive choices. Re-skill human capabilities to preserve human dignity in machines age.",
+          zh: "公平能力型观点：要通过终身学习红利、可行能力的二次锻造，保障人在机器大生产时代下维持做选择的真实底气。"
+        }
+      },
+      {
+        text: {
+          en: "Support localized professional guilds to jointly agree on gradual, adaptive transition speeds for practical implementations.",
+          zh: "由同业协会、本地社区工团共同制定“平稳换代”行业动态公约，不以中央下达死限，用社区自洽消减冲击摩擦。"
+        },
+        weights: { localVsCentral: 0.9, marketVsIntervention: 0.1, efficiencyVsEquity: -0.3 },
+        explanation: {
+          en: "Community Governance view: Local groups understand exact field limits, resolving adaptation friction through localized co-agreements.",
+          zh: "社区管理型观点：规避宏大叙事或资本粗暴撤退，交由行业基层联合互信协议，在自洽共治中消化技术迁移阵痛。"
+        }
+      }
+    ]
+  },
+  {
+    id: 5,
+    measurement: {
+      en: "Financing higher education: Human capital investment vs screening and loan burdens.",
+      zh: "高等教育筹资：人力资本投资、筛选效应与公平负担。"
+    },
+    title: {
+      en: "University tuition fees are surging globally, causing massive youth loan burdens. How do you analyze this social trend?",
+      zh: "大学学费节节高升，年轻人在踏入社会前就背上了沉重的学生贷款。你倾向于用哪种经济逻辑理解并解决这个现象？"
+    },
+    choices: [
+      {
+        text: {
+          en: "Education is a high-return human capital investment. Students should self-finance because they reap the long-term career returns.",
+          zh: "教育是个体对自身的“人力资本投资（Human Capital）”。既然未来的高层级红利归个人享有，自掏腰包符合市场基本契约。"
+        },
+        weights: { incentiveVsPower: 0.9, marketVsIntervention: 0.7, rationalVsBehavioral: 0.8 },
+        explanation: {
+          en: "Free Choice view: Self-funding align incentives, matching human investment efforts with career returns under price signal guide.",
+          zh: "个体选择型观点：让受教育者作为理性的资本持有人自负成本，才有可能让专业设置、人才流向跟市场的真实供给匹配，杜绝虚浮泡沫。"
+        }
+      },
+      {
+        text: {
+          en: "Universities act as high-status status social screening machines. We must tax commercial colleges and fund public craft vocational schools.",
+          zh: "高额学费是富人阶层为了地位隔离而设立的“社会筛选机”。必须对高学费野鸡大学课税，大力拨款全额免费的工艺技术学院。"
+        },
+        weights: { incentiveVsPower: -0.8, efficiencyVsEquity: -0.6, marketVsIntervention: -0.7 },
+        explanation: {
+          en: "Institutional Power view: Academic credentials are used mostly as a status game tool. Higher costs just entrench unequal class blocks.",
+          zh: "制度权力型观点：文凭在很大程度上已沦为富裕阶层实现圈层封闭和地位隔离的博弈道具。用不合理的高债务门槛挤占底层上升阶梯，是赤裸裸的阶下特权防线。"
+        }
+      },
+      {
+        text: {
+          en: "Tuition barriers destroy the capability choices of poor children. The state must provide complete, tax-funded free public colleges.",
+          zh: "金钱门槛粗暴剥夺了贫穷弱势儿童的人生最大可行选择权。国家必须提供由财政转移支付支持、全民免费的世界级高等教育。"
+        },
+        weights: { efficiencyVsEquity: -0.9, marketVsIntervention: -0.8, localVsCentral: -0.6 },
+        explanation: {
+          en: "Equity Capability view: Education is a fundamental capability right. Lack of tuition is deprivation of basic lifelong survival tools.",
+          zh: "公平能力型观点：教育不应该是一门生意。无法接受技能训练等同于被粗暴地剥夺了探索人生可能的实质自由，属于典型的贫困剥夺。"
+        }
+      },
+      {
+        text: {
+          en: "Surging fees stem from administrative visual inflation. Simplify university scale and shift to decentralized peer guild appraisals.",
+          zh: "高学费来自于庞大大学行政机构、面子评比等视觉通胀。应当去中心化大学编制，回归社区互信式的手艺人行会和学徒制重组。"
+        },
+        weights: { localVsCentral: 0.8, marketVsIntervention: 0.3, rationalVsBehavioral: -0.3 },
+        explanation: {
+          en: "Community Governance view: Heavy hierarchies and bureaucracies drive inflation. Local peer apprenticeships are efficient and practical.",
+          zh: "社区管理型观点：大型办学行政通病拉高了浮夸门槛，回到小团体的学徒制和手工艺师行会，自能培养出最契合社群需求的扎实手艺。"
+        }
+      }
+    ]
+  },
+  {
+    id: 6,
+    measurement: {
+      en: "Macro Systemic crises in financial markets, bank bailouts, and moral hazard.",
+      zh: "巨额金融危机、银行救助、系统性风险与道德风险交锋。"
+    },
+    title: {
+      en: "A systemic credit freeze hits the national banking market, threatening widespread liquidations. What is your fundamental stance?",
+      zh: "一场突如其来的宏观债务冻结席卷金融市场，几家系统重要性银行命悬一线，随时可能引发全局挤兑和储蓄蒸发。你首要拥戴什么样的应对？"
+    },
+    choices: [
+      {
+        text: {
+          en: "The central state must inject cash and bailout key banks immediately. A total system collapse will freeze domestic cycles and kill businesses.",
+          zh: "中央和央行必须立即向心脏注入无限资金实施彻底救助。宏观流动性一旦凝结将引发实体行业断水断粮，酿成大萧条灾难。"
+        },
+        weights: { marketVsIntervention: -0.9, localVsCentral: -0.8, efficiencyVsEquity: 0.2 },
+        explanation: {
+          en: "Macro Stabilization view: In systemic credit loops, fear freezes all exchange. Central emergency intervention is the absolute buffer.",
+          zh: "宏观稳定型观点：危机来临时，“动物精神”极度惊慌导致全民现金为王。此时救银行实际救的是整个社会循环系统的总生命线。"
+        }
+      },
+      {
+        text: {
+          en: "Let failed banks fail. Bailouts create severe moral hazard, rewarding reckless high-risk financial games at public expense.",
+          zh: "顽固地坚守市场惩戒，让违规高风险做空、高杠杆套利的投机银行清盘。政府绝不能救助，否则后患无穷（道德风险）。"
+        },
+        weights: { marketVsIntervention: 0.9, incentiveVsPower: 0.8, efficiencyVsEquity: 0.6 },
+        explanation: {
+          en: "Free Choice view: Erasing bad consequences rewards reckless hazard behavior. Real market discipline means taking responsibility for risks.",
+          zh: "个体选择型观点：错误理性的基石是自负盈亏。政府若出钱买单，等同于拿着纳税人的血汗钱去纵容贪婪，长期来看彻底摧毁了金融市场的良性激励。"
+        }
+      },
+      {
+        text: {
+          en: "Bail out depositors fully, but erase the billionaire shareholders and mandate strict commercial firewall restrictions on Wall Street.",
+          zh: "无条件保护全体小微储户钱财，但是彻底罚没清洗高管和投机财团的期权红利，出台严苛反垄断细则将投行隔离拆分。"
+        },
+        weights: { incentiveVsPower: -0.9, efficiencyVsEquity: -0.7, marketVsIntervention: -0.6 },
+        explanation: {
+          en: "Institutional Power view: Protect innocent citizens while aggressively punishing the financial class for high-risk capture.",
+          zh: "制度权力型观点：必须清算金融寡头玩资本游戏、把全社会当人质的霸道垄断不公；在救护大众利益的同时，铁血拆散金融统治阶级利益。"
+        }
+      },
+      {
+        text: {
+          en: "Shift towards cooperative localized credits, credit unions, and community-level mutual help pools that resist high leverages.",
+          zh: "将金融主权分散，由地方信托社、乡村合作金融互助机构进行自我治理，避开华尔街高度复杂的投机寄生杠杆游戏。"
+        },
+        weights: { localVsCentral: 0.9, marketVsIntervention: 0.3, rationalVsBehavioral: -0.4 },
+        explanation: {
+          en: "Community Governance view: Decentralizes systematic leverage risk. Trust pools are built on actual localized memory, limiting toxic financial games.",
+          zh: "社区管理型观点：从根子上摆脱对超大体量金融寡头的高度寄生，用分散化多中心、拥有真实声誉约束的在地中小互助信用社自疗系统。"
+        }
+      }
+    ]
+  },
+  {
+    id: 7,
+    measurement: {
+      en: "Public Healthcare Allocation: Price signals vs moral asymmetries and public supply.",
+      zh: "医疗资源分配：市价机制、信息不对称、道德溢价与公共供给抉择。"
+    },
+    title: {
+      en: "High-demand specialist healthcare has long queues and extreme medical resource tensions. What is the fairest long-term solution?",
+      zh: "高水平专家门诊人满为患，医疗设备抢夺紧张，排队黄牛猖獗。为了最长久且有尊严地化解“看病难、看病贵”难题，应主要采纳："
+    },
+    choices: [
+      {
+        text: {
+          en: "Allow prices to peak and encourage premium private clinics; profits will automatically motivate high supply expand.",
+          zh: "全面松绑，允许医院按市场真实溢价自主定价，让高端私营医疗自由竞逐。高额利润会自动引流并催生高水平人才爆裂增长。"
+        },
+        weights: { marketVsIntervention: 0.9, efficiencyVsEquity: 0.8, incentiveVsPower: 0.7 },
+        explanation: {
+          en: "Free Choice view: Artificially suppress healthcare prices only leads to black-market scalping and bad hospital incentives.",
+          zh: "个体选择性观点：价格管制的恶果是催生猖獗的倒牌大军（黄牛），并致使医生毫无行医动力。恢复真实价格逻辑，竞争自然提升品质。"
+        }
+      },
+      {
+        text: {
+          en: "A healthy life is a fundamental human capability. Healthcare must be entirely funded by public taxes and open free.",
+          zh: "健康是人探索世界、追求生活的最基本“可行能力”。医疗必须由政府作为最大单一采购方全额承担，并按病情急缓免费分配门诊。"
+        },
+        weights: { efficiencyVsEquity: -0.9, marketVsIntervention: -0.8, localVsCentral: -0.5 },
+        explanation: {
+          en: "Equity Capability view: Treating sick bodies as market auction goods is morally bankrupt. Absolute equality must guard medical access.",
+          zh: "公平能力型观点：生老病死容不得半点资产隔离。不能看病形同于被剥夺了在这个世界上“能活下去”的底线，公共资源必须对所有人不加区别平等兜底。"
+        }
+      },
+      {
+        text: {
+          en: "The current crisis is a showcase of corporate lobby monopolies and pharmaceutical patents. Dismantle deep medical conglomerates and break secrets.",
+          zh: "看病难根子在于药企、医疗器械资本联盟的专利垄断。必须强力拆开药理黑箱、打破行业垄断，打击一切合谋溢价暴利行为。"
+        },
+        weights: { incentiveVsPower: -0.9, marketVsIntervention: -0.7, efficiencyVsEquity: -0.5 },
+        explanation: {
+          en: "Institutional Power view: Health crisis is driven by asymmetrical info monopoly and pharmaceutical greed. True fix means stripping corporate power.",
+          zh: "制度权力型观点：信息极度不对称的医疗市场容易变成寡头大发死人财的绞肉机，绝不可相信单纯的市场调和，唯有反垄断和粉碎暴利才是出路。"
+        }
+      },
+      {
+        text: {
+          en: "Set registration platforms to auto-default users to convenient local community doctors, filtering non-severe cases efficiently and gently.",
+          zh: "引入“助推”机制：在挂号系统中，将用户初诊默认勾选为方便的同籍社区家庭医院，并以温和科普改变市民一得病就非排三甲医院的盲目偏见。"
+        },
+        weights: { rationalVsBehavioral: -0.8, marketVsIntervention: -0.2, localVsCentral: 0.5 },
+        explanation: {
+          en: "Behavioral Nudge view: Corrects visual heuristics. Better choice architecture redirects citizens without removing individual option right.",
+          zh: "行为助推型观点：不废除非必要就医，而是在系统层面修改初次就医的选择网络，引导人进行常识纠偏，高效率降噪专家门诊压力。"
+        }
+      }
+    ]
+  },
+  {
+    id: 8,
+    measurement: {
+      en: "Public Commons Management: Government policing vs private privatization and communal collective rules.",
+      zh: "共有资源治理：私有产权、政府铁腕警察执法、还是社群自我编织共同规约交锋。"
+    },
+    title: {
+      en: "A beautiful local marine fishing area is suffering from severe, competitive overfishing that threatens structural collapse. What is the best path?",
+      zh: "一处水产丰饶的公海近海渔场正在被各路大小船队竞相疯狂超额捕捞，生态随时面临崩溃荒芜。你会首先极力倾向并信任哪种处理？"
+    },
+    choices: [
+      {
+        text: {
+          en: "Privatize the marine area completely, selling properties to large responsible organizations who will preserve values.",
+          zh: "将渔场彻底私有化，设立可永久继承的排他性近海产权并拍卖。产权拥有者自然会在自利驱动下精益求精地养护渔业寿命。"
+        },
+        weights: { marketVsIntervention: 0.8, incentiveVsPower: 0.7, localVsCentral: 0.2 },
+        explanation: {
+          en: "Market Coordination view: The Tragedy of the Commons stems from the absence of private owners. Ownership aligns profits with conservation search.",
+          zh: "市场协调与选择型观点：“公地悲剧”之所以产生，是因为产权模糊导致人人不要白不要。有了清晰明确的私人权界，业主自然自利地护卫其长期增值资产。"
+        }
+      },
+      {
+        text: {
+          en: "Draft central regulations, dispatch government patrol ships, and strictly police the quota limits with radar scanners.",
+          zh: "重手收归国有，由中央渔政局实行刚性禁渔和指标。划定红线并派出海上执法船队进行全天候军警式雷达查扣罚没。"
+        },
+        weights: { marketVsIntervention: -0.8, localVsCentral: -0.8 },
+        explanation: {
+          en: "Macro Stabilization view: Environmental commons collapse is a fatal national systemic crisis; only centralized policing has actual deter power.",
+          zh: "宏观稳定型观点：生态死亡不可逆。决不能指望私商妥协。唯有国家机器带着强力武器、重型处罚在最前线充当裁判，才能强硬压制短视的贪婪。"
+        }
+      },
+      {
+        text: {
+          en: "Empower local fishermen themselves to collectively design limits, grads-of-sanctions, and monitor peer vessels voluntarily.",
+          zh: "发起在地社区捕捞大会，由渔民行会自组织协商规则（如单日网眼、禁捕期），自主进行小额度熟人罚款，自建渔船轮换执勤机制。"
+        },
+        weights: { localVsCentral: 0.9, marketVsIntervention: 0.2, efficiencyVsEquity: -0.3 },
+        explanation: {
+          en: "Community Governance view: Proves localized peer trust pools can perfectly beat tragedy without heavy central police costs or profit extraction.",
+          zh: "社区管理型（Ostrom）观点：在地人最清楚海洋状态，凭世代相承的手握手熟人守望和轻微动态梯度罚则，足以自愈公地，且免受官僚机器或资本家的双向勒索。"
+        }
+      },
+      {
+        text: {
+          en: "Support large-scale sea-farming pioneers. Fund dynamic science startups to make traditional raw wild sea-catch obsolete.",
+          zh: "不靠强制围堵，下拨巨款赞助先进海上合成养殖、微藻素食初创。用极速下落的工厂科技鱼，彻底摧毁远洋野生捕捞的利润基础。"
+        },
+        weights: { marketVsIntervention: 0.6, efficiencyVsEquity: 0.8, rationalVsBehavioral: 0.1 },
+        explanation: {
+          en: "Evolutionary Innovation view: Technology change shifts constraints. Cultured protein leaps automatically cure resource extraction struggles.",
+          zh: "创新演化型观点：堵截总有见不得光的偷捕。只有彻底改变生产范式和供给技术，用先进人工养殖让超额远洋野捕变得得不偿失，才能永绝悲剧。"
+        }
+      }
+    ]
+  },
+  {
+    id: 9,
+    measurement: {
+      en: "Faced with widening wealth inequality: Progressive taxation vs productivity and baseline safety capabilities.",
+      zh: "贫富差距危机：累进税、资本积累红利与底层基本能力建设博弈。"
+    },
+    title: {
+      en: "The wealth gap between ultra-rich billionaires and general families is at an all-time high. What is your fundamental analysis?",
+      zh: "金字塔尖的亿万富豪与广大底层民众的贫富差距攀升到空前的顶点，社会撕裂隐隐加剧。你对此倾向于如何系统地反思解决？"
+    },
+    choices: [
+      {
+        text: {
+          en: "We must run aggressive global wealth taxes on billionaires' properties, and mandate strict anti-monopoly clawbacks.",
+          zh: "立即对豪商、金融大财阀的所有资产和股票存量加征累进财产税，通过强悍反垄断立法斩断资本在掠夺性垄断下的野蛮繁殖。"
+        },
+        weights: { incentiveVsPower: -0.9, marketVsIntervention: -0.8, efficiencyVsEquity: -0.7 },
+        explanation: {
+          en: "Institutional Power view: Modern capital drifts into compounding monopolies. Progressive wealth tax claws back lopsided rule-dictating advantage.",
+          zh: "制度权力型观点：在资本要素长期压过劳动的垄断格局下，阶级不公是自我强化的。若不以税收铁血回采、打散资本寡头，财富差距将永久固化为特权极权统治。"
+        }
+      },
+      {
+        text: {
+          en: "Never punish productivity or investment efforts. Keep tax flat and leverage incentives so the rich reinvest in bold startups to build cooler infrastructure.",
+          zh: "严防惩罚性税收。要让高回报在产权制度保障下理直气壮，从而激励他们将资本大举投资到极具颠覆性的未知未来科技、改变生产力中去。"
+        },
+        weights: { marketVsIntervention: 0.8, efficiencyVsEquity: 0.9, incentiveVsPower: 0.8 },
+        explanation: {
+          en: "Free Choice and Evolutionary views: Exorbitant marginal taxes only paralyze capital accumulation and slow down technical dynamic drive.",
+          zh: "个体选择性与演化观点：强征资本累退税无异于惩罚拼搏和成功的勇气。唯有保护他们的正当回报，富人才会甘冒超高风险把资产变为新产业，从而做大蛋糕。"
+        }
+      },
+      {
+        text: {
+          en: "Focus entirely on the bottom. Tax high estates and pour it directly into unconditional basic capability lifelines like universal child health and free training.",
+          zh: "视线聚焦底层。不要去算富人股票，要通过足额的新增遗产税，在底层彻底消除起跑线不公，让每一个穷孩子从小拥有绝对平等的营养、医疗与受训选择能力。"
+        },
+        weights: { efficiencyVsEquity: -0.9, marketVsIntervention: -0.5, localVsCentral: 0.1 },
+        explanation: {
+          en: "Equity Capability view: Poverty is capability deprivation. Erasing起跑线 opportunity disparities is the absolute moral baseline of civilized justice.",
+          zh: "公平能力型观点：人生来由于投胎造成的家庭起跑线差距是文明的最大耻辱。国家应专注于补足弱者的“底阀”可行能力，让每颗草都有开花繁衍的机会。"
+        }
+      },
+      {
+        text: {
+          en: "Rethink local municipal finance: Foster small community shared land trusts and regional mutual credit banks to keep assets locally co-owned.",
+          zh: "重构地方微观共同财务：把公有社区土地、民生基础设施收归本地公信度极高的市民合作信托基金打理，让劳动果实留在原乡社群。"
+        },
+        weights: { localVsCentral: 0.9, marketVsIntervention: 0.2, efficiencyVsEquity: -0.3 },
+        explanation: {
+          en: "Community Governance view: Displaces center wealth monopoly by localized communal assets and non-monetized mutual ties.",
+          zh: "社区管理型观点：不要试图通过巨型中心机器来分钱，那往往会催生庞大的官僚浪费。回到社群共有的本土地产信托、合作行，让本土地里冒出的资源归本土劳者共同分配。"
+        }
+      }
+    ]
+  },
+  {
+    id: 10,
+    measurement: {
+      en: "Attention economy, digital addiction, algorithms framing vs consumer choice and behavior default biases.",
+      zh: "注意力经济、社交媒体沉迷、算法极客诱导与自我选择决策权衡。"
+    },
+    title: {
+      en: "Short-video and social media algorithms use intense psychological feedback loops, leaving millions of youth highly addicted. How do you respond?",
+      zh: "短视频与主流社交网络利用大脑多巴胺机制设计成瘾算法，引致无数人重度刷屏沉迷。为了让用户重夺理智生活的主权，你最认同的是哪种办法？"
+    },
+    choices: [
+      {
+        text: {
+          en: "This is deliberate design capture. Levy heavy antitrust fines on digital platforms, force software code audits, and ban algorithmic loops targeting minors.",
+          zh: "这是平台厂商对大脑的多巴胺强权劫持。必须出台严刚司法反垄断重罚平台，强制公开推荐算法并彻底限期封禁未成年自动连播循环。"
+        },
+        weights: { marketVsIntervention: -0.8, incentiveVsPower: -0.9, efficiencyVsEquity: -0.4 },
+        explanation: {
+          en: "Institutional Power view: Refuses the myth of 'rational choice'. The platform algorithm holds asymmetrical absolute power over human brain wiring.",
+          zh: "制度权力型观点：别拿“自由决定”当借口。单个用户面对千人千面、全天候进化的万亿赫兹算力算法，心智是被完全碾压的。唯有国家用硬核铁铲砸烂算法垄断。"
+        }
+      },
+      {
+        text: {
+          en: "The platform provides massive fun and efficient market trading channels. Content consumption is a sovereign choice; users decide their time allocations.",
+          zh: "这些平台极大消除了内容传输的交易摩擦。刷手机是消费者在有限时间里自由对比、获得愉悦的自我满足决定，他人无权站在高处冒充导师干涉。"
+        },
+        weights: { marketVsIntervention: 0.8, incentiveVsPower: 0.9, rationalVsBehavioral: 0.9 },
+        explanation: {
+          en: "Free Choice view: Respects consumer sovereignty. Overestimating digital addiction paternalism often leads to moral policing over lifestyles.",
+          zh: "个体选择性观点：尊重绝对的“消费者主权”。用户有权享受廉价广泛的信息盛宴，假惺惺的家长主义干涉往往沦为对普罗大众个人生活情趣的傲慢说教。"
+        }
+      },
+      {
+        text: {
+          en: "Design default settings on phone OS where app daily limits (e.g. 1hr maximum) are automatically default-enabled, letting users easily opt-out if desired.",
+          zh: "在操作系统原生设计中引入“柔性偏向设计”：出厂默认自动开启“单应用每日限制1小时”，给用户一个随时可以点击解除但本能产生震慑的锚定阀。"
+        },
+        weights: { rationalVsBehavioral: -0.9, marketVsIntervention: -0.1, incentiveVsPower: 0.1 },
+        explanation: {
+          en: "Behavioral Nudge view: Employs choice architecture. Changes default anchor status to gently protect human executive function without state censorship.",
+          zh: "行为助推型观点：不封禁任何APP，只在出厂级设置里把保护默认状态前置。给脆弱的意志力一个平稳落地的扶手，用最不侵犯选择的手段解除算法劫持。"
+        }
+      },
+      {
+        text: {
+          en: "Support regional libraries, physical community spaces, and civic recreation centers to re-weave actual physical human connection networks.",
+          zh: "跳出线上网络纠纷，拨款大举兴建并升级地方普惠性公共图书馆、邻里草坪沙龙、实体桌游社等，用线下真实的物理温暖重织脱虚向实的社区网。"
+        },
+        weights: { localVsCentral: 0.9, marketVsIntervention: 0.1, efficiencyVsEquity: -0.3 },
+        explanation: {
+          en: "Community Governance view: Virtual immersion thrives on real physical community loneliness. Fostering localized relational trust space resolves the void naturally.",
+          zh: "社区管理型观点：线上沉迷背后的根子是物理社群连结的破碎和荒芜引发的漫长孤寂。用在地的人性温存、面对面的互动，去自然治愈精神空虚，才是正本清源。"
+        }
+      }
+    ]
   }
 ];
