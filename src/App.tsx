@@ -30,6 +30,10 @@ export default function App() {
   const [answers, setAnswers] = useState<Scores[]>([]);
   const [result, setResult] = useState<MatchResult | null>(null);
 
+  const primaryMindset = (result && result.isHybrid) 
+    ? result.secondary[0] 
+    : (result ? result.primary as MindsetType : null);
+
   const t = {
     home: {
       title: { en: "EconTI", zh: "EconTI" },
@@ -42,8 +46,8 @@ export default function App() {
         zh: "通过 10 个贴近生存民生的中性政策权衡情景，探寻你在思考社会资源、效率与博弈时的底层直觉体系。"
       },
       disclaimer: {
-        en: "This test is designed purely for educational exploration and popular analysis. It does not constitute formal political profile audits, psychological classifications, or administrative policy verdicts.",
-        zh: "说明：本测验为学术探求普及与日常自娱设计，结果不代表任何严肃社会学政风审计、标准的心理诊断或行政决策判语。"
+        en: "This test is designed to present various economic perspectives in a lightweight manner, intended solely for educational exchange and entertainment reference. It does not represent rigorous academic categorization, psychological diagnosis, or a basis for real-world decision-making.",
+        zh: "本测验旨在以轻量方式呈现不同经济学视角，仅供学习交流与娱乐参考，不代表严肃学术分类、心理诊断或现实决策依据。"
       },
       cta: { en: "Start Discovery", zh: "开始测试" }
     },
@@ -190,14 +194,11 @@ export default function App() {
       {/* Elegantly Spaced Topbar Header */}
       <header className="border-b border-stone-200/50 bg-[#fafaf7]/85 backdrop-blur-md sticky top-0 z-40 px-6 py-4">
         <div className="max-w-6xl mx-auto flex justify-between items-center">
-          <div className="flex items-center gap-2.5 cursor-pointer" onClick={reset} id="header-brand">
-            <div className="w-8 h-8 rounded bg-stone-900 flex items-center justify-center text-[#fcfcf9] font-serif font-black text-base shadow-sm">
-              E
-            </div>
-            <div>
-              <span className="font-bold text-stone-900 tracking-wide text-sm block">EconTI</span>
-              <span className="text-[9px] text-stone-400 font-bold tracking-widest block leading-none mt-0.5 uppercase">Economic Lenses</span>
-            </div>
+          <div className="flex items-center gap-2 cursor-pointer bg-stone-100/60 border border-stone-200/40 px-3 py-1.5 rounded-full text-stone-600 text-[10.5px] font-bold tracking-wider hover:bg-stone-100 transition-colors" onClick={reset} id="header-brand">
+            <Sparkles className="w-3 h-3 text-[#d97706] shrink-0" />
+            <span className="truncate">
+              {lang === 'zh' ? '经济学思维探索 / Interactive Educational Platform' : 'Interactive Educational Platform / 经济学思维探索'}
+            </span>
           </div>
           
           <div className="flex items-center gap-4">
@@ -222,53 +223,16 @@ export default function App() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
-              className="w-full max-w-2xl space-y-8 text-center"
+              className="w-full max-w-2xl space-y-8 text-center py-12"
               id="home-stage"
             >
-              <div className="space-y-4">
-                <div className="inline-flex gap-2 items-center px-4 py-1.5 rounded-full bg-stone-150/50 border border-stone-200/40 text-stone-600 text-[10px] font-bold tracking-wider uppercase mx-auto">
-                  <Sparkles className="w-3 h-3 text-[#d97706] animate-pulse" />
-                  <span>Interactive Educational Platform / 经济学思维探索</span>
-                </div>
+              <div className="space-y-6">
                 <h1 className="text-3xl md:text-4xl font-extrabold text-stone-900 tracking-tight font-serif leading-tight">
                   {t.home.title[lang]}
                 </h1>
                 <p className="text-lg md:text-xl font-serif text-stone-700 max-w-lg mx-auto leading-relaxed">
                   {t.home.subtitle[lang]}
                 </p>
-                <p className="text-xs md:text-sm text-stone-500 max-w-md mx-auto leading-relaxed">
-                  {t.home.desc[lang]}
-                </p>
-              </div>
-
-              {/* Guide card - clean scholastic feel */}
-              <div className="border border-stone-200 bg-white p-6 md:p-8 rounded-2xl text-left shadow-sm space-y-4" id="home-guide-card">
-                <div className="flex gap-3 items-start">
-                  <div className="w-8 h-8 rounded-lg bg-stone-50 flex items-center justify-center shrink-0 border border-stone-200 text-stone-600 shadow-sm-flat">
-                    <Compass className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-xs text-stone-850 uppercase tracking-widest">
-                      {lang === 'zh' ? '测试使用指南' : 'Core Focus Statement'}
-                    </h4>
-                    <p className="text-xs text-stone-600 leading-relaxed mt-1 font-medium">
-                      {lang === 'zh' 
-                        ? "当身边的民生、科技、分配发生纠纷冲突时，脑海中最先促发你感到信服的直觉折射出你解释世界的底层透镜模型。本测试精选 10 个具有代表性的无道德好坏之分的真实经济场景，帮助探索你的大局直觉。"
-                        : "When everyday debates happen, your immediate impulse mirrors your background lenses. EconTI maps your answers through 10 balanced scenario debates to show your default explanatory framing."}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="border-t border-stone-100 pt-4 flex gap-3 items-start">
-                  <div className="w-8 h-8 rounded-lg bg-stone-50 flex items-center justify-center shrink-0 border border-stone-200 text-stone-400">
-                    <AlertCircle className="w-4 h-4 text-stone-400" />
-                  </div>
-                  <div>
-                    <p className="text-[10px] text-stone-400 font-medium leading-relaxed leading-snug">
-                      {t.home.disclaimer[lang]}
-                    </p>
-                  </div>
-                </div>
               </div>
 
               <div>
@@ -489,18 +453,106 @@ export default function App() {
                     </section>
                   )}
 
-                  {/* Representative footnotes at bottom (minor section size) */}
-                  {!result.isHybrid && (
-                    <footer className="pt-6 border-t border-stone-100 grid md:grid-cols-2 gap-4 text-[11px] text-stone-500">
-                      <div className="space-y-1.5">
-                        <span className="font-bold text-stone-400 block uppercase tracking-wider">{t.result.thinkersTitle[lang]}</span>
-                        <span className="font-medium">{(result.primary as MindsetType).representative[lang]}</span>
+                  {/* Perspective Contrast (Objective discussion pointing out differences, no right or wrong) */}
+                  {primaryMindset && primaryMindset.contrast && (
+                    <section className="space-y-3 pt-6 border-t border-stone-100" id="section-contrast">
+                      <h3 className="text-[11px] font-bold uppercase tracking-wider text-stone-400 flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-stone-300" />
+                        {lang === 'zh' ? '主导视角对比' : 'Perspective Contrast'}
+                      </h3>
+                      <div className="p-4 bg-stone-50/50 border border-stone-150 rounded-xl space-y-1.5">
+                        <div className="text-[11px] font-bold text-stone-500 uppercase tracking-wider flex items-center gap-1.5">
+                          {lang === 'zh' ? '相比于 ' : 'Compared with '}
+                          <span className="px-2 py-0.5 bg-stone-200 text-stone-850 rounded font-bold uppercase select-none text-[9px]">
+                            {primaryMindset.contrast.target[lang]}
+                          </span>
+                        </div>
+                        <p className="text-xs md:text-sm text-stone-650 leading-relaxed font-serif text-justify font-medium pt-0.5">
+                          {primaryMindset.contrast.text[lang]}
+                        </p>
                       </div>
-                      <div className="space-y-1.5">
-                        <span className="font-bold text-stone-400 block uppercase tracking-wider">{t.result.keywordsTitle[lang]}</span>
-                        <span className="font-medium">{(result.primary as MindsetType).keywords[lang].join(' / ')}</span>
+                    </section>
+                  )}
+
+                  {/* Learning Layer Collapsible Sections (Collapsed by default, styled for restraint, fully responsive) */}
+                  {primaryMindset && (
+                    <section className="space-y-4 pt-6 border-t border-stone-100" id="section-learning-layer">
+                      <h3 className="text-[11px] font-bold uppercase tracking-wider text-stone-400 flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-stone-300" />
+                        {lang === 'zh' ? '进入学习层深挖学理' : 'Further Conceptual Explorations'}
+                      </h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
+                        {/* Accordion 1: Representative Figures and Works */}
+                        {primaryMindset.scholars && primaryMindset.scholars.length > 0 && (
+                          <details className="group border border-stone-200 rounded-xl overflow-hidden bg-white [&_summary::-webkit-details-marker]:hidden">
+                            <summary className="flex items-center justify-between p-3.5 bg-stone-50/60 cursor-pointer select-none font-bold text-xs uppercase tracking-wider text-stone-700 hover:bg-stone-50 transition-colors">
+                              <span className="flex items-center gap-2">
+                                <Compass className="w-4 h-4 text-stone-400 group-hover:rotate-45 transition-transform" />
+                                {lang === 'zh' ? '代表人物与维基说明' : 'Figures & Wikipedia Entries'}
+                              </span>
+                              <span className="text-stone-400 group-open:rotate-180 transition-transform font-bold text-[9px] pl-2">▼</span>
+                            </summary>
+                            <div className="p-4 border-t border-stone-200 bg-white space-y-4 max-h-[300px] overflow-y-auto">
+                              {primaryMindset.scholars.map((scholar, sidx) => (
+                                <div key={sidx} className="space-y-2">
+                                  <h4 className="font-bold text-xs text-stone-900 border-l-2 border-stone-900 pl-2">
+                                    {scholar.name[lang]}
+                                  </h4>
+                                  <p className="text-xs text-stone-605 leading-relaxed font-serif pl-2">
+                                    {scholar.intro[lang]}
+                                  </p>
+                                  {scholar.wikis && scholar.wikis.length > 0 && (
+                                    <div className="pl-2 pt-1 flex flex-wrap gap-2 items-center">
+                                      <span className="text-[9px] font-bold text-stone-400 uppercase tracking-widest mr-1">
+                                        {lang === 'zh' ? '维基说明：' : 'Wikipedia:'}
+                                      </span>
+                                      {scholar.wikis.map((wiki, widx) => (
+                                        <a
+                                          key={widx}
+                                          href={wiki.url[lang]}
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                          referrerPolicy="no-referrer"
+                                          className="text-stone-600 hover:text-stone-900 underline text-[11px] font-serif font-medium inline-flex items-center gap-1.5"
+                                        >
+                                          {wiki.label[lang]}
+                                        </a>
+                                      ))}
+                                    </div>
+                                  )}
+                                </div>
+                              ))}
+                            </div>
+                          </details>
+                        )}
+
+                        {/* Accordion 2: Core Concept Explanations */}
+                        {primaryMindset.concepts && primaryMindset.concepts.length > 0 && (
+                          <details className="group border border-stone-200 rounded-xl overflow-hidden bg-white [&_summary::-webkit-details-marker]:hidden">
+                            <summary className="flex items-center justify-between p-3.5 bg-stone-50/60 cursor-pointer select-none font-bold text-xs uppercase tracking-wider text-stone-700 hover:bg-stone-50 transition-colors">
+                              <span className="flex items-center gap-2">
+                                <Sparkle className="w-4 h-4 text-stone-400" />
+                                {lang === 'zh' ? '核心概念解释' : 'Concept Explanations'}
+                              </span>
+                              <span className="text-stone-400 group-open:rotate-180 transition-transform font-bold text-[9px] pl-2">▼</span>
+                            </summary>
+                            <div className="p-4 border-t border-stone-200 bg-white space-y-4 max-h-[300px] overflow-y-auto">
+                              {primaryMindset.concepts.map((concept, cidx) => (
+                                <div key={cidx} className="space-y-1">
+                                  <h4 className="font-bold text-xs text-stone-950 flex items-center gap-1.5 leading-snug">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-stone-400 shrink-0" />
+                                    {concept.term[lang]}
+                                  </h4>
+                                  <p className="text-xs text-stone-600 leading-relaxed font-serif pl-3 text-justify">
+                                    {concept.explanation[lang]}
+                                  </p>
+                                </div>
+                              ))}
+                            </div>
+                          </details>
+                        )}
                       </div>
-                    </footer>
+                    </section>
                   )}
                 </div>
               </div>
@@ -606,8 +658,8 @@ export default function App() {
       <footer className="px-6 py-10 border-t border-stone-200/50 bg-[#fafaf7]">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-center md:text-left space-y-1.5">
-            <p className="text-[9px] font-bold uppercase tracking-wider text-stone-400">
-              EconTI Project &bull; 经济学观察视角测试
+            <p className="text-[10px] text-stone-400 font-medium max-w-xl leading-relaxed text-center md:text-left">
+              {t.home.disclaimer[lang]}
             </p>
             <div className="flex flex-col md:flex-row gap-3 md:gap-6 text-[10px] text-stone-500 font-medium">
               <a href="mailto:zhouxinyu_iesr23@outlook.com" className="flex items-center justify-center md:justify-start gap-1.5 hover:text-stone-900 transition-colors">

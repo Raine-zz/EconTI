@@ -21,6 +21,27 @@ export type Question = {
   choices: Choice[];
 };
 
+export type ScholarWiki = {
+  label: { [key in Language]: string };
+  url: { [key in Language]: string };
+};
+
+export type Scholar = {
+  name: { [key in Language]: string };
+  intro: { [key in Language]: string };
+  wikis: ScholarWiki[];
+};
+
+export type CoreConcept = {
+  term: { [key in Language]: string };
+  explanation: { [key in Language]: string };
+};
+
+export type ContrastDetail = {
+  target: { [key in Language]: string };
+  text: { [key in Language]: string };
+};
+
 export type MindsetType = {
   id: string;
   name: { [key in Language]: string };
@@ -30,4 +51,7 @@ export type MindsetType = {
   description: { [key in Language]: string };
   habits: { [key in Language]: string[] }; // 3 crisp habits: "你通常会..."
   blindspot: { [key in Language]: string }; // 1 gentle blindspot
+  scholars: Scholar[];
+  concepts: CoreConcept[];
+  contrast: ContrastDetail;
 };

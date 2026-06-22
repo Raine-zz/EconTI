@@ -68,7 +68,7 @@ export const QUESTIONS: Question[] = [
       },
       {
         text: {
-          zh: "支持和引入采用先进智能物流和集约化冲泡等高效率平替方案，发挥长期产业创新升级的降本优势。",
+          zh: "支持和引入采用先进智能物流 and 集约化冲泡等高效率平替方案，发挥长期产业创新升级的降本优势。",
           en: "Encourage automated supply chain logistics and production-line innovation to lower systemic marginal cost through technical upgrade."
         },
         weights: { evolutionaryInnovation: 1.5 }
@@ -263,7 +263,7 @@ export const QUESTIONS: Question[] = [
   {
     id: 8,
     title: {
-      zh: "多处小体量城商行和信用社卷入坏账纠纷并引致局部挤兑恐慌势头，如何遏阻系统性震荡？",
+      zh: "多处小体量城商行卷入坏账纠纷并引致局部挤兑恐慌势头，如何遏阻系统性震荡？",
       en: "Multiple regional municipal banks face high delinquency rates, triggering localized cash-run scares. How to prevent systemic runs?"
     },
     choices: [
@@ -276,21 +276,21 @@ export const QUESTIONS: Question[] = [
       },
       {
         text: {
-          zh: "由政府金融监管与央行果断介入，履行最后贷款人职责（Lender of Last Resort），无限提供大额信用兜底，在瞬时稳定市场信心大局。",
+          zh: "由政府金融监管与央行果断介入，履行最后贷款人职责（Lender of Last Resort），无限提供大额信用兜底，在瞬间稳定市场信心大局。",
           en: "Declare full stability posture. The central bank must serve as 'lender of last resort', pouring swift emergency credit injections to halt panic."
         },
         weights: { macroStabilization: 1.5 }
       },
       {
         text: {
-          zh: "理解银行挤兑通常是恐慌情绪（兽性冲动）极速传染的反应。应暂设小幅业务阻漏，调低临柜人员每日提取上限，通过小提示抚慰信心。",
+          zh: "理解银行挤兑通常是恐慌情绪（兽性冲动）极速传染的反应。应暂设小幅业务阻漏，调低临柜人员每日提取上限，通过心理疏导抚慰信心。",
           en: "Calm animal spirits. Since bank panic is heavily psychological, extend the bank app's waiting times and provide simple cues to break the stampede."
         },
         weights: { behavioralReality: 1.5 }
       },
       {
         text: {
-          zh: "挤兑暴露了底层资本的所有权控制弊端，借此机会对这些金融机构进行深度监管听证、推行重大信用资产重组并追究股东的欺诈议价罪责。",
+          zh: "挤兑暴露了底层资本的所有权控制弊端，借此机会对这些金融机构进行深度监管听证、推行重大信用资产重组并追究股东的契约责任。",
           en: "Investigate structural exploitation. Execute rigorous administrative audits into the financial elites and reorganize asset ownership boards."
         },
         weights: { institutionalPower: 1.5 }
@@ -300,34 +300,34 @@ export const QUESTIONS: Question[] = [
   {
     id: 9,
     title: {
-      zh: "社会财富跨度极宽且出现了不容忽视的前端固化现象，改善这一局面的核心支点应当放在哪里？",
-      en: "Wealth divides have widened, and initial environments have hardened. Where should policy tilt to build upward mobility?"
+      zh: "社会财富跨度极宽且出现了不容忽视的结构性固化现象，改善这一局面的核心支点应当放在哪里？",
+      en: "Wealth divides have widened, and environments have hardened. Where should policy tilt to build upward mobility?"
     },
     choices: [
       {
         text: {
-          zh: "重点提升弱势下一代的可行受教育条件、儿童营养，并完善全民基础基础生活兜底保障，让每个人自出生起便能拥有公平的参与能力。",
+          zh: "重点提升弱势下一代的可行受教育条件和儿童营养，完善全民基础生活兜底保障，让每个人自出生起便能拥有公平的参与能力。",
           en: "Direct wealth into early schooling, health, and minimum income to upgrade marginal children's capability to discover their talent."
         },
         weights: { equityCapability: 1.5 }
       },
       {
         text: {
-          zh: "重构企业法和超额税收规则。重点解决垄断平台、超大资本财团和劳动者之间在组织话语和权利博弈上的不均，纠错不合规则的寻租差富。",
+          zh: "重构企业法和超额收益分配。重点解决垄断平台、超大资本财团和劳动者之间在组织话语和权利博弈上的不均，限制不平等的寻租红利。",
           en: "Introduce progressive inheritance taxes and curb platform rent-seeking to level the structurally skewed playing field between labor and capital."
         },
         weights: { institutionalPower: 1.5 }
       },
       {
         text: {
-          zh: "应当警惕严酷的一刀切财产平复挫伤了关键财富创造者的长线创业热情，需通过培育生机勃勃的私营竞争来拉高蛋糕体积与创造大量就业岗位。",
-          en: "Avoid heavy punitive wealth levies that disincentivize job creators. Maintain competitive dynamics to scale the pie and boost baseline employment."
+          zh: "应当警惕严酷的一刀切财产税挫伤了关键财富创造者的长线创业热情，需通过培育生机勃勃的私营竞争来拉高蛋糕体积与创造大量就业。",
+          en: "Avoid heavy wealth levies that disincentivize job creators. Maintain competitive dynamics to scale the pie and boost baseline employment."
         },
         weights: { priceMechanism: 1.5 }
       },
       {
         text: {
-          zh: "单纯靠行政转移不解决长期活力。应当鼓励最激进的技术跃迁和颠覆性新兴风口（如太空探索、新能源风口），通过竞争更新让社会阶层自演进。",
+          zh: "单纯靠行政转移难以解决长效活力。应当鼓励最激进的技术跃迁和颠覆性新兴风口（如人工智能、新能源），通过竞争更迭实现阶层自演进。",
           en: "Focus on creating technology frontiers. Launch supercharged economic growth engines that break old monopolies through evolution."
         },
         weights: { evolutionaryInnovation: 1.5 }
@@ -343,14 +343,14 @@ export const QUESTIONS: Question[] = [
     choices: [
       {
         text: {
-          zh: "数字资产被大品牌绝对操纵。应制定前瞻算法透明法，保障网民可以就自己的个人数据产权进行独立诉讼、收回自己的数字劳务受偿权。",
-          en: "Legislate clear digital consumer guidelines. Force transparency in algos and give users legal control and property rights over their data assets."
+          zh: "数字资产被巨头垄断控制。应制定前瞻算法透明法，保障网民可以就自己的个人数据产权进行自主主张与交易所有权。",
+          en: "Legislate digital consumer guidelines. Force transparency in algos and give users legal control and property rights over their data assets."
         },
         weights: { institutionalPower: 1.5 }
       },
       {
         text: {
-          zh: "在多巴胺偏好中存在强烈的近视偏好（短视盲区），应该立法让平台开通一键自主添加：“每日默认 1 小时限停”、“无推荐清白版”的易得预设开关。",
+          zh: "在多巴胺偏好中存在强烈的短视盲区。应该立法让平台开通一键自主添加：“每日默认1小时限停”、“无推荐清白版”等良性默认预设开关。",
           en: "Understand present-bias. Encourage product nudges such as easy opt-out buttons or a default 1-hour healthy screen restriction."
         },
         weights: { behavioralReality: 1.5 }
@@ -364,7 +364,7 @@ export const QUESTIONS: Question[] = [
       },
       {
         text: {
-          zh: "这本质上是每个用户理性决策与有限时间约束相互适应的过程，消费者花费时间去换多巴胺是个体主观效用的自主选择，无需行政过度监管。",
+          zh: "这本质上是每个用户理性决策与有限时间约束相互适应的过程。消费者自愿花费时间去换多巴胺是个体效用的自主选择，无需行政过度监管。",
           en: "Recognize subjective individual valuation. Customers intentionally trade time for infotainment based on their personal marginal utility."
         },
         weights: { priceMechanism: 1.5 }
@@ -384,24 +384,75 @@ export const MINDSETS: MindsetType[] = [
     representative: { zh: "亚当·斯密 / 弗里德里希·哈耶克", en: "Adam Smith / Friedrich Hayek" },
     keywords: { zh: ["供求定价", "价格信号", "自发秩序", "个体激励"], en: ["Supply & Demand", "Price Signals", "Spontaneous Order", "Incentives"] },
     description: {
-      zh: "你不见得反对一切国家政策，但在你心中，散布于社会无数个体头脑中的地方性知识是任何中央规划部门无法穷尽的。当现实资源分配或者民生出现摩擦时，你天然会先去考察底层的『激励机制是否出偏差、自由价格通道是否被人为封死、自由准入门槛是否被高壁垒拦截、供给有没有自由发展的空间』。你更偏爱相信千万商户自发碰撞所带来的敏捷修正能力。",
-      en: "You do not necessarily hate public systems, but you believe decentralized society contains localized, dispersed information that no big centralized planner can fully master. When problems arise, your default intuition tells you to check: Are rent caps causing storage shortages? Are standard costs warped? You prefer to trust millions of micro merchants self-negotiating through market transactions."
+      zh: "散布于社会无数个体头脑中的地方性知识是任何中央规划部门无法穷尽的。当现实资源分配出现摩擦时，你天然会先去考察底层的『激励机制是否出偏差、自由价格通道是否被人为封死、自由准入门槛是否被高壁垒拦截、供给有没有自由发展的空间』。你更偏爱相信千万商户自发碰撞所带来的敏捷修正能力。",
+      en: "You believe decentralized society contains localized, dispersed information that no big centralized planner can fully master. When problems arise, your default intuition tells you to check: Are price controls distorting supply? Are entry barriers too high? You prefer to trust millions of micro-merchants coordinating via open market trade."
     },
     habits: {
       zh: [
-        "物价上涨或资源短缺时，你习惯率先质问：是不是正常的资本准入或原料供给被人为干预限制了？",
-        "你本能不赞同简单粗暴的强制锁价或封顶指令，认为这往往会带来严重的二次黑市与效率滑坡。",
-        "面对社会性政策设计，你非常在乎：是不是有合理的利益挂钩，个体在长线上到底有没有创新的正向回报（激励机制）。"
+        "物价上涨或资源短缺时，本能质问：是不是正常的资本准入或供给生产被人为法规和行政干预限制了？",
+        "不赞同简单粗暴的强制锁价或封顶指令，认为这往往会扭曲正常的资源流转并带来次生黑市与短缺故障。",
+        "面对社会政策设计，非常在乎长期激励是否相容，即个体追求自我利益的行动是否能自然服务于增进整体社会财富。"
       ],
       en: [
-        "When things look costly or scarce, you focus on whether private supply pipelines are blocked by excess regulations.",
-        "You reject hard price-freezing formulas because you worry they lead immediately to hidden black markets and shortages.",
-        "You prioritize robust marginal reward designs, trusting that people innovate best when they directly profit from their efforts."
+        "When prices spike or scarcity hits, you immediately look for regulations or state controls blocking the supply pipeline.",
+        "You reject hard price-cap formulas because they destroy normal signals, bringing immediate black markets and shortages.",
+        "You evaluate policy from a long-term incentive standpoint, checking if structural rewards encourage productive effort."
       ]
     },
     blindspot: {
-      zh: "有时候过于看重价格和自主供求，容易下意识低估初始资产分配极度悬殊时造成的起点极度不公正，或在面临剧烈系统性崩溃、市场失灵重合时容易显得防线迟滞。",
-      en: "Your focus on free market trade can cause you to overlook severe initial endowment inequality or market breakdowns (like externalities, structural monopolies) where state actions are functionally essential."
+      zh: "对公平交易所依凭的『初始禀赋差距程度』关注度相对较低。容易下意识低估初始资产分配极度悬殊时造成的平民起点不公正，或在面临剧烈系统性崩溃、多重市场失灵重合时防线迟滞。",
+      en: "By assuming rational market interactions, you may downplay severe starting endowment inequalities, plus collective failures (like strong externalities or network cartels) that require robust state regulation."
+    },
+    scholars: [
+      {
+        name: { zh: "亚当·斯密", en: "Adam Smith" },
+        intro: { zh: "古典经济学奠基人，揭示了“看不见的手”如何促成分工合作，强调价格作为协调庞杂社会协作的核心自发机制。", en: "The founding father of classical economics, illustrating how the 'invisible hand' aligns self-interest with social harmony." },
+        wikis: [
+          {
+            label: { zh: "《国富论》维基说明", en: "Wikipedia: The Wealth of Nations" },
+            url: { zh: "https://zh.wikipedia.org/wiki/%E5%9B%BD%E5%AF%8C%E8%AE%BA", en: "https://en.wikipedia.org/wiki/The_Wealth_of_Nations" }
+          },
+          {
+            label: { zh: "关于亚当·斯密", en: "Wikipedia: Adam Smith" },
+            url: { zh: "https://zh.wikipedia.org/wiki/%E4%BA%9A%E5%BD%93%C2%B7%E6%96%AF%E5%AF%86", en: "https://en.wikipedia.org/wiki/Adam_Smith" }
+          }
+        ]
+      },
+      {
+        name: { zh: "弗里德里希·哈耶克", en: "Friedrich Hayek" },
+        intro: { zh: "奥地利学派代表学者，指出分散知识在社会中的重要性，论证价格体系是汇聚并传递这些不可言传之知识的奇妙网络。", en: "Austrian legend who argued that prices act as a crucial medium, aggregating and transmitting dispersed, tacit human knowledge." },
+        wikis: [
+          {
+            label: { zh: "《知识在社会中的利用》维基说明", en: "Wikipedia: The Use of Knowledge in Society" },
+            url: { zh: "https://zh.wikipedia.org/wiki/%E7%A4%BE%E4%BC%9A%E4%B8%AD%E7%9F%A5%E8%AF%86%E7%9A%84%E5%88%A9%E7%94%A8", en: "https://en.wikipedia.org/wiki/The_Use_of_Knowledge_in_Society" }
+          },
+          {
+            label: { zh: "关于哈耶克", en: "Wikipedia: Friedrich Hayek" },
+            url: { zh: "https://zh.wikipedia.org/wiki/%E5%BC%96%E9%87%8C%E5%BE%B7%E9%87%8C%E5%B8%8C%C2%B7%E5%93%88%E8%80%B6%E5%85%8B", en: "https://en.wikipedia.org/wiki/Friedrich_Hayek" }
+          }
+        ]
+      }
+    ],
+    concepts: [
+      {
+        term: { zh: "看不见的手", en: "Invisible Hand" },
+        explanation: { zh: "在开放竞争中，无数个体仅仅出于自身自私的利益目标自发合作，却被价格体系无形牵引着，最大化了全社会的真实福祉。", en: "The market mechanism that harmonizes self-interested choices into overall social cooperation and wealth generation without central direction." }
+      },
+      {
+        term: { zh: "分散知识", en: "Dispersed Knowledge" },
+        explanation: { zh: "关于时间、地点的具体、局部的实用知识只散布在无数普通参与者的头脑里，没有任何规划机构能够全盘占有并制定无误差的方案。", en: "Practical information regarding local constraints operates in a decentralized fashion, rendering comprehensive centralized maps useless." }
+      },
+      {
+        term: { zh: "排队与短缺", en: "Queuing and Shortages" },
+        explanation: { zh: "当价格被人为冻结或压低时，供不应求的现实不会凭空消失，反而会转化为时间排队、找关系交易、送红包等隐性租金消耗。", en: "Imposing price caps does not conjure abundance; it merely substitutes cash premiums with grueling lines and structural rationing." }
+      }
+    ],
+    contrast: {
+      target: { zh: "制度权力型", en: "Institutional Power Lens" },
+      text: {
+        zh: "相比对方探查大资本是否控制交易规则、劳工议价话语权是否倾斜，你更执着于维持不设立准入壁垒、让供给畅行并依靠价格作为核心激励和配置信号机制。",
+        en: "Whereas they demand rigid legal frameworks to balance systemic inequality or capital monopolies, you trust that clearing away regulatory entry barriers and leaving price channels unimpeded is the most productive fix."
+      }
     }
   },
   {
@@ -414,24 +465,61 @@ export const MINDSETS: MindsetType[] = [
     representative: { zh: "约翰·梅纳德·凯恩斯", en: "John Maynard Keynes" },
     keywords: { zh: ["系统性风险", "有效需求", "逆周期稳定", "宏观调控"], en: ["Systemic Risk", "Effective Demand", "Countercyclical", "Stabilization"] },
     description: {
-      zh: "在你看来，市场可能在局部分散运作时十分优异，但宏观经济绝不只是『微观个体的加总』。当金融信心崩坏、失业预期极度传染时，个体的自利储蓄不仅不能修复萧条，反而会导向自我扼杀的『节约悖论』。你更赞成公共决策部门在危险关头敢于大展神威，承担最后贷款人（Lender of Last Resort）与逆周期调节的平准器大角色。",
-      en: "In your view, while local markets can allocate widgets well, the macroeconomy is not a simple summation of individual ledgers. When confidence cracks and layoffs loom, individuals hoarding liquidity can make depression worse. You believe a big government must act as a balance wheel, using proactive fiscal budgets and prompt lender-of-last-resort interventions to arrest system failures."
+      zh: "市场可能在局部分散运作时十分优异，但宏观经济绝不只是单个微观主体的简单叠加。当金融信心崩坏、失业预期极度传染时，个体的自利储蓄与紧缩开支不仅不能修复萧条，反而会导向自我扼杀的『消费悖论』。你更赞成公共部门在重大关头，扮演逆周期调节的平准器和大船舵。",
+      en: "The macroeconomy is not a simple summation of individual ledgers. When confidence cracks and layoffs loom, individual efforts to hoard cash compress total demand further, leading to depression. You believe the state must behave as a countercyclical balance wheel to anchor baseline security."
     },
     habits: {
       zh: [
-        "面对重大危机（如挤兑、大下行和结构替代失业），你非常在乎信心的大局。你认为相比纠结道德风险，率先扑灭信心的恐慌大火才是第一优先级。",
-        "观察社会发展时，你极具系统演进的整体观，常优先关注诸如：总消费意愿、失业红线、宏观债务、资金整体循环等系统健康因子。",
-        "在处理气候保护等超大型宏观公地悲剧时，你会首先认为统筹规划层面的硬杠杠指标是最强有力的底线防火墙。"
+        "面对重大危机（如大挤兑、极端技术下行、通缩漩涡），优先把“扑灭信心恐慌”放在绝对第一位，认为纠缠道德风险可以等危机过后研究。",
+        "审视社会演进时，习惯先关注宏观大盘的森林：总社会消费意愿、失业红线保障、资金流动性循环。而非满足于单一部门的局部平衡。",
+        "赞同在气候治理、灾难兜底等超大范围公地悲剧上，确立顶层的硬性限制指标或公共宏观平准安排。"
       ],
       en: [
-        "During large runs or deep systemic shocks, you prefer putting out the panic bonfire immediately over worrying about moral hazard constraints.",
+        "During major runs or macro shocks, you prioritize extinguishing psychological firestorms immediately over debating long-term moral hazard.",
         "You always look at the forest rather than the single trees—monitoring national consumer sentiment, unemployment thresholds, and fiscal velocity.",
         "You believe that massive multi-region issues like target carbon emissions require hard, top-down state targets rather than just waiting for price magic."
       ]
     },
     blindspot: {
-      zh: "有时极度看重保护宏观总量和扑灭燃眉危机，可能会忽略救助政策落地时的巨大损耗、执行部门的配置低效以及长线累积的多重隐性债务膨胀风险。",
-      en: "A continuous focus on broad aggregates and emergency stimulus can hide local resource misallocations, lead to bloated bureaucracies, or delay vital market corrections."
+      zh: "特定时刻由于着力于在宏观上大举平险和刺激总需求，可能不经意低估了庞大救市救助资金传导时的层层中间寻租、资本泡沫溢出、长线隐性赤字高企以及扭曲局部优胜劣汰等潜在代价。",
+      en: "An unyielding focus on broad aggregates can generate moral hazard, mask local structural blockages, expand state debt liabilities, and fuel inflation bubbles."
+    },
+    scholars: [
+      {
+        name: { zh: "约翰·梅纳德·凯恩斯", en: "John Maynard Keynes" },
+        intro: { zh: "现代微观/宏观经济学分野 of 奠基人，开创了有效需求不足引起大萧条的理论，主张政府需要实施主动的逆周期需求管理政策。", en: "Father of modern macroeconomics, who identified the 'liquidity trap' and demonstrated why government is required to stimulate recessionary gaps." },
+        wikis: [
+          {
+            label: { zh: "《就业、利息和货币通论》维基说明", en: "Wikipedia: The General Theory of Employment, Interest and Money" },
+            url: { zh: "https://zh.wikipedia.org/wiki/%E5%B0%B1%E4%B8%9A%E3%80%81%E5%88%A9%E6%81%AF%E5%92%8C%E8%B4%A7%E5%B8%81%E9%80%9A%E8%AE%BA", en: "https://en.wikipedia.org/wiki/The_General_Theory_of_Employment,_Interest_and_Money" }
+          },
+          {
+            label: { zh: "关于凯恩斯", en: "Wikipedia: John Maynard Keynes" },
+            url: { zh: "https://zh.wikipedia.org/wiki/%E7%9A%84%E7%BF%B0%C2%B7%E6%A2%85%E7%BA%B3%E5%BE%B7%C2%B7%E5%87%AF%E6%81%A9%E6%96%AF", en: "https://en.wikipedia.org/wiki/John_Maynard_Keynes" }
+          }
+        ]
+      }
+    ],
+    concepts: [
+      {
+        term: { zh: "节约悖论", en: "Paradox of Thrift" },
+        explanation: { zh: "面临大下行时，每个人或企业为了防风控风险自私地选择缩减开销、囤积储蓄；但当所有人同时这么做，消费大盘雪崩，反而导致所有人收入断崖式下滑、经济自毁。", en: "The aggregate phenomenon where concurrent attempts to increase savings shrink total sales, lowering aggregate income and keeping society trapped in depression." }
+      },
+      {
+        term: { zh: "有效需求", en: "Effective Demand" },
+        explanation: { zh: "有真实货币资本支撑、能转化为商品购买的实际总社会需求，其寡多直接决定了工矿产线的运转密度和工人受雇门槛。", en: "The market demand supported by actual monetary spending power, which directly sets the general rate of employment and output." }
+      },
+      {
+        term: { zh: "逆周期调节", en: "Countercyclical Balance" },
+        explanation: { zh: "在民间热烈膨胀、资产泡沫飞升时政府紧缩降温；在民间普遍信心惨淡、流动性干涸时大举赤字扩支，充当社会大系统的中和稳定平准器。", en: "The stabilization strategy where authorities cool down hyperactive bubbles and aggressively spend to float the economy during major gluts." }
+      }
+    ],
+    contrast: {
+      target: { zh: "价格机制型", en: "Price Mechanism Lens" },
+      text: {
+        zh: "当风暴降临时，你支持政府及主导机构重拳出击、注水托底、甚至直接启动公共基建计划撑住信心；对方则会高度警惕此类一刀切救助带给个体责任的软约束，担忧巨额补贴扭曲了市场自然的优胜劣汰与相对价格发现。",
+        en: "During crashes, you support massive financial injections or direct public staffing programs to secure baseline demand, whereas they emphasize that free adjustment, decentralized adaptations, and painful pricing corrections should clean up speculative mistakes."
+      }
     }
   },
   {
@@ -444,24 +532,79 @@ export const MINDSETS: MindsetType[] = [
     representative: { zh: "理查德·塞勒 / 丹尼尔·卡尼曼", en: "Richard Thaler / Daniel Kahneman" },
     keywords: { zh: ["助推 nudge", "默认选项", "有限理性", "心理账户"], en: ["Nudge", "Default Option", "Bounded Rationality", "Cognitive Biases"] },
     description: {
-      zh: "你完全不能信服所谓『万物皆能绝对计算』的完备理智说。在你眼里，拖延、沉迷手机、盲目攀比、羊群恐慌和买高买低的认知偏误，是生动而真实的凡人常态。那些只在嘴上宣传『为自己的行动彻底买单』的立场，低估了当代各种信息爆炸与大脑本能弱点。你更看赞成通过在应用平台或社会政策界面中，设计良性便利的默认预设选项来轻度助推（Nudge）大众，用四两拨千斤的技术润物细无声地造福普通决策者。",
-      en: "You are highly skeptical of standard economics' 'hyper-rational economic man'. To you, attention fatigue, status-seeking, panic stamps, and immediate-gratification are human realities. Insisting on 'individuals bearing ultimate liability' ignores modern cognitive structures. You support designing smart 'default settings' in user interfaces and social choices backends to softly nudge society without choking off choice."
+      zh: "传统的『理性人』假设在真实世界经常失能。人类大脑本能充斥着拖延、多巴胺依赖、短视近视、攀比从众以及羊群效应等认知局限。高谈『让完全理性的个体自行抉择并全盘买单』无视了当代诱导性高频算法、不透明信息的强力劫持。你极力赞同在关键机制、应用和公共产品的决策流中，注入精妙便捷的“默认选项”（Default Preset）和心理学架构，实现四两拨千斤的行为指引（助推）。",
+      en: "Real individuals are not walking computation engines. Cognitive bounds mean attention fatigue, mental shortcut biases, and loss aversion dictate real behaviors. Demanding perfect rational agency in a world of addictive modern applications is unrealistic. You advocate for installing subtle default rules and clean interfaces, gently nudging populations toward prudent decisions."
     },
     habits: {
       zh: [
-        "面对社会高频弊端（如青少年游戏成瘾、医疗就读焦虑等），你总是会从『信息不对称、决策界面太诱导、用户意志力近视偏误』的真实体验入手剖析解题法。",
-        "你习惯先问：既然人人都想避开陷阱，那底层报考或订阅界面能不能把『正向良性的健康方案』设定为省心不需要主动折腾的默认选项？",
-        "在危机席卷引发群体恐慌的那一分钟，你会特别关注人群的非理性心理正反馈螺旋，尝试用平稳阻隔技术物理上减缓负反馈的狂热蔓延速度。"
+        "分析高频社会痛点（成瘾、疯狂超前网贷、乱买药），率先探究其底层微观决策界面是否包含精心诱导、信息堆载及非理性攀比陷阱。",
+        "极其习惯反思细节流程：如果一个方案最有利健康或储蓄，为什么不一开始就将其设为免去主动申请的『默认选项』，从而给懒得折腾的大脑最顺畅的福利路径？",
+        "在极端恐慌时（挤兑、非理性抢盐），深入到群体行为心理的正反馈循环、偏见传染路径中去截断其螺旋演进。"
       ],
       en: [
-        "In viral feedback loops (like platform addiction), you focus on choices layout, cognitive fatigue, and information designs rather than assuming individuals are perfectly resilient.",
-        "You ask: 'Why make users search for safety? Let's make the healthy option the easy default option that works without extra head-scratching.'",
-        "You watch the psychological mechanics of stampedes or consumer runs, trying to design physical speed bumps to break the positive panic feedback loops."
+        "When explaining everyday traps (like credit micro-debts or screen addiction), you criticize predatory layouts and platform designs over individual failure.",
+        "You ask: 'Why make people navigate hard controls? Let's make the healthy, safe option the default preset so basic human inertia works in their favor.'",
+        "You study panic loops (like localized bank scares) as communicative feedback chains, proposing subtle cooling speed-bumps to disrupt irrational panics."
       ]
     },
     blindspot: {
-      zh: "有时候过于沉溺和依附于利用微观行为学的精妙助推，也许会模糊或淡化了对由于阶级规则固化、行业行政资本垄断等重大制度特权硬骨头的宏观斗争干预力量。",
-      en: "Relying purely on soft nudges and smart design choice architecture can occasionally trivialize structural class barriers, lack of fundamental public services, or hard industrial monopolies."
+      zh: "特定条件下可能过于高估了针对微观习惯和助推细节的局部调优。当社会的根本堵点是由于法律性行政垄断、资本特权剥削和资源分配严重失衡制约时，过于沉浸在一些小助推中可能沦落为无济大布局的形式点缀。",
+      en: "Relying purely on soft nudges and smart designs can occasionally depoliticize severe issues, downplaying massive structural inequalities, raw capital exploitation, or systemic monopolies that require hard coercive intervention."
+    },
+    scholars: [
+      {
+        name: { zh: "理查德·塞勒", en: "Richard Thaler" },
+        intro: { zh: "行为经济学大师，首创助推理论、默认选项及心理账户假说，证实了微调底层决策架构能以极低成本释放庞大社会红利。", en: "The pioneering father of behavioral studies who established the concept of nudges and analyzed human mental accounting." },
+        wikis: [
+          {
+            label: { zh: "《助推》维基说明", en: "Wikipedia: Nudge" },
+            url: { zh: "https://zh.wikipedia.org/wiki/%E5%8A%A9%E6%8E%A8_(%E4%B9%A6%E7%B1%8D)", en: "https://en.wikipedia.org/wiki/Nudge_(book)" }
+          },
+          {
+            label: { zh: "《不当行为》维基说明", en: "Wikipedia: Misbehaving" },
+            url: { zh: "https://zh.wikipedia.org/wiki/%E4%B8%8D%E5%BD%93%E8%A1%8C%E4%B8%BA_(%E4%B9%A6%E7%B1%8D)", en: "https://en.wikipedia.org/wiki/Misbehaving_(book)" }
+          },
+          {
+            label: { zh: "关于理查德·塞勒", en: "Wikipedia: Richard Thaler" },
+            url: { zh: "https://zh.wikipedia.org/wiki/%E7%90%86%E6%9F%A5%E5%BE%B7%C2%B7%E5%A1%9E%E5%8B%92", en: "https://en.wikipedia.org/wiki/Richard_Thaler" }
+          }
+        ]
+      },
+      {
+        name: { zh: "丹尼尔·卡尼曼", en: "Daniel Kahneman" },
+        intro: { zh: "诺贝尔奖得主，提出双系统逻辑：直觉、情绪化的系统1与冷静、深思的系统2。展示了偏失是如何在有限理性的头脑中成系统发生的。", en: "Nobel laureate psychologist who mapped System 1 and System 2 processing, illustrating programmatic cognitive heuristic errors." },
+        wikis: [
+          {
+            label: { zh: "《思考，快与慢》维基说明", en: "Wikipedia: Thinking, Fast and Slow" },
+            url: { zh: "https://zh.wikipedia.org/wiki/%E6%80%9D%E8%80%83%EF%BC%8C%E5%BF%AB%E4%B8%8E%E6%85%A2", en: "https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow" }
+          },
+          {
+            label: { zh: "关于丹尼尔·卡尼曼", en: "Wikipedia: Daniel Kahneman" },
+            url: { zh: "https://zh.wikipedia.org/wiki/%E4%B8%B9%E5%B0%BC%E5%B0%94%C2%B7%E5%8D%A1%E5%B0%BC%E6%9B%BC", en: "https://en.wikipedia.org/wiki/Daniel_Kahneman" }
+          }
+        ]
+      }
+    ],
+    concepts: [
+      {
+        term: { zh: "默认选项的力量", en: "Power of Default Options" },
+        explanation: { zh: "人类生来趋向于顺应现状，不做额外的设定折腾。一旦注册或者默认配置被改变，极高比例的用户会在无意识状态下跟从此配置，蕴藏巨大行为导向潜力。", en: "The cognitive reality that humans default to the path of least resistance; switching the default choice channels public behavior effortlessly." }
+      },
+      {
+        term: { zh: "助推论 Nudge", en: "Nudge Theory" },
+        explanation: { zh: "完全不采用严厉的行政禁绝或巨额经济重罚，仅通过改变选择呈现时的细微结构层次来温柔干涉，帮助其克服理智盲点做出英明决策。", en: "A design philosophy that shapes choices without bans or direct bonuses, steering people to positive behaviors through interface tweaks." }
+      },
+      {
+        term: { zh: "损失厌恶", en: "Loss Aversion" },
+        explanation: { zh: "人们在心理上失去100块钱的极端痛苦、失衡感，往往比意外收获100块钱的快乐体验要强烈近乎两倍，从而在决策中极度规避潜在的失去感。", en: "The cognitive asymmetry where human distress over potential losses is significantly greater than the joy of equivalent gains, distorting payoffs." }
+      }
+    ],
+    contrast: {
+      target: { zh: "制度权力型", en: "Institutional Power Lens" },
+      text: {
+        zh: "你更热衷于用温和细润的方式，不强迫选择自由的前提下微调注册栏、添加默认冷却限制解决问题；对方则认为不正面限制巨头算法的所有权结构、不触碰反垄断刚性重罚，一切细枝末叶的便利修正都属于治标不治本、抚平资本压榨的软麻药。",
+        en: "You look for elegant micro nudge corrections to align human choices with their true welfare, whereas they claim that unless you structurally change ownership patterns, break monopolistic platform controls, and leverage tough laws, minor design changes are toothless gestures."
+      }
     }
   },
   {
@@ -474,24 +617,61 @@ export const MINDSETS: MindsetType[] = [
     representative: { zh: "阿马蒂亚·森", en: "Amartya Sen" },
     keywords: { zh: ["可行能力", "福利公平", "起点平权", "社会保障"], en: ["Capabilities Approach", "Equity", "Social Safety Net", "Freedom to Achieve"] },
     description: {
-      zh: "你最不赞成用冰冷的一笔大国 GDP 增长总额来遮盖局部分配失调的现实伤痕。你认为，衡量一种经济行为真正的神圣刻度，是看底层极其孱弱的人在面对生活的狂飙突进时，是否有其作为独立人的尊严、受教育尊严、健康照护、摆脱极度债务压榨、参与体面协作的可行能力（Capability）。比起只强调静态效率最大，你永远更关心弱势群体是否真正拥有可以去自由选择理想人生轨迹的充实可行权。",
-      en: "You refuse to let a rosy headline GDP growth figure cover real distributional wounds. Across all policies, your guiding meter is Amartya Sen's 'capability'—does a migrant worker have real food security, healthcare, spatial access, and financial capabilities to chart their life? It's not just about letting consumers buy; it's about providing the base security required for actual liberty."
+      zh: "衡量一国经济发展最深刻的刻度，既非单纯宏观总值的飞跃，也非静态消费者购买的效率最大，而是每个身处底层的孱弱个体，其真实的生命尊严、健康照护、摆脱压迫的可行能力（Capability）是否充分发展。你深刻在乎社会资源是否切中贫困阶层成长链条的最痛点（生存与教育门槛），给予普通人主宰、追求和自由践行自我人生的真实奋斗底气。",
+      en: "You are highly suspicious of abstract GDP growth that papers over severe distributive inequalities. Real economic freedom means concrete capabilities—whether a vulnerable family has safe shelter, standard nutrition, non-predatory credit, and quality basic education to shape their career path. You focus on bottom-up investment over trickle-down growth."
     },
     habits: {
       zh: [
-        "无论分析哪类社会问题，你最关心的一行核心指标永远是：这项新变革对底层贫弱、留守群体意味着什么？他们到底是搭上便车还是更深处断链？",
-        "你在效率与底线保障博弈时，永远会毫不犹豫把最低底线扶助、寒门能力赋能、平权教育饱和列在最优高优先级。",
-        "在分配方案上，相比于虚幻的口号倾向，你更相信用实打实的公共教育基金投向、穷人住房直补和极低门槛全民兜底等资源，直接赋予个体真实战斗资本。"
+        "面对一切亮丽的大国宏观政策，先本能地追问：这对最底层的寒门家庭、体力劳动、偏远贫困群体究竟带来了什么实惠或磨难？",
+        "在遭遇所谓“保总量效率还是保底线分配”的纠结博弈时，总是毫无迟疑地把资源优先倾斜给底层能力兜底倾斜、贫寒教育补贴和全面公共资源倾注。",
+        "分配政策上，比起抽象口号，你更极度推荐用实打实的贫寒儿童营养包、全民基本医疗保障、去极度分化的起点教育等行动，筑牢个体搏击一生的初始筹码。"
       ],
       en: [
-        "No matter the business policy, your primary query is: 'What are the micro effects on those at the margins? Do they share the gains or suffer in silence?'",
-        "You always vote to place baseline child assistance, basic clean health, and educational equity ahead of high-end corporate efficiency gains.",
-        "You prioritize direct, structural investments in the weak—unconditional direct learning allowances, social-housing credits, and state medical capacity."
+        "Whenever a shiny reform is proposed, you immediately zoom in on the margins: 'How will underrepresented groups absorb these changes?'",
+        "Between rapid expansion gains and robust bottom-of-the-pyramid lifelines, you persistently prioritize deep education assistance, community clinics, and basic survival safety.",
+        "You trust concrete capital allocations directly targeting human capabilities—nutrition plans, unconditional education accounts, and medical equity—over broad growth hype."
       ]
     },
     blindspot: {
-      zh: "对保障底线分配的热忱由于太过感同身受，可能在特定时刻难以割舍短期成本。当过度低估了由于高强度保护对全社会私人长期营商风控预期的潜在压抑后，容易对经济整体活力带来挑战。",
-      en: "Your deep passion for bottom-up equity can sometimes lead you to undervalue the critical importance of private capital formation, incentives to take risk, and business growth engines."
+      zh: "出于对社会底线公平的强烈共情，有时可能不太容易割舍长期生产投资必要的利润激励。在特定时刻如果执行过度税负或超量干预，可能会使私营营商风控环境高企并压制长续活力资本的积极性。",
+      en: "An intense empathy for structural distribution goals can occasionally blind you to the essential mechanics of private capital formation, return on risk investment, and market growth drivers."
+    },
+    scholars: [
+      {
+        name: { zh: "阿马蒂亚·森", en: "Amartya Sen" },
+        intro: { zh: "诺贝尔纪念奖得主，因其对福利经济学、饥荒成因机制的突破贡献著称。提出著名的“可行能力方法”（Capabilities Approach），将发展的本意回归到人的真正实质自由之上。", en: "Nobel laureate renowned for deep welfare analysis, famine mechanics, and the capabilities framework redefine poverty as capability deprivation." },
+        wikis: [
+          {
+            label: { zh: "《以自由看待发展》维基说明", en: "Wikipedia: Development as Freedom" },
+            url: { zh: "https://zh.wikipedia.org/wiki/%E4%BB%A5%E8%87%AA%E7%94%B1%E7%9C%8B%E5%BE%85%E5%8F%91%E5%B1%95", en: "https://en.wikipedia.org/wiki/Development_as_Freedom" }
+          },
+          {
+            label: { zh: "关于阿马蒂亚·森", en: "Wikipedia: Amartya Sen" },
+            url: { zh: "https://zh.wikipedia.org/wiki/%E9%98%BF%E9%A9%AC%E8%92%82%E4%BA%9A%C2%B7%E6%A3%AE", en: "https://en.wikipedia.org/wiki/Amartya_Sen" }
+          }
+        ]
+      }
+    ],
+    concepts: [
+      {
+        term: { zh: "可行能力", en: "Capabilities Approach" },
+        explanation: { zh: "发展真正的衡量不应是冰冷的GDP，而必须转化为穷人在营养健康、受教育水平、参与政治及主宰自命等多维度下的“做何事、具有何等体魄”的真实可行集合。", en: "An evaluative framework prioritizing what individuals can explicitly do and achieve, treating poverty as basic capability deprivation." },
+      },
+      {
+        term: { zh: "起点公平与形式平等", en: "Starting Equity vs Formal Equality" },
+        explanation: { zh: "法律或合同名义上赐予所有人均有竞争名校或购买产权的“许可自由”，但初始禀赋极度贫困时，此类字面许可只是镜花水月的空洞契约形式。", en: "Paper rules allowing everyone to form tech empires mean little if severe health deficits and schooling starvation prevent marginal citizens from entering the game." }
+      },
+      {
+        term: { zh: "实质自由", en: "Substantive Freedom" },
+        explanation: { zh: "一个人并非静态地作为任由消费摆布的购买者存在，而是作为一个富有选择弹性、免受穷饿债务羁绊并能主动实现其生存意愿的实质性行为人。", en: "The concrete opportunities and wellness state an individual enjoys, expanding their practical agency to live the valued life." }
+      }
+    ],
+    contrast: {
+      target: { zh: "创新演化型", en: "Evolutionary Innovation Lens" },
+      text: {
+        zh: "你跨越每一道试题，只关心当下被大轮子甩下的寒门与平民是否分到了足够的面包与教育火种；对方则热切眺望拉长到数十年尺度下，由少数技术极客与风险资本掀起的颠覆式创造，认为做大蛋糕整体能给后代带来最大的拉动式腾跃。",
+        en: "Your core focus is protecting and equipping vulnerable people right now at the margins, whereas they focus on long-term dynamic paradigm shifts led by elite innovators, believing dynamic abundance is the true elevator."
+      }
     }
   },
   {
@@ -504,24 +684,75 @@ export const MINDSETS: MindsetType[] = [
     representative: { zh: "琼·罗宾逊 / 索尔斯坦·凡勃伦", en: "Joan Robinson / Thorstein Veblen" },
     keywords: { zh: ["议价地位", "规则结构", "市场集中", "成本转嫁"], en: ["Bargaining Power", "Institutional Rules", "Monopoly Rents", "Cost Shift"] },
     description: {
-      zh: "你天生排斥对『市场运行只是自然法则』这类文饰借口。你敏锐而清醒地看穿一切买卖交换背后的本质：法律、工会缺位、平台信息支配和庞大的集团寻租构成了倾斜的巨大角力场。如果没有制度性话语权制衡，强势方就能随时把风险甩给灵活就业人员，把亏损抛售给全社会。对你而言，调节社会矛盾的根本良策是重构底层的契约制度、赋予劳动博弈话语尊严，并对不对称特权阶层实施真正长效制度化监督。",
-      en: "You naturally reject the platitude that 'the market outcome is just natural law'. You dissect transaction setups for what they are: asymmetric arenas where labor guilds, patent legal blocks, algorithm monopolies, and financial interests compete. Without institutional offsets (like unions, tough laws, antimonopoly regimes), the strong dump risks onto gig workers and shift liabilities to taxpayers. True progress is about correcting asymmetric laws."
+      zh: "你反感『市场运作皆是自然竞争』这类完美掩护。你清醒洞见一切买卖合同层底最底层的真实本质：法律赋权所有制、缺失的劳动工会、排他算法集中度编织成了极度不对称的契约支配格。没有反垄断重拳、没有集体议价权托底，掌握垄断特权的大资本就能毫无顾忌地转嫁风险、压榨寻租。社会解题法唯有直面其底层利益权力构型并推行大手术制度规约。",
+      en: "You naturally dismiss mild apologies that trace market transactions to mechanical equilibrium. Economic setups are constructed battles: legal protections, algorithm copyrights, and patent monopolies. Without equalizing institutions, the powerful shift the burden to decentralized individuals. Progress requires altering asymmetric labor compacts and hard oversight on giant rents."
     },
     habits: {
       zh: [
-        "面对资本或者新型巨头品牌（如科技大厂、外卖平台、大地主）的暴利，你通常第一反应会探明：这本质上是不是利用了规则不对称和集体议价权悬殊下的变相压榨寻租？",
-        "你不相信没有牙齿的纯主观道德自律倡导，你只崇尚以铁腕反垄断、劳动合同集体谈判权立法与增加平民表决监督委员等深水区刚性契约武器。",
-        "面对普通人的窘境（如零工被锁死、名医号被垄断），你总是会寻找这背后长链资本所有权结构、行业勾连等底层利益网格并尝试进行制度规约。"
+        "每当某些平台或品牌录得惊天暴利，第一时间审视：这到底是因为生产力爆发带来的自愿奖励，还是利用集体博弈地位悬殊进行的超常算法及法权寻租压榨？",
+        "对依靠纸面自律倡导的“企业社会责任理念”毫无兴趣，坚信法律、反垄断刚性介入与增加基层民主决策委员会分配才是最可靠的强力契约盾牌。",
+        "面对底层劳方的挫败时，迅速追踪背后的所有权流向，直切阻碍其自我纠偏的深水特权利益网格。"
       ],
       en: [
-        "When big corporations command spectacular profit margins, you immediately ask: 'Is this dynamic productivity, or is it rent-seeking enabled by asymmetric rules?'",
-        "You place no faith in soft corporate social responsibility ads, advocating instead for strict antimonopoly regulation, labor collective compacts, and voter surveillance.",
-        "When analyzing normal struggles (like riders trapped in grids), you trace who controls the source code, who owns the patents, and who enjoys regulatory shielding."
+        "When mega mergers or algorithms grab astronomical profits, you ask: 'Is this dynamic productivity, or are they leveraging legal privileges to choke rivals?'",
+        "You bypass moralizing ads or corporate social responsibility brochures, demanding structural antitrust laws and labor union agreements.",
+        "When analyzing gig workers trapped in delivery grids, you analyze the software copyrights, and search for the direct capital concentration nodes."
       ]
     },
     blindspot: {
-      zh: "由于对资本和权力不对称倾斜有着长线的戒备，有时候容易陷入全面防微杜渐的监管思维，若规则编制过密、干预契约自由过繁，反而会压缩了行业原本需要的野蛮生长活力和前沿突围效率。",
-      en: "Your constant suspicion of power imbalances can pull you into overly dense, rigid micro-management, which can strangle free contracting, discourage high growth experiments, and freeze enterprise flexibility."
+      zh: "因为过度防微杜渐地审查和提防不对称特权，极可能把原本属于温和的技术演进和敏捷企业行为通通纳入极其敏感、严苛的司法诉讼程序之中。如果制度性紧箍咒繁多过密，很有可能会极度窒息掉前沿尖端领域必需的生长冲力与野蛮探路效率。",
+      en: "A continuous focus on searching for rent-seeking biases can overregulate voluntary contracts, burying dynamic enterprise activities in compliance costs and strangling market entry."
+    },
+    scholars: [
+      {
+        name: { zh: "琼·罗宾逊", en: "Joan Robinson" },
+        intro: { zh: "新剑桥学派代表人物，打破完全竞争理论，深入研究买方独占（Monopsony）、市场集中与不完美世界中的隐性要素压榨细节。", en: "Pioneering Cambridge legend who dismantled pure competition models, proving oligopoly and monopsony distort natural rewards." },
+        wikis: [
+          {
+            label: { zh: "《不完全竞争经济学》维基说明", en: "Wikipedia: The Economics of Imperfect Competition" },
+            url: { zh: "https://zh.wikipedia.org/wiki/%E4%B8%8D%E5%AE%8C%E5%85%A8%E7%AB%9E%E4%BA%89%E7%BB%8F%E6%B5%8E%E5%AD%A6", en: "https://en.wikipedia.org/wiki/The_Economics_of_Imperfect_Competition" }
+          },
+          {
+            label: { zh: "关于琼·罗宾逊", en: "Wikipedia: Joan Robinson" },
+            url: { zh: "https://zh.wikipedia.org/wiki/%E7%90%BC%C2%B7%E7%BD%97%E5%AE%BE%E9%80%8A", en: "https://en.wikipedia.org/wiki/Joan_Robinson" }
+          }
+        ]
+      },
+      {
+        name: { zh: "索尔斯坦·凡勃伦", en: "Thorstein Veblen" },
+        intro: { zh: "制度学派先驱，剖析了企业所有制与金融投机势力的冲突。在《有闲阶级论》中剖析了“炫耀性消费”等受社会规范 and 制度框架支配的行为模式。", en: "Revered founder of institutional school who exposed predatory finance and showed how social consumption patterns echo structural power hierarchies." },
+        wikis: [
+          {
+            label: { zh: "《有闲阶级论》维基说明", en: "Wikipedia: The Theory of the Leisure Class" },
+            url: { zh: "https://zh.wikipedia.org/wiki/%E6%93%89%E9%96%92%E9%98%B6%E7%BA%A7%E8%AE%BA", en: "https://en.wikipedia.org/wiki/The_Theory_of_the_Leisure_Class" }
+          },
+          {
+            label: { zh: "关于凡勃伦", en: "Wikipedia: Thorstein Veblen" },
+            url: { zh: "https://zh.wikipedia.org/wiki/%E7%B4%A2%E5%B0%94%E6%96%AF%E5%9D%A6%C2%B7%E5%87%A1%E5%8B%83%E4%BC%A6", en: "https://en.wikipedia.org/wiki/Thorstein_Veblen" }
+          }
+        ]
+      }
+    ],
+    concepts: [
+      {
+        term: { zh: "买方要素垄断", en: "Monopsony Power" },
+        explanation: { zh: "当全行业只有寥寥几家超级平台、大型雇主招聘该技能时，劳动者和供应商在谈判上完全丧失了转身离开的筹码，只得被迫委屈接收极为压榨的议价克扣条件。", en: "A market situation where single dominant buyers dictate wages, leaving decentralized workers with zero leverage." }
+      },
+      {
+        term: { zh: "制度化寻租", en: "Institutional Rent-Seeking" },
+        explanation: { zh: "大企业并不通过提升产线的效率和创新降本获取溢价，而直接游说修法、堆高专利、排挤草根对手准入，巧借国家法权保护躺平攫取稳定超额利润。", en: "Securing income not through innovation or service efficiency, but by lobbying, manipulating law, and restricting competitive entries." }
+      },
+      {
+        term: { zh: "倾斜的契约规则", en: "Asymmetric Contracts" },
+        explanation: { zh: "由于雇佣契约或线上注册许可、条款设计完全由法务军团和核心巨头拟就，弱势劳方便被迫在“不接受就滚蛋”的生存压力下签字，自吞大部分外溢风控损失。", en: "The legal designs that pass liabilities to independent workers, leaving them with all the operational variables and zero cover." }
+      }
+    ],
+    contrast: {
+      target: { zh: "价格机制型", en: "Price Mechanism Lens" },
+      text: {
+        zh: "你坚信，没有平等的刚性制度话语权（工会、反垄断诉讼、监管限制），自由交换只是一句单向压榨的伪虚词；而对方坚持认为自由准入、减负减税和支持充分的供给竞逐才是保护平民不被某一家卡死、提高报酬的最优机制。",
+        en: "You point out that without dynamic legal protections or union blocks, 'free consent' contracts function as systemic leverage for capital, whereas they argue that dropping entry barriers and scaling competition is what shields workers."
+      }
     }
   },
   {
@@ -534,24 +765,61 @@ export const MINDSETS: MindsetType[] = [
     representative: { zh: "约瑟夫·熊彼特", en: "Joseph Schumpeter" },
     keywords: { zh: ["创造性破坏", "技术范式", "企业家精神", "演化突变"], en: ["Creative Destruction", "Enterprise", "Paradigm Shift", "Evolutionary Evolution"] },
     description: {
-      zh: "你最不赞成用孤立静态的模型、守旧保守的规则去阻碍社会本该发生的新物种质变。在你眼里，当面对AI可能带来的技术下岗、价格机制在极端状态下的失能时，所有的『维持现状平摊保障』都是在削弱全社会的中长线生命活力。真正决定一个文明兴衰的不是静态地实现百分百无偏误完美，而是敢于在废墟中通过大胆的企业家精神、尖端科研探索、去中心化的小范围突围，让全新的更高效模式和新技术范式自发诞生、野蛮生长并用物种升级自然洗牌陈旧势力。",
-      en: "You reject narrow static views of economic policy. In your view, trying to freeze technologies in their tracks to save obsolete careers weakens a country's baseline competitive gene pool. What drives prosperity is Schumpeter's 'creative destruction'—bold entrepreneurs, venture capital, and open-source mutations. You look for high-risk tech jumps to push humanity forward, rather than lingering on dividing a shrinking pie."
+      zh: "用孤立、静态甚至一味妥协保护的教条模型去阻止社会必然发生的技术范式突变是在逆演化而行。决定一个国家兴衰大局的，绝不是静态维持一个绝对安稳分派蛋糕的方案，而是不容迟疑地重仓支持颠覆科技、风险科研及去边缘化突围，让全新的高效率模式（如绿能替换化石能、新AI代替传统劳动力）野蛮洗牌旧有没落的生产格局。",
+      en: "Evaluating progress through static mathematical allocations is a path to social stagnation. Economic growth is an evolutionary mutation process driven by daring inventions and paradigm shifts. The ultimate test of long-run prosperity is whether standard codes and laws encourage wild risk experiments, letting new systems (like electric replaces fuel, algorithms simplify paper logs) sweep away outdated entities."
     },
     habits: {
       zh: [
-        "当发生行业性冲击时（如技术性失业、日常传统业务遭到平台更迭），你更渴望看到社会资源自主流向新颠覆机会，而非不计代价死保陈旧低效产能。",
-        "你习惯性将观察维度拉到长达十到二十年的生态演进尺度，极度看好那些看似在制度边缘诞生、敢于向既得利益者老旧规则叫板、探索未知边界的企业突围者。",
-        "面对重污染或者垄断，你最期待的从来都不是严苛捆绑企业手脚的繁多监管，而是由底层完全颠覆性的清洁替换（如清洁核能）在性价比上秒杀传统化石能源。"
+        "每当发生重大的行业性失业和传统大品牌垮台时，本能抗拒对这些陈旧没落模式实施不计代价的形式死保，宁愿加速资源向新范式的转换和解离。",
+        "将宏观思考拉长到一至三代人的演进史尺度，对那些在陈旧规制定法边缘探路、敢于在废墟上对旧有势力叫号的创新企业家，给予极浓厚包容厚望。",
+        "面对严重污染、巨头垄断、能源约束等公地悲剧上，比起密集禁令绳索，更企盼从硬核科研创新（如核聚变、超材料、无人工厂）上秒杀传统化石要素。"
       ],
       en: [
-        "During industrial shifts, you advocate for speedier reallocations of capital and labor to emerging sectors, rather than keeping non-viable traditional jobs on life support.",
-        "You always look decades down the road, believing edge inventions and open-ended, messy start-up experiments are what obsolete old monopolies.",
-        "For ecological or massive power overreaches, you eagerly support creating game-changing technical alternatives (like decentralized green tools) that win purely on value."
+        "In waves of industrial decline, you avoid funding expensive state bailouts for dead-end skills, seeking instead swift redeployments to frontier labs.",
+        "You zoom out to long decades of historical trajectory, looking with intense curiosity at risk-taking pathfinders and experimental startups on the regulation fringes.",
+        "For global issues like carbon spikes, you favor hyper-investment in heavy R&D (such as modern fission) that scales cheaper clean alternatives to force the transition."
       ]
     },
     blindspot: {
-      zh: "由于习惯了对技术极客和颠覆质变的长线迷之笃信，在特定时期内，你也许会不经意忽略了那些因为在『创造性破坏』狂澜中被无辜拍碎、缺乏适应缓冲而被碾落在边缘的悲情真实凡人利益。",
-      en: "Your high-altitude focus on historical trajectories and technological progress can blind you to the heavy human wreckage left behind in the short-run waves of creative destruction."
+      zh: "对未来科技和企业家长线腾飞范式有种迷恋式的崇拜极可能让你不够体察和温和呵护那些当前被“创造性破坏”巨轮压在下面碎裂的、缺乏转轨过渡手段的悲凉普通大众当下的人生权益。",
+      en: "A continuous fascination with futuristic breakthroughs and technological trends can desensitize you to the immense human collateral damage faced by workers crushed overnight in Schumpeterian gales."
+    },
+    scholars: [
+      {
+        name: { zh: "约瑟夫·熊彼特", en: "Joseph Schumpeter" },
+        intro: { zh: "演化与增长流大师，开创了“创造性破坏”（Creative Destruction）这一深刻术语，指出正是充满挑战与质变的企业家精神，构成了资本主义最核心的蓬勃长程动力轴。", en: "Revered pioneer of evolutionary economic development, who synthesized the concept of 'creative destruction' and the central role of entrepreneurs." },
+        wikis: [
+          {
+            label: { zh: "《资本主义、社会主义与民主》维基说明", en: "Wikipedia: Capitalism, Socialism and Democracy" },
+            url: { zh: "https://zh.wikipedia.org/wiki/%E8%B5%84%E6%9C%AC%E4%B8%BB%E4%B9%89%E3%80%81%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E4%B8%8E%E6%B0%91%E4%B8%BB", en: "https://en.wikipedia.org/wiki/Capitalism,_Socialism_and_Democracy" }
+          },
+          {
+            label: { zh: "关于约瑟夫·熊彼特", en: "Wikipedia: Joseph Schumpeter" },
+            url: { zh: "https://zh.wikipedia.org/wiki/%E7%BD%A6%E7%94%9F%E5%A4%AB%C2%B7%E7%86%8A%E5%BD%BC%E7%89%B9", en: "https://en.wikipedia.org/wiki/Joseph_Schumpeter" }
+          }
+        ]
+      }
+    ],
+    concepts: [
+      {
+        term: { zh: "创造性破坏", en: "Creative Destruction" },
+        explanation: { zh: "经济发展绝非让面包店多做10%的面包，而是通过内燃机淘汰马车、人工智能颠覆行政档案整理等不断自内向外大举质变清洗旧生产基础的过程。", en: "The process of industrial mutation that incessantly revolutionizes the economic structure from within, destroying the old one and creating the new one." }
+      },
+      {
+        term: { zh: "企业家精神", en: "Entrepreneurship" },
+        explanation: { zh: "不是指收得温和利差的常态商人，而是指在前景晦暗无光、制度百般排斥的险境下，敢于押注高风险范式、整合要素突破未知生态的草根探险人。", en: "The creative drive to execute brand-new combinations—new products, materials, or organizations—against standard conventions and high risk." }
+      },
+      {
+        term: { zh: "技术范式 Paradigm", en: "Technological Paradigm" },
+        explanation: { zh: "在特定历史阶段支配一国全部行业、直接界定生产模板、分工层级及契约规则最核心甚至不可逆的工程基础和研发路径机制。", en: "The overarching scientific and technological template shaping industrial rules, defining what is feasible and setting modern jobs." }
+      }
+    ],
+    contrast: {
+      target: { zh: "分配能力型", en: "Equity & Capability Lens" },
+      text: {
+        zh: "你为长线颠覆、企业家星火与下一次技术范式换代欢欣呼号，甚至在所不惜容忍部分转换阵痛；对方则片刻不离对于遭遇转型阵痛、起点资本和受教环境严重匮乏之凡人个体的基础生计照护托底。",
+        en: "You look downstream to long-run technological breakthroughs and revolutionary shifts driven by daring companies, while they demand solid social platforms, schooling, and direct aid for families falling through the cracks."
+      }
     }
   }
 ];
