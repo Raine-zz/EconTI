@@ -1,6 +1,6 @@
 {
-  "name": "EconPersona - Economic Archetype Test",
-  "description": "Discover your economic soulmate through a series of thought-provoking scenarios. Designed by a professor for both scholars and the curious.",
+  "name": "EconTI - Economic Intuition Lens",
+  "description": "当你在观察身边世界的摩擦时，你潜意识里在套用哪一种经济学学理直觉？EconTI 帮助你快速探索你看世界时的经济学直觉视角。",
   "requestFramePermissions": [],
-  "majorCapabilities": []
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
