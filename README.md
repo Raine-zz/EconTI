@@ -1,4 +1,5 @@
-## EconTI — 经济学直觉视角测试(Economic Intuition Type Indicator)
+# EconTI — 经济学直觉视角测试
+# (Economic Intuition Type Indicator)
 
 > **"当你在观察身边世界的摩擦时，你潜意识里在套用哪一种经济学学理直觉？"**
 
