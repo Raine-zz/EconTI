@@ -1,5 +1,5 @@
 {
-  "name": "EconTI - Economic Intuition Lens",
+  "name": "EconTI - Economic Intuition Type Indicator",
   "description": "当你在观察身边世界的摩擦时，你潜意识里在套用哪一种经济学学理直觉？EconTI 帮助你快速探索你看世界时的经济学直觉视角。",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
